@@ -57,7 +57,7 @@ export default {
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'serif'],
-        sans: ['Cormorant Garamond', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
