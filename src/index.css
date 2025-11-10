@@ -167,31 +167,32 @@ All colors MUST be HSL.
 }
 
 .reveal-left {
-  transform: translate3d(-30px, 0, 0) scale(0.98);
+  transform: translate3d(-24px, 0, 0) scale(0.985);
 }
 
 .reveal-right {
-  transform: translate3d(30px, 0, 0) scale(0.98);
+  transform: translate3d(24px, 0, 0) scale(0.985);
 }
 
 .reveal-up {
-  transform: translate3d(0, 24px, 0) scale(1);
+  transform: translate3d(0, 20px, 0) scale(0.99);
 }
 
 .is-inview {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
-  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 1000ms cubic-bezier(0.16, 0.84, 0.44, 1), 
+              opacity 1000ms cubic-bezier(0.16, 0.84, 0.44, 1);
 }
 
-/* Stagger for child elements - applies transition delay */
+/* Stagger for child elements - luxurious spacing */
 .reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger > *:nth-child(2) { transition-delay: 80ms; }
-.reveal-stagger > *:nth-child(3) { transition-delay: 160ms; }
-.reveal-stagger > *:nth-child(4) { transition-delay: 240ms; }
-.reveal-stagger > *:nth-child(5) { transition-delay: 320ms; }
-.reveal-stagger > *:nth-child(6) { transition-delay: 400ms; }
-.reveal-stagger > *:nth-child(7) { transition-delay: 480ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 140ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 280ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 420ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 560ms; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 700ms; }
+.reveal-stagger > *:nth-child(7) { transition-delay: 840ms; }
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
