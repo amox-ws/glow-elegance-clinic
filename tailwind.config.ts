@@ -56,7 +56,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Quicksand', 'sans-serif'],
+        serif: ['Marcellus', 'serif'],
         sans: ['Inter', 'sans-serif'],
       },
       borderRadius: {
