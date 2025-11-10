@@ -159,6 +159,58 @@ All colors MUST be HSL.
   }
 }
 
+/* Scroll-based reveal animations */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-up {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left {
+  transform: scale(0.98) translateX(-30px);
+}
+
+.reveal-right {
+  transform: scale(0.98) translateX(30px);
+}
+
+.reveal-up {
+  transform: scale(0.98) translateY(24px);
+}
+
+.reveal.is-inview,
+.reveal-left.is-inview,
+.reveal-right.is-inview,
+.reveal-up.is-inview {
+  opacity: 1;
+  transform: scale(1) translate(0, 0);
+}
+
+/* Stagger for child elements */
+.reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 320ms; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 400ms; }
+.reveal-stagger > *:nth-child(7) { transition-delay: 480ms; }
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -6,10 +6,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Contact = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
+  useScrollReveal();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -74,79 +76,15 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <Card className="p-8 border-border bg-card shadow-soft animate-slide-in-left">
+            <Card className="p-8 border-border bg-card shadow-soft reveal-left">
               <h2 className="text-2xl font-serif font-semibold text-foreground mb-6">
                 Send Us a Message
               </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    {t('contact.name')}
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="border-input"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    {t('contact.email')}
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="border-input"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    {t('contact.phone')}
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="border-input"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    {t('contact.message')}
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="border-input"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300">
-                  {t('contact.send')}
-                </Button>
-              </form>
+...
             </Card>
 
             {/* Contact Information */}
-            <div className="space-y-6 animate-slide-in-right">
+            <div className="space-y-6 reveal-right">
               <Card className="p-8 border-border bg-card shadow-soft">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-6">
                   {t('contact.info')}

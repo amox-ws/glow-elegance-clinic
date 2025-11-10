@@ -3,9 +3,11 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Activity, Sparkles, Heart, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Services = () => {
   const { t } = useLanguage();
+  useScrollReveal();
 
   const services = [
     {
@@ -81,12 +83,11 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto reveal-stagger">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group reveal-up"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="h-8 w-8 text-white" />

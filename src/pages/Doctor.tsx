@@ -2,9 +2,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { GraduationCap, Briefcase, Heart } from 'lucide-react';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Doctor = () => {
   const { t } = useLanguage();
+  useScrollReveal();
 
   const sections = [
     {
@@ -60,7 +62,7 @@ const Doctor = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
             {/* Portrait */}
-            <div className="lg:col-span-2 animate-slide-in-left">
+            <div className="lg:col-span-2 reveal-left">
               <img
                 src={doctorPortrait}
                 alt="Doctor Portrait"
@@ -69,7 +71,7 @@ const Doctor = () => {
             </div>
 
             {/* Bio & Credentials */}
-            <div className="lg:col-span-3 space-y-8 animate-slide-in-right">
+            <div className="lg:col-span-3 space-y-8 reveal-right">
               <Card className="p-8 border-border bg-card shadow-soft">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">
                   About
@@ -89,8 +91,7 @@ const Doctor = () => {
               {sections.map((section, index) => (
                 <Card
                   key={index}
-                  className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500"
                 >
                   <div className="flex items-center mb-4">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-rose mr-4">
