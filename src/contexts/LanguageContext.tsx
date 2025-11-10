@@ -17,7 +17,7 @@ const translations = {
     "nav.contact": "Contact",
 
     // Hero
-    "hero.title": "Let’s enhance what’s already beautiful",
+    "hero.title": "Expertise and Care in Gynecology & Aesthetic Surgery",
     "hero.subtitle": "Professional excellence with a personal touch. Your health and beauty are our priority.",
     "hero.cta": "Book an Appointment",
 
