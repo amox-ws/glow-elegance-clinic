@@ -72,13 +72,15 @@ const Home = () => {
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             {t('hero.subtitle')}
           </p>
-          <Button
-            size="lg"
-            className="gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
-          >
-            {t('hero.cta')}
-          </Button>
+          <Link to="/contact">
+            <Button
+              size="lg"
+              className="gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant animate-fade-in-up"
+              style={{ animationDelay: '0.4s' }}
+            >
+              {t('hero.cta')}
+            </Button>
+          </Link>
         </div>
       </section>
 

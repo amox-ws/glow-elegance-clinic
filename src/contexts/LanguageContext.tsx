@@ -18,9 +18,9 @@ const translations = {
     "nav.subtitle": "PLASTIC SURGERY",
 
     // Hero
-    "hero.title": "Expertise and Care in Gynecology & Aesthetic Surgery",
+    "hero.title": "Experience the epitome of beauty and glow",
     "hero.subtitle": "Professional excellence with a personal touch. Your health and beauty are our priority.",
-    "hero.cta": "Book an Appointment",
+    "hero.cta": "Contact Us",
 
     // Sections
     "sections.beforeAfters": "Before & Afters",
@@ -62,13 +62,23 @@ const translations = {
     "contact.title": "Get in Touch",
     "contact.subtitle": "Schedule your appointment today",
     "contact.name": "Full Name",
+    "contact.name.required": "Name is required",
     "contact.email": "Email",
+    "contact.email.required": "Email is required",
+    "contact.email.invalid": "Please enter a valid email address",
     "contact.phone": "Phone",
     "contact.message": "Message",
+    "contact.message.required": "Message is required",
     "contact.send": "Send Message",
+    "contact.sending": "Sending...",
+    "contact.success": "Message Sent!",
+    "contact.success.desc": "Thank you for contacting us. We will respond shortly.",
+    "contact.error": "Error",
+    "contact.error.desc": "Failed to send message. Please try again.",
     "contact.info": "Contact Information",
     "contact.address": "Address",
     "contact.hours": "Office Hours",
+    "contact.instagram": "Instagram",
 
     // Footer
     "footer.rights": "All rights reserved.",
@@ -87,10 +97,10 @@ const translations = {
     "sections.beforeAfters": "Πριν & Μετά",
 
     // Hero
-    "hero.title": "Εμπειρία και Φροντίδα στη Γυναικολογία & Αισθητική Χειρουργική",
+    "hero.title": "Experience the epitome of beauty and glow",
     "hero.subtitle":
       "Επαγγελματική αριστεία με προσωπική προσέγγιση. Η υγεία και η ομορφιά σας είναι η προτεραιότητά μας.",
-    "hero.cta": "Κλείστε Ραντεβού",
+    "hero.cta": "Επικοινωνήστε",
 
     // Why Choose Us
     "why.title": "Γιατί να μας Επιλέξετε",
@@ -129,13 +139,23 @@ const translations = {
     "contact.title": "Επικοινωνήστε",
     "contact.subtitle": "Κλείστε το ραντεβού σας σήμερα",
     "contact.name": "Ονοματεπώνυμο",
+    "contact.name.required": "Το όνομα είναι υποχρεωτικό",
     "contact.email": "Email",
+    "contact.email.required": "Το email είναι υποχρεωτικό",
+    "contact.email.invalid": "Παρακαλώ εισάγετε έγκυρη διεύθυνση email",
     "contact.phone": "Τηλέφωνο",
     "contact.message": "Μήνυμα",
+    "contact.message.required": "Το μήνυμα είναι υποχρεωτικό",
     "contact.send": "Αποστολή Μηνύματος",
+    "contact.sending": "Αποστολή...",
+    "contact.success": "Το μήνυμα στάλθηκε!",
+    "contact.success.desc": "Ευχαριστούμε που επικοινωνήσατε μαζί μας. Θα απαντήσουμε σύντομα.",
+    "contact.error": "Σφάλμα",
+    "contact.error.desc": "Αποτυχία αποστολής μηνύματος. Παρακαλώ δοκιμάστε ξανά.",
     "contact.info": "Στοιχεία Επικοινωνίας",
     "contact.address": "Διεύθυνση",
     "contact.hours": "Ώρες Λειτουργίας",
+    "contact.instagram": "Instagram",
 
     // Footer
     "footer.rights": "Όλα τα δικαιώματα διατηρούνται.",

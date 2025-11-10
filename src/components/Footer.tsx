@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, MapPin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -57,15 +57,17 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-start space-x-3 text-sm text-muted-foreground">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <span>123 Medical Street, Athens, Greece</span>
+                <span>Kountouriotou 127, Piraeus, Greece 18532</span>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                <span>+30 210 123 4567</span>
+                <a href="tel:+306951944489" className="hover:text-primary transition-colors">+30 6951944489</a>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span>info@drclinic.gr</span>
+                <Instagram className="h-5 w-5 text-primary flex-shrink-0" />
+                <a href="https://www.instagram.com/valvisbeautyclinic/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  @valvisbeautyclinic
+                </a>
               </div>
             </div>
           </div>
