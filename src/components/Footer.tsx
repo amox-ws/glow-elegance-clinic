@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-serif font-semibold text-gradient-rose mb-4">Dr. Valvis</h3>
+            <h3 className="text-2xl font-serif font-semibold text-gradient-rose mb-4">Dr.Valvis</h3>
             <p className="text-muted-foreground text-sm">{t("hero.subtitle")}</p>
           </div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
           <p>
-            © {currentYear} Dr. Valvis. {t("footer.rights")}
+            © {currentYear} Dr.Valvis. {t("footer.rights")}
           </p>
           <div className="mt-2 space-x-4">
             <Link to="#" className="hover:text-primary transition-colors">
