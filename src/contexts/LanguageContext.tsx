@@ -15,12 +15,16 @@ const translations = {
     "nav.doctor": "The Doctor",
     "nav.services": "Services",
     "nav.contact": "Contact",
+    "nav.subtitle": "PLASTIC SURGERY",
 
     // Hero
     "hero.title": "Expertise and Care in Gynecology & Aesthetic Surgery",
     "hero.subtitle": "Professional excellence with a personal touch. Your health and beauty are our priority.",
     "hero.cta": "Book an Appointment",
 
+    // Sections
+    "sections.beforeAfters": "Before & Afters",
+    
     // Why Choose Us
     "why.title": "Why Choose Us",
     "why.care.title": "Personalized Care",
@@ -77,6 +81,10 @@ const translations = {
     "nav.doctor": "Η Γιατρός",
     "nav.services": "Υπηρεσίες",
     "nav.contact": "Επικοινωνία",
+    "nav.subtitle": "ΠΛΑΣΤΙΚΗ ΧΕΙΡΟΥΡΓΙΚΗ",
+
+    // Sections
+    "sections.beforeAfters": "Πριν & Μετά",
 
     // Hero
     "hero.title": "Εμπειρία και Φροντίδα στη Γυναικολογία & Αισθητική Χειρουργική",

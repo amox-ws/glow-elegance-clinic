@@ -5,6 +5,7 @@ import { Heart, Shield, Sparkles, Award } from 'lucide-react';
 import heroImage from '@/assets/hero-medical.jpg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
+import BeforeAfterCarousel from '@/components/BeforeAfterCarousel';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -79,34 +80,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-center text-foreground mb-4">
-            {t('why.title')}
-          </h2>
-          <div className="w-20 h-1 gradient-rose mx-auto mb-12" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((item, index) => (
-              <Card
-                key={index}
-                className="p-6 text-center hover:shadow-elegant transition-all duration-500 border-border bg-card animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-4">
-                  <item.icon className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-serif font-semibold mb-3 text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Services Section */}
       <section className="py-20 gradient-rose-to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,6 +140,37 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before & Afters Section */}
+      <BeforeAfterCarousel />
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-center text-foreground mb-4">
+            {t('why.title')}
+          </h2>
+          <div className="w-20 h-1 gradient-rose mx-auto mb-12" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <Card
+                key={index}
+                className="p-6 text-center hover:shadow-elegant transition-all duration-500 border-border bg-card animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-4">
+                  <item.icon className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-serif font-semibold mb-3 text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

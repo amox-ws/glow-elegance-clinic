@@ -42,9 +42,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="text-2xl font-serif font-semibold text-gradient-rose transition-all duration-300 group-hover:scale-105">
-              Dr. Clinic
+          <Link to="/" className="flex flex-col group">
+            <div className="text-2xl font-serif font-semibold text-gradient-rose transition-all duration-300 group-hover:scale-105 leading-tight">
+              Dr.Valvis
+            </div>
+            <div className="text-[0.6rem] tracking-widest text-muted-foreground uppercase leading-tight mt-0.5">
+              {t('nav.subtitle')}
             </div>
           </Link>
 
@@ -87,10 +90,6 @@ const Navbar = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Button className="gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300 shadow-soft">
-              {t('hero.cta')}
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -147,9 +146,6 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Button className="w-full gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300">
-              {t('hero.cta')}
-            </Button>
           </div>
         </div>
       )}
