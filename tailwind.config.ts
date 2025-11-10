@@ -56,7 +56,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Spectral', 'serif'],
+        serif: ['Roboto Slab', 'serif'],
         sans: ['Inter', 'sans-serif'],
       },
       borderRadius: {
