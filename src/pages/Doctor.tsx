@@ -62,7 +62,7 @@ const Doctor = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
             {/* Portrait */}
-            <div className="lg:col-span-2 reveal-left">
+            <div className="lg:col-span-2" data-anim="left">
               <img
                 src={doctorPortrait}
                 alt="Doctor Portrait"
@@ -71,7 +71,7 @@ const Doctor = () => {
             </div>
 
             {/* Bio & Credentials */}
-            <div className="lg:col-span-3 space-y-8 reveal-right">
+            <div className="lg:col-span-3 space-y-8" data-anim="right">
               <Card className="p-8 border-border bg-card shadow-soft">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">
                   About

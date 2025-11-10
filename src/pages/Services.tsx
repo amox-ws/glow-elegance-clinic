@@ -87,7 +87,8 @@ const Services = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group reveal-up"
+                data-anim="auto"
+                className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="h-8 w-8 text-white" />

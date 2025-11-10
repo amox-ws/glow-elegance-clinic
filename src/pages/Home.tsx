@@ -96,7 +96,8 @@ const Home = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-8 hover:shadow-elegant transition-all duration-500 border-border bg-background/80 backdrop-blur-sm group cursor-pointer reveal-up"
+                data-anim="auto"
+                className="p-8 hover:shadow-elegant transition-all duration-500 border-border bg-background/80 backdrop-blur-sm group cursor-pointer"
               >
                 <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {service.title}
@@ -120,7 +121,7 @@ const Home = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="reveal-left">
+            <div data-anim="left">
               <img
                 src={doctorPortrait}
                 alt="Doctor Portrait"
@@ -128,7 +129,7 @@ const Home = () => {
               />
             </div>
 
-            <div className="reveal-right">
+            <div data-anim="right">
               <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-foreground mb-6">
                 {t('doctor.title')}
               </h2>
@@ -146,7 +147,7 @@ const Home = () => {
       </section>
 
       {/* Before & Afters Section */}
-      <div className="reveal-up">
+      <div data-anim="up">
         <BeforeAfterCarousel />
       </div>
 
@@ -162,7 +163,8 @@ const Home = () => {
             {whyChooseUs.map((item, index) => (
               <Card
                 key={index}
-                className="p-6 text-center hover:shadow-elegant transition-all duration-500 border-border bg-card reveal-up"
+                data-anim="up"
+                className="p-6 text-center hover:shadow-elegant transition-all duration-500 border-border bg-card"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-4">
                   <item.icon className="h-8 w-8 text-white" />

@@ -76,7 +76,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <Card className="p-8 border-border bg-card shadow-soft reveal-left">
+            <Card className="p-8 border-border bg-card shadow-soft" data-anim="left">
               <h2 className="text-2xl font-serif font-semibold text-foreground mb-6">
                 Send Us a Message
               </h2>
@@ -84,7 +84,7 @@ const Contact = () => {
             </Card>
 
             {/* Contact Information */}
-            <div className="space-y-6 reveal-right">
+            <div className="space-y-6" data-anim="right">
               <Card className="p-8 border-border bg-card shadow-soft">
                 <h2 className="text-2xl font-serif font-semibold text-foreground mb-6">
                   {t('contact.info')}

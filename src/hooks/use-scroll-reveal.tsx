@@ -1,14 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export const useScrollReveal = () => {
-  const elementsRef = useRef<HTMLElement[]>([]);
-
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
       // Skip animations if user prefers reduced motion
-      elementsRef.current.forEach(el => el?.classList.add('is-inview'));
+      const allElements = document.querySelectorAll<HTMLElement>('[data-anim]');
+      allElements.forEach(el => {
+        el.classList.add('is-inview');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
       return;
     }
 
@@ -17,25 +20,53 @@ export const useScrollReveal = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-inview');
+            // Unobserve after reveal for performance
+            observer.unobserve(entry.target);
           }
         });
       },
       {
         threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px',
+        rootMargin: '0px 0px -10% 0px',
       }
     );
 
-    // Observe all elements with reveal classes
-    const elements = document.querySelectorAll<HTMLElement>(
-      '.reveal, .reveal-left, .reveal-right, .reveal-up'
-    );
+    // Select all elements with data-anim attribute
+    const elements = document.querySelectorAll<HTMLElement>('[data-anim]');
     
-    elementsRef.current = Array.from(elements);
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((el) => {
+      let animDirection = el.dataset.anim;
+      
+      // Auto-detect direction if not specified
+      if (!animDirection || animDirection === 'auto') {
+        const rect = el.getBoundingClientRect();
+        const mid = window.innerWidth / 2;
+        animDirection = rect.left + rect.width / 2 < mid ? 'left' : 'right';
+        el.dataset.anim = animDirection;
+      }
+      
+      // Add appropriate classes
+      el.classList.add('reveal');
+      
+      switch (animDirection) {
+        case 'left':
+          el.classList.add('reveal-left');
+          break;
+        case 'right':
+          el.classList.add('reveal-right');
+          break;
+        case 'up':
+          el.classList.add('reveal-up');
+          break;
+        default:
+          el.classList.add('reveal-left');
+      }
+      
+      observer.observe(el);
+    });
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
     };
   }, []);
 };
