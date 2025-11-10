@@ -56,7 +56,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        serif: ['Noto Serif', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
