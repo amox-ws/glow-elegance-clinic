@@ -56,7 +56,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Lora', 'serif'],
+        serif: ['Marcellus', 'serif'],
         sans: ['Inter', 'sans-serif'],
       },
       borderRadius: {
