@@ -7,6 +7,8 @@ import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
 import BeforeAfterCarousel from '@/components/BeforeAfterCarousel';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import { serviceCategories, homePreviewServices } from '@/data/services';
+import ServiceCard from '@/components/ServiceCard';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -35,24 +37,14 @@ const Home = () => {
     },
   ];
 
-  const services = [
-    {
-      title: t('services.gynecology'),
-      description: t('services.gynecology.desc'),
-    },
-    {
-      title: t('services.aesthetic'),
-      description: t('services.aesthetic.desc'),
-    },
-    {
-      title: t('services.intimate'),
-      description: t('services.intimate.desc'),
-    },
-    {
-      title: t('services.consultation'),
-      description: t('services.consultation.desc'),
-    },
-  ];
+  // Get preview services from all categories
+  const previewServices = serviceCategories
+    .flatMap((cat) =>
+      cat.services
+        .filter((s) => homePreviewServices.includes(s.id))
+        .map((s) => ({ ...s, categoryId: cat.id }))
+    )
+    .slice(0, 6);
 
   return (
     <div className="min-h-screen">
@@ -94,25 +86,23 @@ const Home = () => {
             {t('services.subtitle')}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal-stagger">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                data-anim="auto"
-                className="p-8 hover:shadow-elegant transition-all duration-500 border-border bg-background/80 backdrop-blur-sm group cursor-pointer"
-              >
-                <h3 className="text-2xl font-serif font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto reveal-stagger">
+            {previewServices.map((service) => (
+              <ServiceCard
+                key={service.id}
+                titleKey={service.titleKey}
+                descKey={service.descKey}
+                categoryId={service.categoryId}
+                serviceId={service.id}
+                variant="preview"
+              />
             ))}
           </div>
 
           <div className="text-center mt-12">
             <Link to="/services">
               <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">
-                View All Services
+                {t('services.viewAll')}
               </Button>
             </Link>
           </div>
@@ -140,7 +130,7 @@ const Home = () => {
               </p>
               <Link to="/doctor">
                 <Button className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300">
-                  Learn More About the Doctor
+                  {t('services.learnMore')}
                 </Button>
               </Link>
             </div>
