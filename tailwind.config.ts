@@ -47,12 +47,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        rose: {
-          dark: "hsl(var(--rose-dark))",
-          medium: "hsl(var(--rose-medium))",
-          light: "hsl(var(--rose-light))",
-          lighter: "hsl(var(--rose-lighter))",
-          lightest: "hsl(var(--rose-lightest))",
+        warm: {
+          "cream-lightest": "hsl(var(--cream-lightest))",
+          "cream-light": "hsl(var(--cream-light))",
+          sand: "hsl(var(--sand))",
+          sage: "hsl(var(--sage))",
+          tan: "hsl(var(--tan))",
+          taupe: "hsl(var(--taupe))",
         },
       },
       fontFamily: {

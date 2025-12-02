@@ -62,7 +62,7 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 gradient-rose-to-white opacity-80" />
+          <div className="absolute inset-0 gradient-cream opacity-80" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -75,7 +75,7 @@ const Home = () => {
           <Link to="/contact">
             <Button
               size="lg"
-              className="gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant animate-fade-in-up"
+              className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant animate-fade-in-up"
               style={{ animationDelay: '0.4s' }}
             >
               {t('hero.cta')}
@@ -85,7 +85,7 @@ const Home = () => {
       </section>
 
       {/* Featured Services Section */}
-      <section className="py-20 gradient-rose-to-white">
+      <section className="py-20 gradient-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-center text-foreground mb-4">
             {t('services.title')}
@@ -139,7 +139,7 @@ const Home = () => {
                 {t('doctor.bio')}
               </p>
               <Link to="/doctor">
-                <Button className="gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300">
+                <Button className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300">
                   Learn More About the Doctor
                 </Button>
               </Link>
@@ -159,7 +159,7 @@ const Home = () => {
           <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-center text-foreground mb-4">
             {t('why.title')}
           </h2>
-          <div className="w-20 h-1 gradient-rose mx-auto mb-12" />
+          <div className="w-20 h-1 gradient-warm mx-auto mb-12" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-stagger">
             {whyChooseUs.map((item, index) => (
@@ -168,7 +168,7 @@ const Home = () => {
                 data-anim="up"
                 className="p-6 text-center hover:shadow-elegant transition-all duration-500 border-border bg-card"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-warm mb-4">
                   <item.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-serif font-semibold mb-3 text-foreground">

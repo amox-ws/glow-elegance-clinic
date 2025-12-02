@@ -67,7 +67,7 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="gradient-rose-to-white py-20">
+      <section className="gradient-cream py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
             <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
@@ -90,7 +90,7 @@ const Services = () => {
                 data-anim="auto"
                 className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-rose mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-warm mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="h-8 w-8 text-white" />
                 </div>
 
@@ -117,7 +117,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-rose">
+      <section className="py-20 gradient-warm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto animate-fade-in-up">
             <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-white mb-6">
