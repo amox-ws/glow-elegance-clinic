@@ -27,12 +27,12 @@ const BeforeAfterCarousel = () => {
   );
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-rose-50/20">
+    <section className="py-20 bg-gradient-to-b from-background to-warm-cream-lightest/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-center text-foreground mb-4">
           {t('sections.beforeAfters')}
         </h2>
-        <div className="w-20 h-1 gradient-rose mx-auto mb-12" />
+        <div className="w-20 h-1 gradient-warm mx-auto mb-12" />
 
         <Carousel
           opts={{

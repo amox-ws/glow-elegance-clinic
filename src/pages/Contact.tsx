@@ -125,7 +125,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="gradient-rose-to-white py-20">
+      <section className="gradient-cream py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
             <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
@@ -220,7 +220,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full gradient-rose text-white border-0 hover:opacity-90 transition-all duration-300"
+                  className="w-full gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300"
                 >
                   {isSubmitting ? t('contact.sending') : t('contact.send')}
                 </Button>
@@ -237,7 +237,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-rose flex-shrink-0">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm flex-shrink-0">
                         <info.icon className="h-6 w-6 text-white" />
                       </div>
                       <div>

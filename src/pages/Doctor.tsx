@@ -44,7 +44,7 @@ const Doctor = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="gradient-rose-to-white py-20">
+      <section className="gradient-cream py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in-up">
             <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
@@ -94,7 +94,7 @@ const Doctor = () => {
                   className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500"
                 >
                   <div className="flex items-center mb-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-rose mr-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
                       <section.icon className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-xl font-serif font-semibold text-foreground">
@@ -113,7 +113,7 @@ const Doctor = () => {
               ))}
 
               {/* Quote */}
-              <Card className="p-8 gradient-rose border-0">
+              <Card className="p-8 gradient-warm border-0">
                 <blockquote className="text-white text-lg italic text-center">
                   "My goal is not just to meet expectations, but to exceed them — with results
                   that look natural, feel right, and make you confident in your own skin."

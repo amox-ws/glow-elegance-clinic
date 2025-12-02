@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex flex-col group">
-            <div className="text-2xl font-serif font-semibold text-gradient-rose transition-all duration-300 group-hover:scale-105 leading-tight">
+            <div className="text-2xl font-serif font-semibold text-gradient-warm transition-all duration-300 group-hover:scale-105 leading-tight">
               Dr.Valvis
             </div>
             <div className="text-[0.6rem] tracking-widest text-muted-foreground uppercase leading-tight mt-0.5">
