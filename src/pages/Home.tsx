@@ -9,6 +9,7 @@ import BeforeAfterCarousel from '@/components/BeforeAfterCarousel';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import { serviceCategories, homePreviewServices } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -139,9 +140,46 @@ const Home = () => {
       </section>
 
       {/* Before & Afters Section */}
-      <div data-anim="up">
-        <BeforeAfterCarousel />
-      </div>
+{/* Before & Afters Section */}
+<section className="py-20 bg-gradient-to-b from-background to-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12" data-anim="up">
+            <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-foreground mb-4">
+              {t('sections.beforeAfters')}
+            </h2>
+            <div className="w-20 h-1 gradient-warm mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal-stagger">
+            {/* 1. Botox */}
+            <div data-anim="up">
+              <BeforeAfterSlider
+                titleKey="services.botox.title"
+                beforeImage="https://images.unsplash.com/photo-1552693673-1bf958298935?w=600&h=500&fit=crop&q=80" 
+                afterImage="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=500&fit=crop&q=80"
+              />
+            </div>
+
+            {/* 2. Hyaluronic Acid */}
+            <div data-anim="up">
+              <BeforeAfterSlider
+                titleKey="services.hyaluronic.title"
+                beforeImage="https://images.unsplash.com/photo-1588510885239-2a9a7dd6d6c2?w=600&h=500&fit=crop&q=80"
+                afterImage="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&h=500&fit=crop&q=80"
+              />
+            </div>
+
+            {/* 3. Body/Tummy Tuck */}
+            <div data-anim="up">
+              <BeforeAfterSlider
+                titleKey="services.faciallipolysis.title" 
+                beforeImage="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=600&h=500&fit=crop&q=80"
+                afterImage="https://images.unsplash.com/photo-1584447477134-8c439178be47?w=600&h=500&fit=crop&q=80"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-background">
