@@ -26,15 +26,25 @@ const translations = {
     "sections.beforeAfters": "Before & Afters",
     
     // Why Choose Us
-    "why.title": "Why Choose Us",
-    "why.care.title": "Personalized Care",
-    "why.care.desc": "Every patient receives individualized attention tailored to their unique needs",
-    "why.tech.title": "Innovative Techniques",
-    "why.tech.desc": "Utilizing the latest advances in medical and aesthetic procedures",
-    "why.safety.title": "Safety & Results",
-    "why.safety.desc": "Beautiful aesthetic outcomes achieved with the highest safety standards",
-    "why.excellence.title": "Medical Excellence",
-    "why.excellence.desc": "Years of specialized training and experience in gynecology and aesthetic surgery",
+    "why.title": "Why Choose",
+    "why.titleHighlight": "Dr. Valvis?",
+    "why.subtitle": "Trusted by thousands, Dr. Valvis delivers evidence-based care through",
+    "why.subtitleBold": "multidisciplinary expertise, advanced technology, and patient-centered outcomes.",
+    "why.specialized.title": "Specialized Medical Care",
+    "why.specialized.desc": "Advanced aesthetic care led by top experts.",
+    "why.honesty.title": "Honesty Policy",
+    "why.honesty.desc": "Clear, honest, evidence-based guidance.",
+    "why.excellence.title": "Center of Excellence",
+    "why.excellence.desc": "Focused, high-quality care in every specialty.",
+    "why.innovation.title": "Innovation With Impact",
+    "why.innovation.desc": "Technology that transforms patient outcomes.",
+    "why.cta": "Book an Appointment",
+
+    // Clinic Section
+    "clinic.title": "Our Clinic",
+    "clinic.image.alt": "Clinic interior",
+    "clinic.prev": "Previous image",
+    "clinic.next": "Next image",
 
     // Services - Main
     "services.title": "Services",
@@ -152,15 +162,25 @@ const translations = {
     "hero.cta": "Επικοινωνήστε",
 
     // Why Choose Us
-    "why.title": "Γιατί να μας Επιλέξετε",
-    "why.care.title": "Εξατομικευμένη Φροντίδα",
-    "why.care.desc": "Κάθε ασθενής λαμβάνει εξατομικευμένη προσοχή προσαρμοσμένη στις μοναδικές του ανάγκες",
-    "why.tech.title": "Καινοτόμες Τεχνικές",
-    "why.tech.desc": "Χρησιμοποιώντας τις τελευταίες εξελίξεις στις ιατρικές και αισθητικές διαδικασίες",
-    "why.safety.title": "Ασφάλεια & Αποτελέσματα",
-    "why.safety.desc": "Όμορφα αισθητικά αποτελέσματα με τα υψηλότερα πρότυπα ασφαλείας",
-    "why.excellence.title": "Ιατρική Αριστεία",
-    "why.excellence.desc": "Χρόνια εξειδικευμένης εκπαίδευσης και εμπειρίας στη γυναικολογία και αισθητική χειρουργική",
+    "why.title": "Γιατί να Επιλέξετε",
+    "why.titleHighlight": "τη Dr. Valvis;",
+    "why.subtitle": "Εμπιστευτείτε χιλιάδες ασθενείς, η Dr. Valvis παρέχει τεκμηριωμένη φροντίδα μέσω",
+    "why.subtitleBold": "πολυεπιστημονικής εμπειρογνωμοσύνης, προηγμένης τεχνολογίας και ασθενοκεντρικών αποτελεσμάτων.",
+    "why.specialized.title": "Εξειδικευμένη Ιατρική Φροντίδα",
+    "why.specialized.desc": "Προηγμένη αισθητική φροντίδα από κορυφαίους ειδικούς.",
+    "why.honesty.title": "Πολιτική Ειλικρίνειας",
+    "why.honesty.desc": "Σαφής, ειλικρινής, τεκμηριωμένη καθοδήγηση.",
+    "why.excellence.title": "Κέντρο Αριστείας",
+    "why.excellence.desc": "Εστιασμένη, υψηλής ποιότητας φροντίδα σε κάθε ειδικότητα.",
+    "why.innovation.title": "Καινοτομία με Αντίκτυπο",
+    "why.innovation.desc": "Τεχνολογία που μεταμορφώνει τα αποτελέσματα των ασθενών.",
+    "why.cta": "Κλείστε Ραντεβού",
+
+    // Clinic Section
+    "clinic.title": "Η Κλινική μας",
+    "clinic.image.alt": "Εσωτερικό κλινικής",
+    "clinic.prev": "Προηγούμενη εικόνα",
+    "clinic.next": "Επόμενη εικόνα",
 
     // Services - Main
     "services.title": "Υπηρεσίες",

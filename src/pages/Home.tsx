@@ -1,37 +1,32 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Heart, Shield, Sparkles, Award } from 'lucide-react';
 import heroImage from '@/assets/hero-clinic.jpg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import ClinicCarousel from '@/components/ClinicCarousel';
 
 const Home = () => {
   const { t } = useLanguage();
   useScrollReveal();
 
-  const whyChooseUs = [
+  const whyChooseFeatures = [
     {
-      icon: Heart,
-      title: t('why.care.title'),
-      description: t('why.care.desc'),
+      title: t('why.specialized.title'),
+      description: t('why.specialized.desc'),
     },
     {
-      icon: Sparkles,
-      title: t('why.tech.title'),
-      description: t('why.tech.desc'),
+      title: t('why.honesty.title'),
+      description: t('why.honesty.desc'),
     },
     {
-      icon: Shield,
-      title: t('why.safety.title'),
-      description: t('why.safety.desc'),
-    },
-    {
-      icon: Award,
       title: t('why.excellence.title'),
       description: t('why.excellence.desc'),
+    },
+    {
+      title: t('why.innovation.title'),
+      description: t('why.innovation.desc'),
     },
   ];
 
@@ -288,30 +283,68 @@ const Home = () => {
       {/* Why Choose Us Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-center text-foreground mb-4">
-            {t('why.title')}
-          </h2>
-          <div className="w-20 h-1 gradient-warm mx-auto mb-12" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left Content */}
+            <div data-anim="left">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-foreground mb-6">
+                <span className="italic">{t('why.title')}</span>{' '}
+                <span className="font-semibold">{t('why.titleHighlight')}</span>
+              </h2>
+              
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                {t('why.subtitle')}{' '}
+                <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
+              </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-stagger">
-            {whyChooseUs.map((item, index) => (
-              <Card
-                key={index}
-                data-anim="up"
-                className="p-6 text-center hover:shadow-elegant transition-all duration-500 border-border bg-card"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-warm mb-4">
-                  <item.icon className="h-8 w-8 text-white" />
+              {/* Features Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                {whyChooseFeatures.map((feature, index) => (
+                  <div 
+                    key={index} 
+                    className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}
+                  >
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-10">
+                <Link to="/contact">
+                  <Button
+                    size="lg"
+                    className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8"
+                  >
+                    {t('why.cta')}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div data-anim="right" className="hidden lg:block">
+              <div className="relative">
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
+                  <img
+                    src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&h=800&fit=crop&q=80"
+                    alt="Aesthetic treatments"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="text-xl font-serif font-semibold mb-3 text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </Card>
-            ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Our Clinic Section */}
+      <ClinicCarousel />
     </div>
   );
 };
