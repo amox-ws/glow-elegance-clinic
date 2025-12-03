@@ -2,15 +2,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 
 interface VideoItem {
   id: number;
   thumbnail: string;
-  avatarUrl: string;
-  name: string;
-  title: string;
 }
 
 const ClientShortsCarousel = () => {
@@ -52,44 +47,26 @@ const ClientShortsCarousel = () => {
     {
       id: 1,
       thumbnail: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=600&fit=crop&q=80',
-      avatarUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&q=80',
-      name: 'Maria K.',
-      title: t('clients.testimonial.satisfied'),
     },
     {
       id: 2,
       thumbnail: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=600&fit=crop&q=80',
-      avatarUrl: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=80&h=80&fit=crop&q=80',
-      name: 'Elena P.',
-      title: t('clients.testimonial.treatment'),
     },
     {
       id: 3,
       thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=600&fit=crop&q=80',
-      avatarUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=80&h=80&fit=crop&q=80',
-      name: 'Sofia M.',
-      title: t('clients.testimonial.results'),
     },
     {
       id: 4,
       thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop&q=80',
-      avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&q=80',
-      name: 'Anna D.',
-      title: t('clients.testimonial.experience'),
     },
     {
       id: 5,
       thumbnail: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=600&fit=crop&q=80',
-      avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&q=80',
-      name: 'Christina L.',
-      title: t('clients.testimonial.care'),
     },
     {
       id: 6,
       thumbnail: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=600&fit=crop&q=80',
-      avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&q=80',
-      name: 'Dimitra V.',
-      title: t('clients.testimonial.recommend'),
     },
   ];
 
@@ -141,19 +118,19 @@ const ClientShortsCarousel = () => {
           {/* Embla Carousel */}
           <div className="overflow-hidden px-2" ref={emblaRef}>
             <div className="flex gap-4 md:gap-6">
-              {videoItems.map((item) => (
+              {videoItems.map((item, index) => (
                 <div
                   key={item.id}
                   className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] lg:w-[23%]"
                 >
-                  <article className="group relative bg-card rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500">
+                  <article className="group relative rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500">
                     {/* Video Thumbnail Container */}
                     <div className="relative aspect-[9/14] bg-neutral-900 overflow-hidden">
                       {/* Thumbnail Image */}
                       <img
                         src={item.thumbnail}
-                        alt={`${item.name} - ${t('clients.video.alt')}`}
-                        className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+                        alt={`${t('clients.video.alt')} ${index + 1}`}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                         loading="lazy"
                       />
                       
@@ -164,42 +141,8 @@ const ClientShortsCarousel = () => {
                         </div>
                       </div>
 
-                      {/* Gradient Overlay at bottom */}
-                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
-                    </div>
-
-                    {/* Info Section */}
-                    <div className="p-4 bg-card">
-                      <div className="flex items-center gap-3 mb-4">
-                        {/* Avatar */}
-                        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0">
-                          <img
-                            src={item.avatarUrl}
-                            alt={item.name}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        </div>
-                        {/* Name & Title */}
-                        <div className="min-w-0">
-                          <h3 className="font-semibold text-foreground text-sm truncate">
-                            {item.name}
-                          </h3>
-                          <p className="text-xs text-muted-foreground truncate">
-                            {item.title}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <Link to="/contact" className="block">
-                        <Button 
-                          className="w-full gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 text-sm py-2"
-                          size="sm"
-                        >
-                          {t('clients.cta')}
-                        </Button>
-                      </Link>
+                      {/* Subtle Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                     </div>
                   </article>
                 </div>
