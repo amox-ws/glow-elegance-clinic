@@ -97,41 +97,111 @@ const Home = () => {
             {t('services.subtitle')}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {serviceCategories.map((category, index) => (
+          <div className="max-w-6xl mx-auto space-y-6">
+            {/* Top Box - Full Width */}
+            <Link
+              to="/services#injectable"
+              data-anim="up"
+              className="group relative block overflow-hidden rounded-2xl h-[320px] md:h-[400px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+              aria-label={t('services.category.injectable')}
+            >
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${serviceCategories[0].image})` }}
+              />
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
+              
+              {/* Content - Centered */}
+              <div className="absolute inset-0 flex items-center justify-center text-white">
+                <h3 
+                  className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105"
+                  style={{ fontFamily: '"Cormorant Garamond", serif' }}
+                >
+                  {t('services.category.injectable')}
+                </h3>
+              </div>
+              
+              {/* Arrow Icon */}
+              <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+
+            {/* Bottom Row - Two Boxes */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Bottom Left Box */}
               <Link
-                key={category.id}
-                to={`/services#${category.id}`}
+                to="/services#renewal"
                 data-anim="up"
-                className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                aria-label={t('services.category.renewal')}
               >
                 {/* Background Image */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${category.image})` }}
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${serviceCategories[1].image})` }}
                 />
                 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 transition-opacity duration-500 group-hover:from-black/90" />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
                 
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                  <h3 className="text-xl sm:text-2xl font-serif font-semibold mb-2 transition-transform duration-500 group-hover:translate-y-[-4px]">
-                    {t(category.titleKey)}
+                {/* Content - Centered */}
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <h3 
+                    className="text-xl sm:text-2xl md:text-3xl font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105"
+                    style={{ fontFamily: '"Cormorant Garamond", serif' }}
+                  >
+                    {t('services.category.renewal')}
                   </h3>
-                  <p className="text-sm sm:text-base text-white/80 line-clamp-2 transition-all duration-500 group-hover:text-white/90">
-                    {t(category.descKey)}
-                  </p>
                 </div>
                 
                 {/* Arrow Icon */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:translate-x-0 translate-x-2">
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
               </Link>
-            ))}
+
+              {/* Bottom Right Box */}
+              <Link
+                to="/services#body"
+                data-anim="up"
+                className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                aria-label={t('services.category.body')}
+              >
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${serviceCategories[2].image})` }}
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
+                
+                {/* Content - Centered */}
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <h3 
+                    className="text-xl sm:text-2xl md:text-3xl font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105"
+                    style={{ fontFamily: '"Cormorant Garamond", serif' }}
+                  >
+                    {t('services.category.body')}
+                  </h3>
+                </div>
+                
+                {/* Arrow Icon */}
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            </div>
           </div>
 
           <div className="text-center mt-12">
