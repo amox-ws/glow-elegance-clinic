@@ -37,7 +37,7 @@ const Services = () => {
       <section className="gradient-cream py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-4">
               {t('services.title')}
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -58,7 +58,7 @@ const Services = () => {
             <div className="max-w-6xl mx-auto">
               {/* Category Header */}
               <div className="mb-10" data-anim="up">
-                <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-foreground mb-3">
+                <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-3">
                   {t(category.titleKey)}
                 </h2>
                 <div className="w-20 h-1 gradient-warm rounded-full" />
@@ -88,7 +88,7 @@ const Services = () => {
       <section className="py-20 gradient-warm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto animate-fade-in-up">
-            <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-white mb-6">
               {t('cta.ready')}
             </h2>
             <p className="text-white/90 mb-8 text-lg">

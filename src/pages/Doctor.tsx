@@ -47,7 +47,7 @@ const Doctor = () => {
       <section className="gradient-cream py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in-up">
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-4">
               {t('doctor.title')}
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -73,7 +73,7 @@ const Doctor = () => {
             {/* Bio & Credentials */}
             <div className="lg:col-span-3 space-y-8" data-anim="right">
               <Card className="p-8 border-border bg-card shadow-soft">
-                <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">
+                <h2 className="text-2xl font-heading font-semibold text-foreground mb-4">
                   About
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -97,7 +97,7 @@ const Doctor = () => {
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
                       <section.icon className="h-6 w-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-serif font-semibold text-foreground">
+                    <h3 className="text-xl font-heading font-semibold text-foreground">
                       {section.title}
                     </h3>
                   </div>

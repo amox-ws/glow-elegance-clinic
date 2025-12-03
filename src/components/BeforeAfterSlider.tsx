@@ -46,7 +46,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, titleKey }: BeforeAfterSli
           style={{ height: '100%' }}
         />
       </Card>
-      <h3 className="mt-4 text-xl font-serif font-semibold text-foreground">
+      <h3 className="mt-4 text-xl font-heading font-semibold text-foreground">
         {t(titleKey)}
       </h3>
     </div>

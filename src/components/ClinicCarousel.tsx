@@ -70,7 +70,7 @@ const ClinicCarousel = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12" data-anim="up">
-          <h2 className="text-3xl sm:text-4xl font-serif font-semibold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
             {t('clinic.title')}
           </h2>
           <div className="w-20 h-1 gradient-warm mx-auto" />

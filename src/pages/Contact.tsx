@@ -128,7 +128,7 @@ const Contact = () => {
       <section className="gradient-cream py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-4">
+            <h1 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-4">
               {t('contact.title')}
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -144,7 +144,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <Card className="p-8 border-border bg-card shadow-soft" data-anim="left">
-              <h2 className="text-2xl font-serif font-semibold text-foreground mb-6">
+              <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">
                 {t('contact.send')}
               </h2>
               
@@ -230,7 +230,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-6" data-anim="right">
               <Card className="p-8 border-border bg-card shadow-soft">
-                <h2 className="text-2xl font-serif font-semibold text-foreground mb-6">
+                <h2 className="text-2xl font-heading font-semibold text-foreground mb-6">
                   {t('contact.info')}
                 </h2>
 
