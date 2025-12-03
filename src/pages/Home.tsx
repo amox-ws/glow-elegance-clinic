@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
+import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -342,6 +343,9 @@ const Home = () => {
 
       {/* Our Clinic Section */}
       <ClinicCarousel />
+
+      {/* Our Clients in Shorts Section */}
+      <ClientShortsCarousel />
     </div>
   );
 };
