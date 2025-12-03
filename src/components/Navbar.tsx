@@ -42,12 +42,58 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex flex-col group">
-            <div className="text-2xl font-heading font-semibold text-gradient-warm transition-all duration-300 group-hover:scale-105 leading-tight">
-              Dr.Valvis
-            </div>
-            <div className="text-[0.6rem] tracking-widest text-muted-foreground uppercase leading-tight mt-0.5">
-              {t('nav.subtitle')}
+          <Link to="/" className="flex items-center gap-3 group">
+            {/* dV Monogram */}
+            <svg 
+              viewBox="0 0 50 50" 
+              className="w-11 h-11 transition-transform duration-300 group-hover:scale-105"
+              aria-hidden="true"
+            >
+              {/* d curve with oval */}
+              <path 
+                d="M6 42 Q6 15 22 8" 
+                stroke="#c4a574" 
+                strokeWidth="1.8" 
+                fill="none"
+                strokeLinecap="round"
+              />
+              {/* Vertical line */}
+              <path 
+                d="M22 8 L22 46" 
+                stroke="#c4a574" 
+                strokeWidth="1.8" 
+                fill="none"
+                strokeLinecap="round"
+              />
+              {/* V letter */}
+              <path 
+                d="M24 8 L34 42 L44 8" 
+                stroke="#c4a574" 
+                strokeWidth="1.8" 
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Oval accent at bottom */}
+              <ellipse 
+                cx="14" 
+                cy="36" 
+                rx="9" 
+                ry="11" 
+                stroke="#c4a574" 
+                strokeWidth="1.8" 
+                fill="none"
+              />
+            </svg>
+            
+            {/* Text */}
+            <div className="flex flex-col">
+              <span className="text-2xl font-heading font-semibold text-foreground tracking-wide leading-tight">
+                Dr. Valvis
+              </span>
+              <span className="text-[0.6rem] tracking-[0.18em] text-muted-foreground uppercase leading-tight">
+                {t('nav.subtitle')}
+              </span>
             </div>
           </Link>
 
