@@ -46,6 +46,21 @@ const translations = {
     "clinic.prev": "Previous image",
     "clinic.next": "Next image",
 
+    // Client Shorts Section
+    "clients.title.prefix": "OUR",
+    "clients.title.highlight": "CLIENTS",
+    "clients.title.suffix": "IN SHORTS",
+    "clients.prev": "Previous video",
+    "clients.next": "Next video",
+    "clients.video.alt": "Client testimonial video",
+    "clients.cta": "Book Your Appointment",
+    "clients.testimonial.satisfied": "Satisfied Client",
+    "clients.testimonial.treatment": "Botox Treatment",
+    "clients.testimonial.results": "Amazing Results",
+    "clients.testimonial.experience": "Great Experience",
+    "clients.testimonial.care": "Professional Care",
+    "clients.testimonial.recommend": "Highly Recommend",
+
     // Services - Main
     "services.title": "Services",
     "services.subtitle": "Comprehensive aesthetic treatments tailored to your needs",
@@ -181,6 +196,21 @@ const translations = {
     "clinic.image.alt": "Εσωτερικό κλινικής",
     "clinic.prev": "Προηγούμενη εικόνα",
     "clinic.next": "Επόμενη εικόνα",
+
+    // Client Shorts Section
+    "clients.title.prefix": "ΟΙ",
+    "clients.title.highlight": "ΠΕΛΑΤΕΣ",
+    "clients.title.suffix": "ΜΑΣ",
+    "clients.prev": "Προηγούμενο βίντεο",
+    "clients.next": "Επόμενο βίντεο",
+    "clients.video.alt": "Βίντεο μαρτυρίας πελάτη",
+    "clients.cta": "Κλείστε Ραντεβού",
+    "clients.testimonial.satisfied": "Ικανοποιημένη Πελάτισσα",
+    "clients.testimonial.treatment": "Θεραπεία Botox",
+    "clients.testimonial.results": "Εκπληκτικά Αποτελέσματα",
+    "clients.testimonial.experience": "Υπέροχη Εμπειρία",
+    "clients.testimonial.care": "Επαγγελματική Φροντίδα",
+    "clients.testimonial.recommend": "Συστήνω Ανεπιφύλακτα",
 
     // Services - Main
     "services.title": "Υπηρεσίες",
