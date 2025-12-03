@@ -43,55 +43,25 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            {/* dV Monogram - matches reference design */}
+            {/* CORRECTED dV Monogram */}
             <svg 
-              viewBox="0 0 70 70" 
+              viewBox="0 0 100 100" 
               className="w-14 h-14 transition-transform duration-300 group-hover:scale-105"
+              fill="none"
+              stroke="#c9a96e" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
               aria-hidden="true"
             >
-              {/* Diagonal line from top-left */}
-              <line 
-                x1="8" y1="8" 
-                x2="28" y2="48" 
-                stroke="#c9a96e" 
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              {/* Curved d stem */}
-              <path 
-                d="M8 58 Q8 25 32 10" 
-                stroke="#c9a96e" 
-                strokeWidth="2" 
-                fill="none"
-                strokeLinecap="round"
-              />
-              {/* Vertical line (shared stem) */}
-              <line 
-                x1="32" y1="10" 
-                x2="32" y2="62" 
-                stroke="#c9a96e" 
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              {/* V letter */}
-              <path 
-                d="M34 10 L48 55 L62 10" 
-                stroke="#c9a96e" 
-                strokeWidth="2" 
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              {/* Oval accent */}
-              <ellipse 
-                cx="20" 
-                cy="48" 
-                rx="13" 
-                ry="15" 
-                stroke="#c9a96e" 
-                strokeWidth="2" 
-                fill="none"
-              />
+              {/* Left Diagonal Line (Back of the 'd') */}
+              <path d="M 30 20 L 55 85" />
+              
+              {/* The 'V' Shape */}
+              <path d="M 45 20 L 70 85 L 97 20" />
+              
+              {/* The Loop (Belly of the 'd') - Curves from bottom of left diagonal, up, and cuts across */}
+              <path d="M 55 85 C 20 85 20 52 50 52 L 71 52" />
             </svg>
             
             {/* Text */}
