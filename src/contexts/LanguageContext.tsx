@@ -15,7 +15,7 @@ const translations = {
     "nav.doctor": "The Doctor",
     "nav.services": "Services",
     "nav.contact": "Contact",
-    "nav.subtitle": "PLASTIC SURGERY",
+    "nav.subtitle": "HAIR & BEAUTY CLINIC",
 
     // Hero
     "hero.title": "Experience the epitome of beauty and glow",
@@ -166,7 +166,7 @@ const translations = {
     "nav.doctor": "Η Γιατρός",
     "nav.services": "Υπηρεσίες",
     "nav.contact": "Επικοινωνία",
-    "nav.subtitle": "ΠΛΑΣΤΙΚΗ ΧΕΙΡΟΥΡΓΙΚΗ",
+    "nav.subtitle": "HAIR & BEAUTY CLINIC",
 
     // Sections
     "sections.beforeAfters": "Πριν & Μετά",
