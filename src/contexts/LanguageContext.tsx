@@ -43,9 +43,12 @@ const translations = {
     "services.viewAll": "View All Services",
 
     // Service Categories
-    "services.category.injectable": "Injectable Face Treatments",
-    "services.category.renewal": "Skin Renewal & Hydration",
+    "services.category.injectable": "Facial Injectable Treatments",
+    "services.category.injectable.desc": "Advanced injectable solutions for volume restoration, wrinkle reduction, and facial contouring.",
+    "services.category.renewal": "Skin Rejuvenation & Hydration",
+    "services.category.renewal.desc": "Medical-grade treatments for radiant, youthful, and deeply hydrated skin.",
     "services.category.body": "Body Treatments",
+    "services.category.body.desc": "Targeted therapies for body contouring, hair removal, and skin smoothing.",
 
     // Injectable Face Treatments
     "services.hyaluronic.title": "Hyaluronic Acid – Fillers",
@@ -167,8 +170,11 @@ const translations = {
 
     // Service Categories
     "services.category.injectable": "Ενέσιμες Θεραπείες Προσώπου",
+    "services.category.injectable.desc": "Προηγμένες ενέσιμες λύσεις για αποκατάσταση όγκου, μείωση ρυτίδων και ανάπλαση προσώπου.",
     "services.category.renewal": "Ανανέωση & Ενυδάτωση Δέρματος",
+    "services.category.renewal.desc": "Ιατρικές θεραπείες για λαμπερό, νεανικό και βαθιά ενυδατωμένο δέρμα.",
     "services.category.body": "Θεραπείες Σώματος",
+    "services.category.body.desc": "Στοχευμένες θεραπείες για σμίλευση σώματος, αποτρίχωση και λείανση δέρματος.",
 
     // Injectable Face Treatments
     "services.hyaluronic.title": "Υαλουρονικό Οξύ – Fillers",

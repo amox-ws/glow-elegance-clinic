@@ -5,10 +5,7 @@ import { Heart, Shield, Sparkles, Award } from 'lucide-react';
 import heroImage from '@/assets/hero-medical.jpg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
-import BeforeAfterCarousel from '@/components/BeforeAfterCarousel';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
-import { serviceCategories, homePreviewServices } from '@/data/services';
-import ServiceCard from '@/components/ServiceCard';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 const Home = () => {
@@ -38,14 +35,27 @@ const Home = () => {
     },
   ];
 
-  // Get preview services from all categories
-  const previewServices = serviceCategories
-    .flatMap((cat) =>
-      cat.services
-        .filter((s) => homePreviewServices.includes(s.id))
-        .map((s) => ({ ...s, categoryId: cat.id }))
-    )
-    .slice(0, 6);
+  // Service category cards for home page
+  const serviceCategories = [
+    {
+      id: 'injectable',
+      titleKey: 'services.category.injectable',
+      descKey: 'services.category.injectable.desc',
+      image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop&q=80',
+    },
+    {
+      id: 'renewal',
+      titleKey: 'services.category.renewal',
+      descKey: 'services.category.renewal.desc',
+      image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop&q=80',
+    },
+    {
+      id: 'body',
+      titleKey: 'services.category.body',
+      descKey: 'services.category.body.desc',
+      image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop&q=80',
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -87,16 +97,40 @@ const Home = () => {
             {t('services.subtitle')}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto reveal-stagger">
-            {previewServices.map((service) => (
-              <ServiceCard
-                key={service.id}
-                titleKey={service.titleKey}
-                descKey={service.descKey}
-                categoryId={service.categoryId}
-                serviceId={service.id}
-                variant="preview"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {serviceCategories.map((category, index) => (
+              <Link
+                key={category.id}
+                to={`/services#${category.id}`}
+                data-anim="up"
+                className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+              >
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${category.image})` }}
+                />
+                
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 transition-opacity duration-500 group-hover:from-black/90" />
+                
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                  <h3 className="text-xl sm:text-2xl font-serif font-semibold mb-2 transition-transform duration-500 group-hover:translate-y-[-4px]">
+                    {t(category.titleKey)}
+                  </h3>
+                  <p className="text-sm sm:text-base text-white/80 line-clamp-2 transition-all duration-500 group-hover:text-white/90">
+                    {t(category.descKey)}
+                  </p>
+                </div>
+                
+                {/* Arrow Icon */}
+                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:translate-x-0 translate-x-2">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
             ))}
           </div>
 
