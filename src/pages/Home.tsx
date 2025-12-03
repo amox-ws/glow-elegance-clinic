@@ -8,6 +8,13 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 
+import before_lips from "@/assets/before_lips.png"
+import after_lips from "@/assets/after_lips.png"
+import before_botox from "@/assets/before_botox.png"
+import after_botox from "@/assets/after_botox.png"
+import before_darkeyes from "@/assets/before_darkeyes.png"
+import after_darkeyes from "@/assets/after_darkeyes.png"
+
 const Home = () => {
   const { t } = useLanguage();
   useScrollReveal();
@@ -252,8 +259,8 @@ const Home = () => {
             <div data-anim="up">
               <BeforeAfterSlider
                 titleKey="services.botox.title"
-                beforeImage="https://images.unsplash.com/photo-1552693673-1bf958298935?w=600&h=500&fit=crop&q=80" 
-                afterImage="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&h=500&fit=crop&q=80"
+                beforeImage={before_botox}
+                afterImage={after_botox}
               />
             </div>
 
@@ -261,8 +268,8 @@ const Home = () => {
             <div data-anim="up">
               <BeforeAfterSlider
                 titleKey="services.hyaluronic.title"
-                beforeImage="https://images.unsplash.com/photo-1588510885239-2a9a7dd6d6c2?w=600&h=500&fit=crop&q=80"
-                afterImage="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=600&h=500&fit=crop&q=80"
+                beforeImage={before_lips}
+                afterImage={after_lips}
               />
             </div>
 
@@ -270,8 +277,8 @@ const Home = () => {
             <div data-anim="up">
               <BeforeAfterSlider
                 titleKey="services.faciallipolysis.title" 
-                beforeImage="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=600&h=500&fit=crop&q=80"
-                afterImage="https://images.unsplash.com/photo-1584447477134-8c439178be47?w=600&h=500&fit=crop&q=80"
+                beforeImage={before_darkeyes}
+                afterImage={after_darkeyes}
               />
             </div>
           </div>
