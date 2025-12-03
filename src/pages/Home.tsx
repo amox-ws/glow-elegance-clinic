@@ -352,6 +352,35 @@ const Home = () => {
       {/* Our Clinic Section */}
       <ClinicCarousel />
 
+      {/* Map & Location Section */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10" data-anim="up">
+            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
+              {t('map.title')}
+            </h2>
+            <div className="w-20 h-1 gradient-warm mx-auto" />
+          </div>
+          
+          <div 
+            className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-elegant"
+            data-anim="up"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1234567890!2d23.6431!3d37.9445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc0ef1f0c4b1%3A0x9f8e7d6c5b4a3210!2sKountouriotou%20127%2C%20Piraeus%20185%2032%2C%20Greece!5e0!3m2!1sen!2sgr!4v1701600000000!5m2!1sen!2sgr"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Dr. Valvis Clinic Location - Kountouriotou 127, Piraeus, Greece 18532"
+              className="w-full h-[300px] sm:h-[400px] lg:h-[450px]"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Our Clients in Shorts Section */}
       <ClientShortsCarousel />
 
