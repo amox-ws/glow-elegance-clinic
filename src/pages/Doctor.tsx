@@ -1,7 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { GraduationCap, Briefcase, Heart } from 'lucide-react';
-import doctorPortrait from '@/assets/doctor-portrait.jpg';
+// Updated the import to your new image
+import cvFoto from '@/assets/cvfoto.jpeg';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Doctor = () => {
@@ -64,7 +65,7 @@ const Doctor = () => {
             {/* Portrait */}
             <div className="lg:col-span-2" data-anim="left">
               <img
-                src={doctorPortrait}
+                src={cvFoto} /* Updated source variable here */
                 alt="Doctor Portrait"
                 className="rounded-2xl shadow-elegant w-full h-auto sticky top-28"
               />
