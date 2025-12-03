@@ -156,6 +156,9 @@ const translations = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
 
+    // Map Section
+    "map.title": "Map & Location",
+
     // CTA
     "cta.ready": "Ready to Begin Your Journey?",
     "cta.description": "Schedule a consultation to discuss your aesthetic goals in a comfortable, private setting.",
@@ -306,6 +309,9 @@ const translations = {
     "footer.rights": "Όλα τα δικαιώματα διατηρούνται.",
     "footer.privacy": "Πολιτική Απορρήτου",
     "footer.terms": "Όροι Χρήσης",
+
+    // Map Section
+    "map.title": "Χάρτης & Τοποθεσία",
 
     // CTA
     "cta.ready": "Έτοιμοι να Ξεκινήσετε;",
