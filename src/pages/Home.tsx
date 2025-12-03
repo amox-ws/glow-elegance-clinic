@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-clinic.jpg';
+// Updated the hero image import
+import heroImage from '@/assets/homepagefirst.jpeg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
@@ -68,7 +69,7 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 gradient-cream opacity-80" />
+          <div className="absolute inset-0 gradient-cream opacity-55" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
