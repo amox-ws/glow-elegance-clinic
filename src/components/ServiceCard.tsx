@@ -33,7 +33,7 @@ const ServiceCard = ({
           data-anim="auto"
           className="p-6 h-full border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group cursor-pointer hover:-translate-y-1"
         >
-          <h3 className="text-xl font-serif font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-heading font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
             {t(titleKey)}
           </h3>
           <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
@@ -54,7 +54,7 @@ const ServiceCard = ({
       data-anim="auto"
       className="p-6 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500 group"
     >
-      <h3 className="text-xl font-serif font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+      <h3 className="text-xl font-heading font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
         {t(titleKey)}
       </h3>
       <p className="text-muted-foreground mb-4">

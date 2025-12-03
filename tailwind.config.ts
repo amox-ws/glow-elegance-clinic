@@ -57,7 +57,7 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Noto Serif', 'Georgia', 'serif'],
+        heading: ['Poppins', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
