@@ -208,7 +208,7 @@ const translations = {
     "sections.beforeAfters": "Πριν & Μετά",
 
     // Hero
-    "hero.title": "✨ Experience the epitome of beauty and glow ✨",
+    "hero.title": "Experience the epitome of beauty and glow",
     "hero.subtitle":
       "Επαγγελματική αριστεία με προσωπική προσέγγιση. Η υγεία και η ομορφιά σας είναι η προτεραιότητά μας.",
     "hero.cta": "Επικοινωνήστε",
