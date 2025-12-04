@@ -160,12 +160,12 @@ const Home = () => {
             </Link>
 
             {/* Bottom Row - Two Boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
               {/* Bottom Left Box */}
               <Link
                 to="/services#renewal"
                 data-anim="up"
-                className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
                 aria-label={t('services.category.renewal')}
               >
                 {/* Background Image */}
@@ -177,7 +177,7 @@ const Home = () => {
                 
                 {/* Content - Centered */}
                 <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105">
+                  <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
                     {t('services.category.renewal')}
                   </h3>
                 </div>
@@ -194,7 +194,7 @@ const Home = () => {
               <Link
                 to="/services#body"
                 data-anim="up"
-                className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
                 aria-label={t('services.category.body')}
               >
                 {/* Background Image */}
@@ -206,7 +206,7 @@ const Home = () => {
 
                 {/* Content - Centered */}
                 <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105">
+                  <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
                     {t('services.category.body')}
                   </h3>
                 </div>
