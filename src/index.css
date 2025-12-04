@@ -166,6 +166,19 @@ All colors MUST be HSL.
   .animate-slide-in-right {
     animation: slideInRight 0.8s ease-out forwards;
   }
+  
+  /* Luxurious hero title animation */
+  .animate-hero-title {
+    animation: heroTitleReveal 1000ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-title {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 @keyframes fadeInUp {
@@ -207,6 +220,17 @@ All colors MUST be HSL.
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes heroTitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
