@@ -4,7 +4,13 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ClinicCarousel = () => {
+// 1. Define the Interface
+interface ClinicCarouselProps {
+  images?: string[]; // Define the optional images prop
+}
+
+// 2. Accept the prop in the component function
+const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
   const { t } = useLanguage();
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -38,8 +44,8 @@ const ClinicCarousel = () => {
     };
   }, [emblaApi, onSelect]);
 
-  // Placeholder images for the clinic
-  const clinicImages = [
+  // Fallback images if none are provided
+  const defaultImages = [
     {
       src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop&q=80',
       alt: t('clinic.image.alt') + ' 1',
@@ -48,23 +54,15 @@ const ClinicCarousel = () => {
       src: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop&q=80',
       alt: t('clinic.image.alt') + ' 2',
     },
-    {
-      src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop&q=80',
-      alt: t('clinic.image.alt') + ' 3',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&h=600&fit=crop&q=80',
-      alt: t('clinic.image.alt') + ' 4',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&h=600&fit=crop&q=80',
-      alt: t('clinic.image.alt') + ' 5',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop&q=80',
-      alt: t('clinic.image.alt') + ' 6',
-    },
   ];
+
+  // 3. Use the passed images array if it exists, otherwise use default
+  const displayImages = images && images.length > 0 
+    ? images.map((src, index) => ({
+        src,
+        alt: `${t('clinic.image.alt')} ${index + 1}`
+      }))
+    : defaultImages;
 
   return (
     <section className="py-20 bg-background">
@@ -80,10 +78,10 @@ const ClinicCarousel = () => {
           {/* Carousel */}
           <div ref={emblaRef} className="overflow-hidden rounded-2xl">
             <div className="flex">
-              {clinicImages.map((image, index) => (
+              {displayImages.map((image, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4 first:pl-0"
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4"
                 >
                   <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-elegant">
                     <img

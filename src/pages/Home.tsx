@@ -1,6 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-// Updated the hero image import
 import heroImage from '@/assets/homepagefirst.jpeg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
@@ -15,6 +14,20 @@ import before_botox from "@/assets/before_botox.png"
 import after_botox from "@/assets/after_botox.png"
 import before_darkeyes from "@/assets/before_darkeyes.png"
 import after_darkeyes from "@/assets/after_darkeyes.png"
+import meetthedoctor from "@/assets/meetthedoctor.jpeg"
+import whychooseus from "@/assets/whychooseus.png"
+
+import clinic1 from "@/assets/cllinic1.jpeg"
+import clinic2 from "@/assets/clinic2.jpeg"
+import clinic3 from "@/assets/clinic3.jpeg"
+import clinic4 from "@/assets/clinic4.jpeg"
+
+import shorts1 from "@/assets/shorts/shorts1.png"
+import shorts2 from "@/assets/shorts/shorts2.png"
+import shorts3 from "@/assets/shorts/shorts3.png"
+import shorts4 from "@/assets/shorts/shorts4.png"
+import shorts5 from "@/assets/shorts/shorts5.png"
+import shorts6 from "@/assets/shorts/shorts6.png"
 
 const Home = () => {
   const { t } = useLanguage();
@@ -60,6 +73,12 @@ const Home = () => {
       image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop&q=80',
     },
   ];
+
+  // Array of your imported clinic images
+  const clinicImages = [clinic1, clinic2, clinic3, clinic4];
+
+  // Array of your imported shorts images
+  const shortsImages = [shorts1, shorts2, shorts3, shorts4, shorts5, shorts6];
 
   return (
     <div className="min-h-screen">
@@ -221,7 +240,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div data-anim="left">
               <img
-                src={doctorPortrait}
+                src={meetthedoctor}
                 alt="Doctor Portrait"
                 className="rounded-2xl shadow-elegant w-full h-auto"
               />
@@ -245,8 +264,7 @@ const Home = () => {
       </section>
 
       {/* Before & Afters Section */}
-{/* Before & Afters Section */}
-<section className="py-20 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12" data-anim="up">
             <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
@@ -337,7 +355,7 @@ const Home = () => {
               <div className="relative">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
                   <img
-                    src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&h=800&fit=crop&q=80"
+                    src={whychooseus}
                     alt="Aesthetic treatments"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -349,8 +367,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clinic Section */}
-      <ClinicCarousel />
+      {/* Our Clinic Section with Custom Images */}
+      <ClinicCarousel images={clinicImages} />
 
       {/* Map & Location Section */}
       <section className="py-16 sm:py-20 bg-background">
@@ -381,8 +399,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clients in Shorts Section */}
-      <ClientShortsCarousel />
+      {/* Our Clients in Shorts Section with Custom Images */}
+      <ClientShortsCarousel images={shortsImages} />
 
       {/* CTA Section */}
       <section className="py-20 gradient-warm">

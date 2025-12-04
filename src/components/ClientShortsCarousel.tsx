@@ -3,19 +3,18 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
-interface VideoItem {
-  id: number;
-  thumbnail: string;
+interface ClientShortsCarouselProps {
+  images?: string[];
 }
 
-const ClientShortsCarousel = () => {
+const ClientShortsCarousel = ({ images }: ClientShortsCarouselProps) => {
   const { t } = useLanguage();
+  
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
-    loop: false,
+    loop: true,
     skipSnaps: false,
     dragFree: false,
-    containScroll: 'trimSnaps',
     slidesToScroll: 1,
   });
 
@@ -42,38 +41,23 @@ const ClientShortsCarousel = () => {
     };
   }, [emblaApi, onSelect]);
 
-  // Placeholder video items - to be replaced with real content later
-  const videoItems: VideoItem[] = [
-    {
-      id: 1,
-      thumbnail: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=600&fit=crop&q=80',
-    },
-    {
-      id: 2,
-      thumbnail: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=600&fit=crop&q=80',
-    },
-    {
-      id: 3,
-      thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=600&fit=crop&q=80',
-    },
-    {
-      id: 4,
-      thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop&q=80',
-    },
-    {
-      id: 5,
-      thumbnail: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=600&fit=crop&q=80',
-    },
-    {
-      id: 6,
-      thumbnail: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=600&fit=crop&q=80',
-    },
+  const defaultItems = [
+    { id: 1, thumbnail: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=600&fit=crop&q=80' },
+    { id: 2, thumbnail: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=600&fit=crop&q=80' },
+    { id: 3, thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=600&fit=crop&q=80' },
+    { id: 4, thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop&q=80' },
   ];
+
+  const videoItems = images && images.length > 0
+    ? images.map((img, index) => ({
+        id: index,
+        thumbnail: img
+      }))
+    : defaultItems;
 
   return (
     <section className="py-20 bg-background" aria-labelledby="clients-shorts-title">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
         <div className="text-center mb-12" data-anim="up">
           <h2 
             id="clients-shorts-title"
@@ -86,17 +70,11 @@ const ClientShortsCarousel = () => {
           <div className="w-20 h-1 gradient-warm mx-auto" />
         </div>
 
-        {/* Carousel Container */}
         <div className="relative max-w-7xl mx-auto">
-          {/* Navigation Arrows */}
+          {/* Arrows */}
           <button
             onClick={scrollPrev}
-            disabled={!canScrollPrev}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 -translate-x-4 lg:-translate-x-6 ${
-              canScrollPrev 
-                ? 'opacity-100 hover:bg-background hover:scale-110' 
-                : 'opacity-30 cursor-not-allowed'
-            }`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 -translate-x-4 lg:-translate-x-6 hover:bg-background hover:scale-110 opacity-100`}
             aria-label={t('clients.prev')}
           >
             <ChevronLeft className="w-6 h-6 text-foreground" />
@@ -104,29 +82,26 @@ const ClientShortsCarousel = () => {
 
           <button
             onClick={scrollNext}
-            disabled={!canScrollNext}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 translate-x-4 lg:translate-x-6 ${
-              canScrollNext 
-                ? 'opacity-100 hover:bg-background hover:scale-110' 
-                : 'opacity-30 cursor-not-allowed'
-            }`}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 translate-x-4 lg:translate-x-6 hover:bg-background hover:scale-110 opacity-100`}
             aria-label={t('clients.next')}
           >
             <ChevronRight className="w-6 h-6 text-foreground" />
           </button>
 
-          {/* Embla Carousel */}
+          {/* Embla Carousel Viewport */}
           <div className="overflow-hidden px-2" ref={emblaRef}>
-            <div className="flex gap-4 md:gap-6">
+            {/* ΔΙΟΡΘΩΣΗ: Αντί για 'gap-4', χρησιμοποιούμε αρνητικό margin (-ml) στο container 
+               και padding (pl) στα items. Αυτό διορθώνει το loop glitch.
+            */}
+            <div className="flex -ml-4 md:-ml-6">
               {videoItems.map((item, index) => (
                 <div
                   key={item.id}
-                  className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] lg:w-[23%]"
+                  // ΔΙΟΡΘΩΣΗ: Προσθήκη padding-left εδώ για να δημιουργηθεί το κενό
+                  className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] lg:w-[23%] pl-4 md:pl-6"
                 >
                   <article className="group relative rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500">
-                    {/* Video Thumbnail Container */}
                     <div className="relative aspect-[9/14] bg-neutral-900 overflow-hidden">
-                      {/* Thumbnail Image */}
                       <img
                         src={item.thumbnail}
                         alt={`${t('clients.video.alt')} ${index + 1}`}
@@ -134,14 +109,12 @@ const ClientShortsCarousel = () => {
                         loading="lazy"
                       />
                       
-                      {/* Play Button Overlay */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                           <Play className="w-8 h-8 text-white fill-white/80" />
                         </div>
                       </div>
 
-                      {/* Subtle Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                     </div>
                   </article>
