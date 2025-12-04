@@ -18,7 +18,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-foreground">{t("footer.quickLinks")}</h4>
             <div className="space-y-2">
               <Link to="/" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
                 {t("nav.home")}

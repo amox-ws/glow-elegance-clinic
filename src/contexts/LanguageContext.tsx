@@ -19,7 +19,7 @@ const translations = {
 
     // Hero
     "hero.title": "Experience the epitome of beauty and glow",
-    "hero.subtitle": "Professional excellence with a personal touch. Your health and beauty are our priority.",
+    "hero.subtitle": "Your health and beauty are our priority.",
     "hero.cta": "Contact Us",
 
     // Sections
@@ -185,6 +185,7 @@ const translations = {
     "contact.instagram": "Instagram",
 
     // Footer
+    "footer.quickLinks": "Quick Links",
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
@@ -209,8 +210,7 @@ const translations = {
 
     // Hero
     "hero.title": "Experience the epitome of beauty and glow",
-    "hero.subtitle":
-      "Επαγγελματική αριστεία με προσωπική προσέγγιση. Η υγεία και η ομορφιά σας είναι η προτεραιότητά μας.",
+    "hero.subtitle": "Η υγεία και η ομορφιά σας είναι η προτεραιότητά μας.",
     "hero.cta": "Επικοινωνήστε",
 
     // Why Choose Us
@@ -374,6 +374,7 @@ const translations = {
     "contact.instagram": "Instagram",
 
     // Footer
+    "footer.quickLinks": "Γρήγοροι Σύνδεσμοι",
     "footer.rights": "Όλα τα δικαιώματα διατηρούνται.",
     "footer.privacy": "Πολιτική Απορρήτου",
     "footer.terms": "Όροι Χρήσης",
