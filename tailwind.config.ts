@@ -59,6 +59,7 @@ export default {
       fontFamily: {
         heading: ['Manrope', 'system-ui', 'sans-serif'],
         sans: ['Manrope', 'system-ui', 'sans-serif'],
+        'hero-serif': ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
