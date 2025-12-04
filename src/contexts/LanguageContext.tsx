@@ -24,7 +24,7 @@ const translations = {
 
     // Sections
     "sections.beforeAfters": "Before & Afters",
-    
+
     // Why Choose Us
     "why.title": "Why Choose",
     "why.titleHighlight": "Dr. Valvis?",
@@ -69,7 +69,8 @@ const translations = {
 
     // Service Categories
     "services.category.injectable": "Facial Injectable Treatments",
-    "services.category.injectable.desc": "Advanced injectable solutions for volume restoration, wrinkle reduction, and facial contouring.",
+    "services.category.injectable.desc":
+      "Advanced injectable solutions for volume restoration, wrinkle reduction, and facial contouring.",
     "services.category.renewal": "Skin Rejuvenation & Hydration",
     "services.category.renewal.desc": "Medical-grade treatments for radiant, youthful, and deeply hydrated skin.",
     "services.category.body": "Body Treatments",
@@ -77,13 +78,15 @@ const translations = {
 
     // Injectable Face Treatments
     "services.hyaluronic.title": "Hyaluronic Acid – Fillers",
-    "services.hyaluronic.desc": "Injectable treatment restoring volume, enhancing natural features, and improving tissue elasticity.",
+    "services.hyaluronic.desc":
+      "Injectable treatment restoring volume, enhancing natural features, and improving tissue elasticity.",
     "services.botox.title": "Botox – Anti-Wrinkle Treatment",
     "services.botox.desc": "Softens dynamic wrinkles caused by facial expressions.",
     "services.skinboosters.title": "Skin Boosters",
     "services.skinboosters.desc": "Injectable formulas that deeply hydrate and stimulate collagen production.",
     "services.mesotherapy.title": "Facial Mesotherapy",
-    "services.mesotherapy.desc": "Micro-injections with vitamins, peptides, amino acids & hyaluronic acid for glow and regeneration.",
+    "services.mesotherapy.desc":
+      "Micro-injections with vitamins, peptides, amino acids & hyaluronic acid for glow and regeneration.",
     "services.nanosoft.title": "NanoSoft Eye Mesotherapy",
     "services.nanosoft.desc": "Reduces dark circles & fine lines with specialized micro-needle delivery.",
     "services.dissolving.title": "Hyaluronic Acid Dissolving",
@@ -95,7 +98,8 @@ const translations = {
 
     // Skin Renewal
     "services.skinpen.title": "SkinPen – Microneedling",
-    "services.skinpen.desc": "Controlled micro-injuries stimulate healing & collagen. Ideal for scars, pores, discoloration.",
+    "services.skinpen.desc":
+      "Controlled micro-injuries stimulate healing & collagen. Ideal for scars, pores, discoloration.",
     "services.laser.title": "Fractional Laser",
     "services.laser.desc": "Treats wrinkles, scars, pigmentation with fractional micro-columns for fast healing.",
     "services.microneedlingface.title": "Microneedling Face",
@@ -113,7 +117,8 @@ const translations = {
 
     // Old services (kept for compatibility)
     "services.gynecology": "Gynecology",
-    "services.gynecology.desc": "Complete gynecological care including routine checkups, screenings, and specialized treatments",
+    "services.gynecology.desc":
+      "Complete gynecological care including routine checkups, screenings, and specialized treatments",
     "services.aesthetic": "Aesthetic Surgery",
     "services.aesthetic.desc": "Advanced cosmetic procedures with natural-looking results",
     "services.intimate": "Intimate Wellness",
@@ -124,7 +129,8 @@ const translations = {
     // Doctor
     "doctor.title": "Meet the Doctor",
     "doctor.subtitle": "Dedicated to Your Health and Beauty",
-    "doctor.bio": "The doctor possesses a strong academic and professional foundation, having graduated with a Doctor of Medicine from the Medical University of Plovdiv (2018). With extensive experience in General Surgical Oncology at Metaxa Cancer Hospital (participating in 250+ major/minor operations), she has developed precise surgical skills and sharp clinical judgment. She also holds specialized expertise in Hair Transplantation (participating in 600+ FUT-STRIP procedures), significantly strengthening her profile in Aesthetic Medicine. She is an active member of leading scientific associations (including the Hellenic Society of Plastic Reconstructive & Aesthetic Surgery) and consistently attends international and national congresses, demonstrating her commitment to continuous education and the adoption of the latest techniques.",
+    "doctor.bio":
+      "The doctor possesses a strong academic and professional foundation, having graduated with a Doctor of Medicine from the Medical University of Plovdiv (2018). With extensive experience in General Surgical Oncology at Metaxa Cancer Hospital (participating in 250+ major/minor operations), she has developed precise surgical skills and sharp clinical judgment. She also holds specialized expertise in Hair Transplantation (participating in 600+ FUT-STRIP procedures), significantly strengthening her profile in Aesthetic Medicine. She is an active member of leading scientific associations (including the Hellenic Society of Plastic Reconstructive & Aesthetic Surgery) and consistently attends international and national congresses, demonstrating her commitment to continuous education and the adoption of the latest techniques.",
     "doctor.workExperience": "Work Experience",
     "doctor.education": "Education & Training",
     "doctor.personalSkills": "Personal Skills",
@@ -202,15 +208,17 @@ const translations = {
     "sections.beforeAfters": "Πριν & Μετά",
 
     // Hero
-    "hero.title": "Experience the epitome of beauty and glow",
-    "hero.subtitle": "Επαγγελματική αριστεία με προσωπική προσέγγιση. Η υγεία και η ομορφιά σας είναι η προτεραιότητά μας.",
+    "hero.title": "✨ Experience the epitome of beauty and glow ✨",
+    "hero.subtitle":
+      "Επαγγελματική αριστεία με προσωπική προσέγγιση. Η υγεία και η ομορφιά σας είναι η προτεραιότητά μας.",
     "hero.cta": "Επικοινωνήστε",
 
     // Why Choose Us
     "why.title": "Γιατί να Επιλέξετε",
     "why.titleHighlight": "τη Dr. Valvis;",
     "why.subtitle": "Εμπιστευτείτε χιλιάδες ασθενείς, η Dr. Valvis παρέχει τεκμηριωμένη φροντίδα μέσω",
-    "why.subtitleBold": "πολυεπιστημονικής εμπειρογνωμοσύνης, προηγμένης τεχνολογίας και ασθενοκεντρικών αποτελεσμάτων.",
+    "why.subtitleBold":
+      "πολυεπιστημονικής εμπειρογνωμοσύνης, προηγμένης τεχνολογίας και ασθενοκεντρικών αποτελεσμάτων.",
     "why.specialized.title": "Εξειδικευμένη Ιατρική Φροντίδα",
     "why.specialized.desc": "Προηγμένη αισθητική φροντίδα από κορυφαίους ειδικούς.",
     "why.honesty.title": "Πολιτική Ειλικρίνειας",
@@ -250,7 +258,8 @@ const translations = {
 
     // Service Categories
     "services.category.injectable": "Ενέσιμες Θεραπείες Προσώπου",
-    "services.category.injectable.desc": "Προηγμένες ενέσιμες λύσεις για αποκατάσταση όγκου, μείωση ρυτίδων και ανάπλαση προσώπου.",
+    "services.category.injectable.desc":
+      "Προηγμένες ενέσιμες λύσεις για αποκατάσταση όγκου, μείωση ρυτίδων και ανάπλαση προσώπου.",
     "services.category.renewal": "Ανανέωση & Ενυδάτωση Δέρματος",
     "services.category.renewal.desc": "Ιατρικές θεραπείες για λαμπερό, νεανικό και βαθιά ενυδατωμένο δέρμα.",
     "services.category.body": "Θεραπείες Σώματος",
@@ -258,7 +267,8 @@ const translations = {
 
     // Injectable Face Treatments
     "services.hyaluronic.title": "Υαλουρονικό Οξύ – Fillers",
-    "services.hyaluronic.desc": "Ενέσιμη θεραπεία για αποκατάσταση όγκου, ενίσχυση χαρακτηριστικών και βελτίωση ελαστικότητας.",
+    "services.hyaluronic.desc":
+      "Ενέσιμη θεραπεία για αποκατάσταση όγκου, ενίσχυση χαρακτηριστικών και βελτίωση ελαστικότητας.",
     "services.botox.title": "Botox – Αντιρυτιδική Θεραπεία",
     "services.botox.desc": "Μειώνει τις δυναμικές ρυτίδες που προκαλούνται από τις εκφράσεις.",
     "services.skinboosters.title": "Skin Boosters",
@@ -276,7 +286,8 @@ const translations = {
 
     // Skin Renewal
     "services.skinpen.title": "SkinPen – Microneedling",
-    "services.skinpen.desc": "Δημιουργεί μικροτραυματισμούς ενεργοποιώντας επούλωση & παραγωγή κολλαγόνου. Ιδανικό για ουλές, πόρους, δυσχρωμίες.",
+    "services.skinpen.desc":
+      "Δημιουργεί μικροτραυματισμούς ενεργοποιώντας επούλωση & παραγωγή κολλαγόνου. Ιδανικό για ουλές, πόρους, δυσχρωμίες.",
     "services.laser.title": "Fractional Laser",
     "services.laser.desc": "Βελτιώνει ρυτίδες, ουλές, δυσχρωμίες με μικρο-στήλες δέρματος και γρήγορη επούλωση.",
     "services.microneedlingface.title": "Microneedling Προσώπου",
@@ -290,11 +301,13 @@ const translations = {
     "services.bodylipolysis.title": "Λιπόλυση Σώματος",
     "services.bodylipolysis.desc": "Ενέσιμη διάλυση τοπικού λίπους σε δύσκολες περιοχές.",
     "services.cellulite.title": "Θεραπείες Κυτταρίτιδας",
-    "services.cellulite.desc": "Ενέσιμες θεραπείες που βελτιώνουν μικροκυκλοφορία & λειαίνουν την όψη φλοιού πορτοκαλιού.",
+    "services.cellulite.desc":
+      "Ενέσιμες θεραπείες που βελτιώνουν μικροκυκλοφορία & λειαίνουν την όψη φλοιού πορτοκαλιού.",
 
     // Old services (kept for compatibility)
     "services.gynecology": "Γυναικολογία",
-    "services.gynecology.desc": "Πλήρης γυναικολογική φροντίδα συμπεριλαμβανομένων ρουτίνας ελέγχων και εξειδικευμένων θεραπειών",
+    "services.gynecology.desc":
+      "Πλήρης γυναικολογική φροντίδα συμπεριλαμβανομένων ρουτίνας ελέγχων και εξειδικευμένων θεραπειών",
     "services.aesthetic": "Αισθητική Χειρουργική",
     "services.aesthetic.desc": "Προηγμένες αισθητικές επεμβάσεις με φυσικά αποτελέσματα",
     "services.intimate": "Ευεξία Ευαίσθητων Περιοχών",
@@ -305,7 +318,8 @@ const translations = {
     // Doctor
     "doctor.title": "Γνωρίστε τη Γιατρό",
     "doctor.subtitle": "Αφοσιωμένη στην Υγεία και Ομορφιά σας",
-    "doctor.bio": "Η ιατρός φέρει μια ισχυρή ακαδημαϊκή και επαγγελματική βάση, έχοντας αποφοιτήσει από την Ιατρική Σχολή του Plovdiv (2018). Με πολυετή εμπειρία στην Γενική Χειρουργική Ογκολογία στο Αντικαρκινικό Νοσοκομείο Μεταξά (με συμμετοχή σε 250+ μείζονες/ελάσσονες επεμβάσεις), έχει αναπτύξει ακριβείς χειρουργικές δεξιότητες και οξεία κλινική κρίση. Διαθέτει επίσης εξειδικευμένη εμπειρία στην Μεταμόσχευση Μαλλιών (με συμμετοχή σε 600+ επεμβάσεις FUT-STRIP), ενισχύοντας το προφίλ της στον τομέα της Αισθητικής Ιατρικής. Είναι ενεργό μέλος σε κορυφαίες επιστημονικές εταιρείες (όπως η Ελληνική Εταιρεία Πλαστικής Επανορθωτικής & Αισθητικής Χειρουργικής) και συμμετέχει ανελλιπώς σε διεθνή και πανελλήνια συνέδρια, διασφαλίζοντας την προσήλωσή της στη συνεχή εκπαίδευση και την υιοθέτηση των πιο σύγχρονων τεχνικών.",
+    "doctor.bio":
+      "Η ιατρός φέρει μια ισχυρή ακαδημαϊκή και επαγγελματική βάση, έχοντας αποφοιτήσει από την Ιατρική Σχολή του Plovdiv (2018). Με πολυετή εμπειρία στην Γενική Χειρουργική Ογκολογία στο Αντικαρκινικό Νοσοκομείο Μεταξά (με συμμετοχή σε 250+ μείζονες/ελάσσονες επεμβάσεις), έχει αναπτύξει ακριβείς χειρουργικές δεξιότητες και οξεία κλινική κρίση. Διαθέτει επίσης εξειδικευμένη εμπειρία στην Μεταμόσχευση Μαλλιών (με συμμετοχή σε 600+ επεμβάσεις FUT-STRIP), ενισχύοντας το προφίλ της στον τομέα της Αισθητικής Ιατρικής. Είναι ενεργό μέλος σε κορυφαίες επιστημονικές εταιρείες (όπως η Ελληνική Εταιρεία Πλαστικής Επανορθωτικής & Αισθητικής Χειρουργικής) και συμμετέχει ανελλιπώς σε διεθνή και πανελλήνια συνέδρια, διασφαλίζοντας την προσήλωσή της στη συνεχή εκπαίδευση και την υιοθέτηση των πιο σύγχρονων τεχνικών.",
     "doctor.workExperience": "Επαγγελματική Εμπειρία",
     "doctor.education": "Εκπαίδευση & Σπουδές",
     "doctor.personalSkills": "Γλωσσικές & Προσωπικές Δεξιότητες",
@@ -369,7 +383,8 @@ const translations = {
 
     // CTA
     "cta.ready": "Έτοιμοι να Ξεκινήσετε;",
-    "cta.description": "Κλείστε μια συμβουλευτική για να συζητήσουμε τους αισθητικούς σας στόχους σε ένα άνετο, ιδιωτικό περιβάλλον.",
+    "cta.description":
+      "Κλείστε μια συμβουλευτική για να συζητήσουμε τους αισθητικούς σας στόχους σε ένα άνετο, ιδιωτικό περιβάλλον.",
   },
 };
 
