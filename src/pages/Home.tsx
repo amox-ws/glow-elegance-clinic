@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/homepagefirst.jpeg';
@@ -8,6 +9,7 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import the custom hook
 
 import before_lips from "@/assets/before_lips.png";
 import after_lips from "@/assets/after_lips.png";
@@ -37,7 +39,11 @@ import service_r from "@/assets/service_r.png";
 
 const Home = () => {
   const { t } = useLanguage();
-  useScrollReveal();
+  useScrollReveal(); // Handles the 'data-anim' animations (Top Box)
+
+  // 1. Animation hooks for the Wrappers of the Left/Right boxes
+  const { ref: leftWrapperRef, isVisible: isLeftVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: rightWrapperRef, isVisible: isRightVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const whyChooseFeatures = [
     {
@@ -87,7 +93,7 @@ const Home = () => {
   const shortsImages = [shorts1, shorts2, shorts3, shorts4, shorts5, shorts6];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
@@ -130,7 +136,9 @@ const Home = () => {
           </p>
 
           <div className="max-w-6xl mx-auto space-y-6">
+            
             {/* Top Box - Full Width */}
+            {/* Has data-anim="up" for simple fade in */}
             <Link
               to="/services#injectable"
               data-anim="up"
@@ -160,64 +168,79 @@ const Home = () => {
             </Link>
 
             {/* Bottom Row - Two Boxes */}
+            {/* Kept your exact grid classes */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+              
               {/* Bottom Left Box */}
-              <Link
-                to="/services#renewal"
-                data-anim="up"
-                className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
-                aria-label={t('services.category.renewal')}
-              >
-                {/* Background Image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${serviceCategories[1].image})` }}
-                />
-                
-                
-                {/* Content - Centered */}
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
-                    {t('services.category.renewal')}
-                  </h3>
-                </div>
-                
-                {/* Arrow Icon */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
+              <div ref={leftWrapperRef} className="overflow-visible">
+                <Link
+                  to="/services#renewal"
+                  className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
+                  aria-label={t('services.category.renewal')}
+                  style={{
+                    opacity: isLeftVisible ? 1 : 0,
+                    transform: isLeftVisible ? "translateX(0)" : "translateX(-120%)", // Fly in from Left
+                    transition: "all 1.8s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                  }}
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: `url(${serviceCategories[1].image})` }}
+                  />
+                  
+                  
+                  {/* Content - Centered */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white">
+                    <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
+                      {t('services.category.renewal')}
+                    </h3>
+                  </div>
+                  
+                  {/* Arrow Icon */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
 
               {/* Bottom Right Box */}
-              <Link
-                to="/services#body"
-                data-anim="up"
-                className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
-                aria-label={t('services.category.body')}
-              >
-                {/* Background Image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${serviceCategories[2].image})` }}
-                />
-                
+              <div ref={rightWrapperRef} className="overflow-visible">
+                <Link
+                  to="/services#body"
+                  className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
+                  aria-label={t('services.category.body')}
+                  style={{
+                    opacity: isRightVisible ? 1 : 0,
+                    transform: isRightVisible ? "translateX(0)" : "translateX(120%)", // Fly in from Right
+                    transition: "all 1.8s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                  }}
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: `url(${serviceCategories[2].image})` }}
+                  />
+                  
 
-                {/* Content - Centered */}
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
-                    {t('services.category.body')}
-                  </h3>
-                </div>
-                
-                {/* Arrow Icon */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
+                  {/* Content - Centered */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white">
+                    <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
+                      {t('services.category.body')}
+                    </h3>
+                  </div>
+                  
+                  {/* Arrow Icon */}
+                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
+
             </div>
           </div>
 
