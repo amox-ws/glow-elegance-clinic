@@ -1,6 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+// Updated the hero image import (Desktop)
 import heroImage from '@/assets/homepagefirst.jpeg';
+// NEW: Mobile hero image import
+import heroImageMobile from '@/assets/hero-clinic_mobile.jpeg';
+
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
@@ -84,8 +88,17 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Mobile Background (Visible only on small screens) */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center md:hidden"
+          style={{ backgroundImage: `url(${heroImageMobile})` }}
+        >
+          <div className="absolute inset-0 gradient-cream opacity-55" />
+        </div>
+
+        {/* Desktop Background (Visible only on medium screens and up) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center hidden md:block"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 gradient-cream opacity-55" />
