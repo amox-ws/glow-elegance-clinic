@@ -124,6 +124,7 @@ const translations = {
     // Doctor
     "doctor.title": "Meet the Doctor",
     "doctor.subtitle": "Dedicated to Your Health and Beauty",
+    "doctor.bio": "The doctor possesses a strong academic and professional foundation, having graduated with a Doctor of Medicine from the Medical University of Plovdiv (2018). With extensive experience in General Surgical Oncology at Metaxa Cancer Hospital (participating in 250+ major/minor operations), she has developed precise surgical skills and sharp clinical judgment. She also holds specialized expertise in Hair Transplantation (participating in 600+ FUT-STRIP procedures), significantly strengthening her profile in Aesthetic Medicine. She is an active member of leading scientific associations (including the Hellenic Society of Plastic Reconstructive & Aesthetic Surgery) and consistently attends international and national congresses, demonstrating her commitment to continuous education and the adoption of the latest techniques.",
     "doctor.workExperience": "Work Experience",
     "doctor.education": "Education & Training",
     "doctor.personalSkills": "Personal Skills",
@@ -304,6 +305,7 @@ const translations = {
     // Doctor
     "doctor.title": "Γνωρίστε τη Γιατρό",
     "doctor.subtitle": "Αφοσιωμένη στην Υγεία και Ομορφιά σας",
+    "doctor.bio": "Η ιατρός φέρει μια ισχυρή ακαδημαϊκή και επαγγελματική βάση, έχοντας αποφοιτήσει από την Ιατρική Σχολή του Plovdiv (2018). Με πολυετή εμπειρία στην Γενική Χειρουργική Ογκολογία στο Αντικαρκινικό Νοσοκομείο Μεταξά (με συμμετοχή σε 250+ μείζονες/ελάσσονες επεμβάσεις), έχει αναπτύξει ακριβείς χειρουργικές δεξιότητες και οξεία κλινική κρίση. Διαθέτει επίσης εξειδικευμένη εμπειρία στην Μεταμόσχευση Μαλλιών (με συμμετοχή σε 600+ επεμβάσεις FUT-STRIP), ενισχύοντας το προφίλ της στον τομέα της Αισθητικής Ιατρικής. Είναι ενεργό μέλος σε κορυφαίες επιστημονικές εταιρείες (όπως η Ελληνική Εταιρεία Πλαστικής Επανορθωτικής & Αισθητικής Χειρουργικής) και συμμετέχει ανελλιπώς σε διεθνή και πανελλήνια συνέδρια, διασφαλίζοντας την προσήλωσή της στη συνεχή εκπαίδευση και την υιοθέτηση των πιο σύγχρονων τεχνικών.",
     "doctor.workExperience": "Επαγγελματική Εμπειρία",
     "doctor.education": "Εκπαίδευση & Σπουδές",
     "doctor.personalSkills": "Γλωσσικές & Προσωπικές Δεξιότητες",
