@@ -1,6 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-// Updated the hero image import
 import heroImage from '@/assets/homepagefirst.jpeg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
@@ -8,70 +7,103 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
-import before_lips from "@/assets/before_lips.png";
-import after_lips from "@/assets/after_lips.png";
-import before_botox from "@/assets/before_botox.png";
-import after_botox from "@/assets/after_botox.png";
-import before_darkeyes from "@/assets/before_darkeyes.png";
-import after_darkeyes from "@/assets/after_darkeyes.png";
+
+import before_lips from "@/assets/before_lips.png"
+import after_lips from "@/assets/after_lips.png"
+import before_botox from "@/assets/before_botox.png"
+import after_botox from "@/assets/after_botox.png"
+import before_darkeyes from "@/assets/before_darkeyes.png"
+import after_darkeyes from "@/assets/after_darkeyes.png"
+import meetthedoctor from "@/assets/meetthedoctor.jpeg"
+import whychooseus from "@/assets/whychooseus.png"
+
+import clinic1 from "@/assets/cllinic1.jpeg"
+import clinic2 from "@/assets/clinic2.jpeg"
+import clinic3 from "@/assets/clinic3.jpeg"
+import clinic4 from "@/assets/clinic4.jpeg"
+
+import shorts1 from "@/assets/shorts/shorts1.png"
+import shorts2 from "@/assets/shorts/shorts2.png"
+import shorts3 from "@/assets/shorts/shorts3.png"
+import shorts4 from "@/assets/shorts/shorts4.png"
+import shorts5 from "@/assets/shorts/shorts5.png"
+import shorts6 from "@/assets/shorts/shorts6.png"
+
 const Home = () => {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
   useScrollReveal();
-  const whyChooseFeatures = [{
-    title: t('why.specialized.title'),
-    description: t('why.specialized.desc')
-  }, {
-    title: t('why.honesty.title'),
-    description: t('why.honesty.desc')
-  }, {
-    title: t('why.excellence.title'),
-    description: t('why.excellence.desc')
-  }, {
-    title: t('why.innovation.title'),
-    description: t('why.innovation.desc')
-  }];
+
+  const whyChooseFeatures = [
+    {
+      title: t('why.specialized.title'),
+      description: t('why.specialized.desc'),
+    },
+    {
+      title: t('why.honesty.title'),
+      description: t('why.honesty.desc'),
+    },
+    {
+      title: t('why.excellence.title'),
+      description: t('why.excellence.desc'),
+    },
+    {
+      title: t('why.innovation.title'),
+      description: t('why.innovation.desc'),
+    },
+  ];
 
   // Service category cards for home page
-  const serviceCategories = [{
-    id: 'injectable',
-    titleKey: 'services.category.injectable',
-    descKey: 'services.category.injectable.desc',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop&q=80'
-  }, {
-    id: 'renewal',
-    titleKey: 'services.category.renewal',
-    descKey: 'services.category.renewal.desc',
-    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop&q=80'
-  }, {
-    id: 'body',
-    titleKey: 'services.category.body',
-    descKey: 'services.category.body.desc',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop&q=80'
-  }];
-  return <div className="min-h-screen">
+  const serviceCategories = [
+    {
+      id: 'injectable',
+      titleKey: 'services.category.injectable',
+      descKey: 'services.category.injectable.desc',
+      image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop&q=80',
+    },
+    {
+      id: 'renewal',
+      titleKey: 'services.category.renewal',
+      descKey: 'services.category.renewal.desc',
+      image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop&q=80',
+    },
+    {
+      id: 'body',
+      titleKey: 'services.category.body',
+      descKey: 'services.category.body.desc',
+      image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop&q=80',
+    },
+  ];
+
+  // Array of your imported clinic images
+  const clinicImages = [clinic1, clinic2, clinic3, clinic4];
+
+  // Array of your imported shorts images
+  const shortsImages = [shorts1, shorts2, shorts3, shorts4, shorts5, shorts6];
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{
-        backgroundImage: `url(${heroImage})`
-      }}>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
           <div className="absolute inset-0 gradient-cream opacity-55" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-heading text-foreground mb-6 animate-fade-in-up font-medium lg:text-5xl">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 animate-fade-in-up">
             {t('hero.title')}
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up" style={{
-          animationDelay: '0.2s'
-        }}>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             {t('hero.subtitle')}
           </p>
           <Link to="/contact">
-            <Button size="lg" className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant animate-fade-in-up" style={{
-            animationDelay: '0.4s'
-          }}>
+            <Button
+              size="lg"
+              className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant animate-fade-in-up"
+              style={{ animationDelay: '0.4s' }}
+            >
               {t('hero.cta')}
             </Button>
           </Link>
@@ -90,18 +122,26 @@ const Home = () => {
 
           <div className="max-w-6xl mx-auto space-y-6">
             {/* Top Box - Full Width */}
-            <Link to="/services#injectable" data-anim="up" className="group relative block overflow-hidden rounded-2xl h-[320px] md:h-[400px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500" aria-label={t('services.category.injectable')}>
+            <Link
+              to="/services#injectable"
+              data-anim="up"
+              className="group relative block overflow-hidden rounded-2xl h-[320px] md:h-[400px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+              aria-label={t('services.category.injectable')}
+            >
               {/* Background Image */}
-              <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{
-              backgroundImage: `url(${serviceCategories[0].image})`
-            }} />
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${serviceCategories[0].image})` }}
+              />
               
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
               
               {/* Content - Centered */}
               <div className="absolute inset-0 flex items-center justify-center text-white">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105">
+                <h3 
+                  className="text-2xl sm:text-3xl md:text-4xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105"
+                >
                   {t('services.category.injectable')}
                 </h3>
               </div>
@@ -117,18 +157,26 @@ const Home = () => {
             {/* Bottom Row - Two Boxes */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Bottom Left Box */}
-              <Link to="/services#renewal" data-anim="up" className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500" aria-label={t('services.category.renewal')}>
+              <Link
+                to="/services#renewal"
+                data-anim="up"
+                className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                aria-label={t('services.category.renewal')}
+              >
                 {/* Background Image */}
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{
-                backgroundImage: `url(${serviceCategories[1].image})`
-              }} />
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${serviceCategories[1].image})` }}
+                />
                 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
                 
                 {/* Content - Centered */}
                 <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105">
+                  <h3 
+                    className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105"
+                  >
                     {t('services.category.renewal')}
                   </h3>
                 </div>
@@ -142,18 +190,26 @@ const Home = () => {
               </Link>
 
               {/* Bottom Right Box */}
-              <Link to="/services#body" data-anim="up" className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500" aria-label={t('services.category.body')}>
+              <Link
+                to="/services#body"
+                data-anim="up"
+                className="group relative block overflow-hidden rounded-2xl h-[280px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
+                aria-label={t('services.category.body')}
+              >
                 {/* Background Image */}
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{
-                backgroundImage: `url(${serviceCategories[2].image})`
-              }} />
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${serviceCategories[2].image})` }}
+                />
                 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
                 
                 {/* Content - Centered */}
                 <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105">
+                  <h3 
+                    className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105"
+                  >
                     {t('services.category.body')}
                   </h3>
                 </div>
@@ -183,7 +239,11 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div data-anim="left">
-              <img src={doctorPortrait} alt="Doctor Portrait" className="rounded-2xl shadow-elegant w-full h-auto" />
+              <img
+                src={meetthedoctor}
+                alt="Doctor Portrait"
+                className="rounded-2xl shadow-elegant w-full h-auto"
+              />
             </div>
 
             <div data-anim="right">
@@ -204,8 +264,7 @@ const Home = () => {
       </section>
 
       {/* Before & Afters Section */}
-    {/* Before & Afters Section */}
-    <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12" data-anim="up">
             <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
@@ -217,17 +276,29 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal-stagger">
             {/* 1. Botox */}
             <div data-anim="up">
-              <BeforeAfterSlider titleKey="services.botox.title" beforeImage={before_botox} afterImage={after_botox} />
+              <BeforeAfterSlider
+                titleKey="services.botox.title"
+                beforeImage={before_botox}
+                afterImage={after_botox}
+              />
             </div>
 
             {/* 2. Hyaluronic Acid */}
             <div data-anim="up">
-              <BeforeAfterSlider titleKey="services.hyaluronic.title" beforeImage={before_lips} afterImage={after_lips} />
+              <BeforeAfterSlider
+                titleKey="services.hyaluronic.title"
+                beforeImage={before_lips}
+                afterImage={after_lips}
+              />
             </div>
 
             {/* 3. Body/Tummy Tuck */}
             <div data-anim="up">
-              <BeforeAfterSlider titleKey="services.faciallipolysis.title" beforeImage={before_darkeyes} afterImage={after_darkeyes} />
+              <BeforeAfterSlider
+                titleKey="services.faciallipolysis.title" 
+                beforeImage={before_darkeyes}
+                afterImage={after_darkeyes}
+              />
             </div>
           </div>
         </div>
@@ -251,20 +322,28 @@ const Home = () => {
 
               {/* Features Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                {whyChooseFeatures.map((feature, index) => <div key={index} className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}>
+                {whyChooseFeatures.map((feature, index) => (
+                  <div 
+                    key={index} 
+                    className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}
+                  >
                     <h3 className="text-lg font-semibold text-foreground mb-2">
                       {feature.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       {feature.description}
                     </p>
-                  </div>)}
+                  </div>
+                ))}
               </div>
 
               {/* CTA Button */}
               <div className="mt-10">
                 <Link to="/contact">
-                  <Button size="lg" className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8">
+                  <Button
+                    size="lg"
+                    className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8"
+                  >
                     {t('why.cta')}
                   </Button>
                 </Link>
@@ -275,7 +354,12 @@ const Home = () => {
             <div data-anim="right" className="hidden lg:block">
               <div className="relative">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
-                  <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=600&h=800&fit=crop&q=80" alt="Aesthetic treatments" className="w-full h-full object-cover" loading="lazy" />
+                  <img
+                    src={whychooseus}
+                    alt="Aesthetic treatments"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
@@ -283,8 +367,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clinic Section */}
-      <ClinicCarousel />
+      {/* Our Clinic Section with Custom Images */}
+      <ClinicCarousel images={clinicImages} />
 
       {/* Map & Location Section */}
       <section className="py-16 sm:py-20 bg-background">
@@ -296,16 +380,27 @@ const Home = () => {
             <div className="w-20 h-1 gradient-warm mx-auto" />
           </div>
           
-          <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-elegant" data-anim="up">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1234567890!2d23.6431!3d37.9445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc0ef1f0c4b1%3A0x9f8e7d6c5b4a3210!2sKountouriotou%20127%2C%20Piraeus%20185%2032%2C%20Greece!5e0!3m2!1sen!2sgr!4v1701600000000!5m2!1sen!2sgr" width="100%" height="450" style={{
-            border: 0
-          }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Dr. Valvis Clinic Location - Kountouriotou 127, Piraeus, Greece 18532" className="w-full h-[300px] sm:h-[400px] lg:h-[450px]" />
+          <div 
+            className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-elegant"
+            data-anim="up"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1234567890!2d23.6431!3d37.9445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc0ef1f0c4b1%3A0x9f8e7d6c5b4a3210!2sKountouriotou%20127%2C%20Piraeus%20185%2032%2C%20Greece!5e0!3m2!1sen!2sgr!4v1701600000000!5m2!1sen!2sgr"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Dr. Valvis Clinic Location - Kountouriotou 127, Piraeus, Greece 18532"
+              className="w-full h-[300px] sm:h-[400px] lg:h-[450px]"
+            />
           </div>
         </div>
       </section>
 
-      {/* Our Clients in Shorts Section */}
-      <ClientShortsCarousel />
+      {/* Our Clients in Shorts Section with Custom Images */}
+      <ClientShortsCarousel images={shortsImages} />
 
       {/* CTA Section */}
       <section className="py-20 gradient-warm">
@@ -325,6 +420,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Home;

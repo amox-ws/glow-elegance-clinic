@@ -237,11 +237,11 @@ const Contact = () => {
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="inline-flex items-center justify-center w-10 h-10 rounded-full gradient-warm flex-shrink-0">
-                        <info.icon className="h-5 w-5 text-white" />
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm flex-shrink-0">
+                        <info.icon className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-base font-medium text-foreground mb-0.5">
+                        <h3 className="font-semibold text-foreground mb-1">
                           {info.title}
                         </h3>
                         {info.link ? (
@@ -249,12 +249,12 @@ const Contact = () => {
                             href={info.link}
                             target={info.link.startsWith('http') ? '_blank' : undefined}
                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors whitespace-pre-line"
+                            className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line"
                           >
                             {info.content}
                           </a>
                         ) : (
-                          <p className="text-sm text-muted-foreground whitespace-pre-line">
+                          <p className="text-muted-foreground whitespace-pre-line">
                             {info.content}
                           </p>
                         )}
