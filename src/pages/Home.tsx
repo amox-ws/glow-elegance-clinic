@@ -180,7 +180,7 @@ const Home = () => {
                   style={{
                     opacity: isLeftVisible ? 1 : 0,
                     transform: isLeftVisible ? "translateX(0)" : "translateX(-120%)", // Fly in from Left
-                    transition: "all 1.8s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                    transition: "all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
                   {/* Background Image */}
