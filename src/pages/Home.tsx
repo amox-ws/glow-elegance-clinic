@@ -7,6 +7,7 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 import before_lips from "@/assets/before_lips.png";
 import after_lips from "@/assets/after_lips.png";
@@ -416,6 +417,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <ScrollToTopButton />
     </div>
   );
 };

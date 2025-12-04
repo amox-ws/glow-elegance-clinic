@@ -9,6 +9,7 @@ import CategoryBanner from '@/components/CategoryBanner';
 import ServiceDetailCard from '@/components/ServiceDetailCard';
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 // --- SERVICE IMAGE IMPORTS ---
 // 1. Injectable Facial Treatments
@@ -224,6 +225,8 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      <ScrollToTopButton />
     </div>
   );
 };
