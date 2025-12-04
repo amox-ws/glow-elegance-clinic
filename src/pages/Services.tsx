@@ -10,6 +10,29 @@ import ServiceDetailCard from '@/components/ServiceDetailCard';
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// --- SERVICE IMAGE IMPORTS ---
+// 1. Injectable Facial Treatments
+import hyaluronicFillers from '@/assets/services/Hyaluronic_Acid_Fillers.jpeg';
+import botox from '@/assets/services/Botox_Anti_wrinkle_Treatment.jpeg';
+import skinBoosters from '@/assets/services/Skin_Boosters.jpeg';
+import facialMesotherapy from '@/assets/services/Facial_Mesotherapy.jpeg';
+import nanosoftEye from '@/assets/services/NanoSoft_Eye_Mesotherapy.jpeg';
+import fillerDissolving from '@/assets/services/Hyaluronic_Acid_Dissolving.jpeg';
+import facialLipolysis from '@/assets/services/Facial_Lipolysis.jpeg';
+import submentalLipolysis from '@/assets/services/Submental_Lipolysis.jpeg';
+import facialTightening from '@/assets/services/Facial_Tightening.jpeg';
+
+// 2. Skin Renewal
+import skinpen from '@/assets/services/SkinPen.jpeg';
+import fractionalLaser from '@/assets/services/Fractional_Laser.jpeg';
+import microneedlingFace from '@/assets/services/Micro_needling.jpeg';
+import microneedlingScalp from '@/assets/services/Scalp_Microneedling.jpeg';
+
+// 3. Body Services
+import laserHairRemoval from '@/assets/services/Body_Laser_Hair_Removal.jpeg';
+import bodyLipolysis from '@/assets/services/Body_Lipolysis.jpeg';
+import celluliteTreatments from '@/assets/services/Cellulite_Treatments.jpeg';
+
 const Services = () => {
   const { t, language } = useLanguage();
   const location = useLocation();
@@ -18,17 +41,39 @@ const Services = () => {
   // 1. Flatten the categories to get a single list of ALL 16 services
   const allServices = serviceCategories.flatMap(category => category.services);
 
-  // 2. Harmonious Shape Pattern (Sequence of 8)
-  // This creates a balanced rhythm: Circle -> Box -> Arch -> Leaf -> Box -> U-Shape -> Circle -> Leaf
+  // 2. Map images strictly to the order of services in 'serviceCategories'
+  const serviceImages = [
+    // --- Injectables ---
+    hyaluronicFillers,    // 1. Hyaluronic
+    botox,                // 2. Botox
+    skinBoosters,         // 3. Skin Boosters
+    facialMesotherapy,    // 4. Mesotherapy
+    nanosoftEye,          // 5. NanoSoft
+    fillerDissolving,     // 6. Dissolving
+    facialLipolysis,      // 7. Facial Lipolysis
+    submentalLipolysis,   // 8. Submental Lipolysis
+    facialTightening,     // 9. Tightening
+    // --- Renewal ---
+    skinpen,              // 10. SkinPen
+    fractionalLaser,      // 11. Fractional Laser
+    microneedlingFace,    // 12. Microneedling Face
+    microneedlingScalp,   // 13. Microneedling Scalp
+    // --- Body ---
+    laserHairRemoval,     // 14. Laser Hair
+    bodyLipolysis,        // 15. Body Lipolysis
+    celluliteTreatments,  // 16. Cellulite
+  ];
+
+  // 3. Harmonious Shape Pattern (Sequence of 8)
   const shapes = [
-    "rounded-full",                                                      // 1. Circle
-    "rounded-[2.5rem]",                                                  // 2. Soft Squircle
-    "rounded-t-[3.5rem] rounded-b-[1rem]",                               // 3. Arch
-    "rounded-tr-[3.5rem] rounded-bl-[3.5rem] rounded-tl-[1rem] rounded-br-[1rem]", // 4. Leaf (Right-Up)
-    "rounded-[2.5rem]",                                                  // 5. Soft Squircle
-    "rounded-b-[3.5rem] rounded-t-[1rem]",                               // 6. U-Shape (Inverted Arch)
-    "rounded-full",                                                      // 7. Circle
-    "rounded-tl-[3.5rem] rounded-br-[3.5rem] rounded-tr-[1rem] rounded-bl-[1rem]", // 8. Leaf (Left-Up)
+    "rounded-full",                                                      
+    "rounded-[2.5rem]",                                                  
+    "rounded-t-[3.5rem] rounded-b-[1rem]",                               
+    "rounded-tr-[3.5rem] rounded-bl-[3.5rem] rounded-tl-[1rem] rounded-br-[1rem]", 
+    "rounded-[2.5rem]",                                                  
+    "rounded-b-[3.5rem] rounded-t-[1rem]",                               
+    "rounded-full",                                                      
+    "rounded-tl-[3.5rem] rounded-br-[3.5rem] rounded-tr-[1rem] rounded-bl-[1rem]", 
   ];
 
   // Helper function for smooth scrolling
@@ -85,14 +130,10 @@ const Services = () => {
              </h3>
           </div>
 
-          {/* Grid Update:
-             - lg:grid-cols-8 -> Ensures exactly 8 items per row on large screens (2 rows total for 16 items).
-             - gap-4 -> "Closer together" (reduced from gap-8).
-          */}
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-x-2 gap-y-8 sm:gap-4 justify-items-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             {allServices.map((service, index) => {
-              // Apply the shape pattern (cycling through the 8 harmonious shapes)
               const currentShapeClass = shapes[index % shapes.length];
+              const currentImage = serviceImages[index] || hyaluronicFillers;
 
               return (
                 <div 
@@ -100,22 +141,21 @@ const Services = () => {
                   onClick={() => scrollToItem(service.id)}
                   className="group flex flex-col items-center cursor-pointer w-full"
                 >
-                  {/* Shape Container 
-                     - Increased size to w-28 h-28 sm:w-32 sm:h-32 (approx 128px) for "Bigger buttons"
-                     - Applies the harmonious shape class
-                  */}
+                  {/* Shape Container */}
                   <div className={cn(
                     "w-24 h-24 sm:w-28 sm:h-28 bg-white border border-border/60 shadow-soft flex items-center justify-center mb-3 transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-elegant group-hover:border-primary/40 relative overflow-hidden",
                     currentShapeClass
                   )}>
                      
-                     {/* Gradient Hover Overlay */}
-                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                     
-                     {/* Placeholder Icon (Sparkles) 
-                         NOTE: Ideally, replace <Sparkles> with <img src={service.image} /> when you have icons for each service.
-                     */}
-                     <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-primary/40 group-hover:text-primary transition-colors duration-500" />
+                     {/* The Actual Image (Same as detail card) */}
+                     <img 
+                       src={currentImage} 
+                       alt={language === 'en' ? service.title.en : service.title.el}
+                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                     />
+
+                     {/* Gradient Overlay */}
+                     <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                   </div>
 
                   {/* Service Label */}
@@ -143,16 +183,23 @@ const Services = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="space-y-6 sm:space-y-8">
                 {/* Render each service in this category */}
-                {category.services.map((service, serviceIndex) => (
-                  <ServiceDetailCard
-                    key={service.id}
-                    id={service.id}
-                    title={service.title}
-                    shortIntro={service.shortIntro}
-                    longContent={service.longContent}
-                    index={categoryIndex * 10 + serviceIndex}
-                  />
-                ))}
+                {category.services.map((service, serviceIndex) => {
+                  // Find the global index to get the correct image
+                  const globalIndex = allServices.findIndex(s => s.id === service.id);
+                  const image = serviceImages[globalIndex] || hyaluronicFillers;
+
+                  return (
+                    <ServiceDetailCard
+                      key={service.id}
+                      id={service.id}
+                      title={service.title}
+                      shortIntro={service.shortIntro}
+                      longContent={service.longContent}
+                      image={image}
+                      index={categoryIndex * 10 + serviceIndex}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
