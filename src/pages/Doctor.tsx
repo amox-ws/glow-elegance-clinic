@@ -1,46 +1,12 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
-import { GraduationCap, Briefcase, Heart } from 'lucide-react';
-// Updated the import to your new image
+import { Briefcase, GraduationCap, Languages, Award, Users } from 'lucide-react';
 import cvFoto from '@/assets/cvfoto.jpeg';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Doctor = () => {
   const { t } = useLanguage();
   useScrollReveal();
-
-  const sections = [
-    {
-      icon: GraduationCap,
-      title: t('doctor.education'),
-      content: [
-        'Medical Degree - University of Athens Medical School',
-        'Residency in Gynecology - Metropolitan Hospital',
-        'Fellowship in Aesthetic Surgery - International Institute',
-        'Board Certified Gynecologist & Plastic Surgeon',
-      ],
-    },
-    {
-      icon: Briefcase,
-      title: t('doctor.experience'),
-      content: [
-        '15+ years of specialized practice',
-        'Over 5,000 successful procedures performed',
-        'Regular speaker at international medical conferences',
-        'Published research in leading medical journals',
-      ],
-    },
-    {
-      icon: Heart,
-      title: t('doctor.philosophy'),
-      content: [
-        'Patient-centered approach with compassionate care',
-        'Focus on natural, beautiful results',
-        'Commitment to the highest safety standards',
-        'Continuous learning and adaptation of latest techniques',
-      ],
-    },
-  ];
 
   return (
     <div className="min-h-screen pt-20">
@@ -61,65 +27,201 @@ const Doctor = () => {
       {/* Doctor Profile */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
-            {/* Portrait */}
-            <div className="lg:col-span-2" data-anim="left">
-              <img
-                src={cvFoto} /* Updated source variable here */
-                alt="Doctor Portrait"
-                className="rounded-2xl shadow-elegant w-full h-auto sticky top-28"
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
+            {/* Portrait - Sticky on Desktop */}
+            <div className="lg:col-span-4" data-anim="left">
+              <div className="lg:sticky lg:top-28">
+                <img
+                  src={cvFoto}
+                  alt="Dr. Eirini Valvi"
+                  className="rounded-2xl shadow-elegant w-full h-auto"
+                />
+              </div>
             </div>
 
-            {/* Bio & Credentials */}
-            <div className="lg:col-span-3 space-y-8" data-anim="right">
+            {/* Biography Content */}
+            <div className="lg:col-span-8 space-y-8" data-anim="right">
+              
+              {/* Work Experience */}
               <Card className="p-8 border-border bg-card shadow-soft">
-                <h2 className="text-2xl font-heading font-semibold text-foreground mb-4">
-                  About
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  {t('doctor.bio')}
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  With a deep commitment to medical excellence and patient satisfaction,
-                  every consultation begins with listening. Understanding your unique needs
-                  and goals is the foundation of creating a personalized treatment plan
-                  that respects your individuality and enhances your natural beauty.
-                </p>
-              </Card>
-
-              {/* Credentials Sections */}
-              {sections.map((section, index) => (
-                <Card
-                  key={index}
-                  className="p-8 border-border bg-card shadow-soft hover:shadow-elegant transition-all duration-500"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
-                      <section.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-heading font-semibold text-foreground">
-                      {section.title}
-                    </h3>
+                <div className="flex items-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
+                    <Briefcase className="h-6 w-6 text-white" />
                   </div>
-                  <ul className="space-y-3">
-                    {section.content.map((item, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground">{item}</span>
+                  <h2 className="text-2xl font-heading font-semibold text-foreground">
+                    {t('doctor.workExperience')}
+                  </h2>
+                </div>
+                
+                <div className="space-y-6">
+                  {/* Job 1 */}
+                  <div className="border-l-2 border-primary/30 pl-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                      {t('doctor.job1.title')}
+                    </h3>
+                    <p className="text-sm text-primary font-medium mb-1">
+                      {t('doctor.job1.place')}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {t('doctor.job1.date')}
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm">{t('doctor.job1.item1')}</span>
                       </li>
-                    ))}
-                  </ul>
-                </Card>
-              ))}
+                      <li className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm">{t('doctor.job1.item2')}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm">{t('doctor.job1.item3')}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm">{t('doctor.job1.item4')}</span>
+                      </li>
+                    </ul>
+                  </div>
 
-              {/* Quote */}
-              <Card className="p-8 gradient-warm border-0">
-                <blockquote className="text-white text-lg italic text-center">
-                  "My goal is not just to meet expectations, but to exceed them — with results
-                  that look natural, feel right, and make you confident in your own skin."
-                </blockquote>
+                  {/* Job 2 */}
+                  <div className="border-l-2 border-primary/30 pl-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                      {t('doctor.job2.title')}
+                    </h3>
+                    <p className="text-sm text-primary font-medium mb-1">
+                      {t('doctor.job2.place')}
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {t('doctor.job2.date')}
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm">{t('doctor.job2.item1')}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </Card>
+
+              {/* Education */}
+              <Card className="p-8 border-border bg-card shadow-soft">
+                <div className="flex items-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
+                    <GraduationCap className="h-6 w-6 text-white" />
+                  </div>
+                  <h2 className="text-2xl font-heading font-semibold text-foreground">
+                    {t('doctor.education')}
+                  </h2>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="border-l-2 border-primary/30 pl-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                      {t('doctor.edu1.title')}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {t('doctor.edu1.place')}
+                    </p>
+                  </div>
+                  <div className="border-l-2 border-primary/30 pl-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                      {t('doctor.edu2.title')}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {t('doctor.edu2.place')}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Personal Skills */}
+              <Card className="p-8 border-border bg-card shadow-soft">
+                <div className="flex items-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
+                    <Languages className="h-6 w-6 text-white" />
+                  </div>
+                  <h2 className="text-2xl font-heading font-semibold text-foreground">
+                    {t('doctor.personalSkills')}
+                  </h2>
+                </div>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.skills.native')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.skills.foreign')}</span>
+                  </li>
+                </ul>
+              </Card>
+
+              {/* Seminars */}
+              <Card className="p-8 border-border bg-card shadow-soft">
+                <div className="flex items-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
+                    <Award className="h-6 w-6 text-white" />
+                  </div>
+                  <h2 className="text-2xl font-heading font-semibold text-foreground">
+                    {t('doctor.seminars')}
+                  </h2>
+                </div>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.seminar1')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.seminar2')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.seminar3')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.seminar4')}</span>
+                  </li>
+                </ul>
+              </Card>
+
+              {/* Scientific Associations */}
+              <Card className="p-8 border-border bg-card shadow-soft">
+                <div className="flex items-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-warm mr-4">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <h2 className="text-2xl font-heading font-semibold text-foreground">
+                    {t('doctor.associations')}
+                  </h2>
+                </div>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.assoc1')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.assoc2')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.assoc3')}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-2 h-2 rounded-full bg-primary mr-3 mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{t('doctor.assoc4')}</span>
+                  </li>
+                </ul>
+              </Card>
+
             </div>
           </div>
         </div>
