@@ -9,7 +9,7 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import the custom hook
 
 import before_lips from "@/assets/before_lips.png";
 import after_lips from "@/assets/after_lips.png";
@@ -39,17 +39,17 @@ import service_r from "@/assets/service_r.png";
 
 const Home = () => {
   const { t } = useLanguage();
-  useScrollReveal();
+  useScrollReveal(); // Handles the 'data-anim' animations
 
-  // 1. Services Section Animations
-  const { ref: leftServiceRef, isVisible: isLeftServiceVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: rightServiceRef, isVisible: isRightServiceVisible } = useScrollAnimation({ threshold: 0.1 });
+  // 1. Animation hooks for the Wrappers of the Left/Right boxes
+  const { ref: leftWrapperRef, isVisible: isLeftVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: rightWrapperRef, isVisible: isRightVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 2. Doctor Section Animations
+  // 2. Animation hooks for Doctor Section
   const { ref: doctorImgRef, isVisible: isDoctorImgVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: doctorTextRef, isVisible: isDoctorTextVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 3. Why Choose Us Animations
+  // 3. Animation hooks for Why Choose Us Section
   const { ref: whyTextRef, isVisible: isWhyTextVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: whyImgRef, isVisible: isWhyImgVisible } = useScrollAnimation({ threshold: 0.1 });
 
@@ -72,7 +72,7 @@ const Home = () => {
     }
   ];
 
-  // Updated service category cards with your new images
+  // Updated service category cards
   const serviceCategories = [
     {
       id: 'injectable',
@@ -145,6 +145,7 @@ const Home = () => {
           </p>
 
           <div className="max-w-6xl mx-auto space-y-6">
+            
             {/* Top Box - Full Width */}
             <Link
               to="/services#injectable"
@@ -177,14 +178,14 @@ const Home = () => {
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
               
               {/* Bottom Left Box */}
-              <div ref={leftServiceRef} className="overflow-visible">
+              <div ref={leftWrapperRef} className="overflow-visible">
                 <Link
                   to="/services#renewal"
                   className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
                   aria-label={t('services.category.renewal')}
                   style={{
-                    opacity: isLeftServiceVisible ? 1 : 0,
-                    transform: isLeftServiceVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
+                    opacity: isLeftVisible ? 1 : 0,
+                    transform: isLeftVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
                     transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
@@ -211,14 +212,14 @@ const Home = () => {
               </div>
 
               {/* Bottom Right Box */}
-              <div ref={rightServiceRef} className="overflow-visible">
+              <div ref={rightWrapperRef} className="overflow-visible">
                 <Link
                   to="/services#body"
                   className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
                   aria-label={t('services.category.body')}
                   style={{
-                    opacity: isRightServiceVisible ? 1 : 0,
-                    transform: isRightServiceVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                    opacity: isRightVisible ? 1 : 0,
+                    transform: isRightVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
                     transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
@@ -278,20 +279,29 @@ const Home = () => {
               </div>
             </div>
 
-            <div data-anim="right">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6 uppercase tracking-wider">
-                {t('doctor.title.prefix')} <span className="italic font-normal">{t('doctor.title.highlight')}</span>
-              </h2>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {t('doctor.bio')}
-              </p>
-              <Link to="/doctor">
-                <Button className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300">
-                  {t('services.learnMore')}
-                </Button>
-              </Link>
+            {/* Right Text - Wrapped and Animated Fly-in from Right */}
+            <div ref={doctorTextRef}>
+              <div
+                style={{
+                  opacity: isDoctorTextVisible ? 1 : 0,
+                  transform: isDoctorTextVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                  transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
+                }}
+              >
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6 uppercase tracking-wider">
+                  {t('doctor.title.prefix')} <span className="italic font-normal">{t('doctor.title.highlight')}</span>
+                </h2>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {t('doctor.bio')}
+                </p>
+                <Link to="/doctor">
+                  <Button className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300">
+                    {t('services.learnMore')}
+                  </Button>
+                </Link>
+              </div>
             </div>
-
+            
           </div>
         </div>
       </section>
