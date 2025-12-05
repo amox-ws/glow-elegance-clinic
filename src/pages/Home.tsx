@@ -129,9 +129,7 @@ const Home = () => {
       <section className="py-20 gradient-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider text-center">
-            {t('services.title.prefix')}{t('services.title.prefix') ? ' ' : ''}
-            <span className="italic font-normal">{t('services.title.highlight')}</span>
-            {t('services.title.suffix') ? ' ' : ''}{t('services.title.suffix')}
+            {t('services.title.prefix')} <span className="italic font-normal">{t('services.title.highlight')}</span> {t('services.title.suffix')}
           </h2>
           <div className="w-20 h-1 gradient-warm mx-auto mb-4" />
           <p className="text-center text-muted-foreground mb-12">
@@ -271,9 +269,7 @@ const Home = () => {
 
             <div data-anim="right">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6 uppercase tracking-wider">
-                {t('doctor.title.prefix')}{t('doctor.title.prefix') ? ' ' : ''}
-                <span className="italic font-normal">{t('doctor.title.highlight')}</span>
-                {t('doctor.title.suffix') ? ' ' : ''}{t('doctor.title.suffix')}
+                {t('doctor.title.prefix')} <span className="italic font-normal">{t('doctor.title.highlight')}</span>
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {t('doctor.bio')}
@@ -402,9 +398,7 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10" data-anim="up">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
-              {t('map.title.prefix')}{' '}
-              <span className="italic font-normal">{t('map.title.highlight')}</span>{' '}
-              {t('map.title.suffix')}
+              {t('map.title.prefix')} <span className="italic font-normal">{t('map.title.highlight')}</span> {t('map.title.suffix')}
             </h2>
             <div className="w-20 h-1 gradient-warm mx-auto" />
           </div>
