@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Briefcase, GraduationCap, Languages, Award, Users } from 'lucide-react';
 import cvFoto from '@/assets/cvfoto.jpeg';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import ContactCTASection from '@/components/ContactCTASection';
 
 const Doctor = () => {
   const { t } = useLanguage();
@@ -226,6 +227,9 @@ const Doctor = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact CTA Section */}
+      <ContactCTASection />
     </div>
   );
 };
