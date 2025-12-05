@@ -425,7 +425,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguage] = useState<Language>("el");
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.en] || key;
+    const value = translations[language][key as keyof typeof translations.en];
+    return value !== undefined ? value : key;
   };
 
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
