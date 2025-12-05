@@ -128,9 +128,12 @@ const Home = () => {
       {/* Featured Services Section */}
       <section className="py-20 gradient-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-center text-foreground mb-4">
-            {t('services.title')}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider text-center">
+            {t('services.title.prefix')}{t('services.title.prefix') ? ' ' : ''}
+            <span className="italic font-normal">{t('services.title.highlight')}</span>
+            {t('services.title.suffix') ? ' ' : ''}{t('services.title.suffix')}
           </h2>
+          <div className="w-20 h-1 gradient-warm mx-auto mb-4" />
           <p className="text-center text-muted-foreground mb-12">
             {t('services.subtitle')}
           </p>
@@ -267,8 +270,10 @@ const Home = () => {
             </div>
 
             <div data-anim="right">
-              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-6">
-                {t('doctor.title')}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6 uppercase tracking-wider">
+                {t('doctor.title.prefix')}{t('doctor.title.prefix') ? ' ' : ''}
+                <span className="italic font-normal">{t('doctor.title.highlight')}</span>
+                {t('doctor.title.suffix') ? ' ' : ''}{t('doctor.title.suffix')}
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {t('doctor.bio')}
@@ -287,8 +292,10 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12" data-anim="up">
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
-              {t('sections.beforeAfters')}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
+              {t('sections.beforeAfters.prefix')}{' '}
+              <span className="italic font-normal">{t('sections.beforeAfters.highlight')}</span>{' '}
+              {t('sections.beforeAfters.suffix')}
             </h2>
             <div className="w-20 h-1 gradient-warm mx-auto" />
           </div>
@@ -394,8 +401,10 @@ const Home = () => {
       <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10" data-anim="up">
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
-              {t('map.title')}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
+              {t('map.title.prefix')}{' '}
+              <span className="italic font-normal">{t('map.title.highlight')}</span>{' '}
+              {t('map.title.suffix')}
             </h2>
             <div className="w-20 h-1 gradient-warm mx-auto" />
           </div>

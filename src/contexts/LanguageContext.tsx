@@ -24,6 +24,9 @@ const translations = {
 
     // Sections
     "sections.beforeAfters": "Before & Afters",
+    "sections.beforeAfters.prefix": "BEFORE",
+    "sections.beforeAfters.highlight": "&",
+    "sections.beforeAfters.suffix": "AFTERS",
 
     // Why Choose Us
     "why.title": "Why Choose",
@@ -42,6 +45,9 @@ const translations = {
 
     // Clinic Section
     "clinic.title": "Our Clinic",
+    "clinic.title.prefix": "OUR",
+    "clinic.title.highlight": "CLINIC",
+    "clinic.title.suffix": "",
     "clinic.image.alt": "Clinic interior",
     "clinic.prev": "Previous image",
     "clinic.next": "Next image",
@@ -63,6 +69,9 @@ const translations = {
 
     // Services - Main
     "services.title": "Services",
+    "services.title.prefix": "OUR",
+    "services.title.highlight": "SERVICES",
+    "services.title.suffix": "",
     "services.subtitle": "Comprehensive aesthetic treatments tailored to your needs",
     "services.learnMore": "Learn more",
     "services.viewAll": "View All Services",
@@ -128,6 +137,9 @@ const translations = {
 
     // Doctor
     "doctor.title": "Meet the Doctor",
+    "doctor.title.prefix": "MEET THE",
+    "doctor.title.highlight": "DOCTOR",
+    "doctor.title.suffix": "",
     "doctor.subtitle": "Dedicated to Your Health and Beauty",
     "doctor.bio":
       "The doctor possesses a strong academic and professional foundation, having graduated with a Doctor of Medicine from the Medical University of Plovdiv (2018). With extensive experience in General Surgical Oncology at Metaxa Cancer Hospital (participating in 250+ major/minor operations), she has developed precise surgical skills and sharp clinical judgment. She also holds specialized expertise in Hair Transplantation (participating in 600+ FUT-STRIP procedures), significantly strengthening her profile in Aesthetic Medicine. She is an active member of leading scientific associations (including the Hellenic Society of Plastic Reconstructive & Aesthetic Surgery) and consistently attends international and national congresses, demonstrating her commitment to continuous education and the adoption of the latest techniques.",
@@ -192,6 +204,9 @@ const translations = {
 
     // Map Section
     "map.title": "Map & Location",
+    "map.title.prefix": "MAP",
+    "map.title.highlight": "&",
+    "map.title.suffix": "LOCATION",
 
     // CTA
     "cta.ready": "Ready to Begin Your Journey?",
@@ -207,6 +222,9 @@ const translations = {
 
     // Sections
     "sections.beforeAfters": "Πριν & Μετά",
+    "sections.beforeAfters.prefix": "ΠΡΙΝ",
+    "sections.beforeAfters.highlight": "&",
+    "sections.beforeAfters.suffix": "ΜΕΤΑ",
 
     // Hero
     "hero.title": "Experience the epitome of beauty and glow",
@@ -231,6 +249,9 @@ const translations = {
 
     // Clinic Section
     "clinic.title": "Η Κλινική μας",
+    "clinic.title.prefix": "Η",
+    "clinic.title.highlight": "ΚΛΙΝΙΚΗ",
+    "clinic.title.suffix": "ΜΑΣ",
     "clinic.image.alt": "Εσωτερικό κλινικής",
     "clinic.prev": "Προηγούμενη εικόνα",
     "clinic.next": "Επόμενη εικόνα",
@@ -252,6 +273,9 @@ const translations = {
 
     // Services - Main
     "services.title": "Υπηρεσίες",
+    "services.title.prefix": "",
+    "services.title.highlight": "ΥΠΗΡΕΣΙΕΣ",
+    "services.title.suffix": "",
     "services.subtitle": "Ολοκληρωμένες αισθητικές θεραπείες προσαρμοσμένες στις ανάγκες σας",
     "services.learnMore": "Μάθετε περισσότερα",
     "services.viewAll": "Δείτε Όλες τις Υπηρεσίες",
@@ -317,6 +341,9 @@ const translations = {
 
     // Doctor
     "doctor.title": "Γνωρίστε τη Γιατρό",
+    "doctor.title.prefix": "ΓΝΩΡΙΣΤΕ ΤΗ",
+    "doctor.title.highlight": "ΓΙΑΤΡΟ",
+    "doctor.title.suffix": "",
     "doctor.subtitle": "Αφοσιωμένη στην Υγεία και Ομορφιά σας",
     "doctor.bio":
       "Η ιατρός φέρει μια ισχυρή ακαδημαϊκή και επαγγελματική βάση, έχοντας αποφοιτήσει από την Ιατρική Σχολή του Plovdiv (2018). Με πολυετή εμπειρία στην Γενική Χειρουργική Ογκολογία στο Αντικαρκινικό Νοσοκομείο Μεταξά (με συμμετοχή σε 250+ μείζονες/ελάσσονες επεμβάσεις), έχει αναπτύξει ακριβείς χειρουργικές δεξιότητες και οξεία κλινική κρίση. Διαθέτει επίσης εξειδικευμένη εμπειρία στην Μεταμόσχευση Μαλλιών (με συμμετοχή σε 600+ επεμβάσεις FUT-STRIP), ενισχύοντας το προφίλ της στον τομέα της Αισθητικής Ιατρικής. Είναι ενεργό μέλος σε κορυφαίες επιστημονικές εταιρείες (όπως η Ελληνική Εταιρεία Πλαστικής Επανορθωτικής & Αισθητικής Χειρουργικής) και συμμετέχει ανελλιπώς σε διεθνή και πανελλήνια συνέδρια, διασφαλίζοντας την προσήλωσή της στη συνεχή εκπαίδευση και την υιοθέτηση των πιο σύγχρονων τεχνικών.",
@@ -381,6 +408,9 @@ const translations = {
 
     // Map Section
     "map.title": "Χάρτης & Τοποθεσία",
+    "map.title.prefix": "ΧΑΡΤΗΣ",
+    "map.title.highlight": "&",
+    "map.title.suffix": "ΤΟΠΟΘΕΣΙΑ",
 
     // CTA
     "cta.ready": "Έτοιμοι να Ξεκινήσετε;",
