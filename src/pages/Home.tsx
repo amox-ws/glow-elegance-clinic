@@ -429,17 +429,17 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Image - Fly in from Right */}
-            <div ref={whyImgRef} className="hidden lg:block">
+            {/* Right Image - Visible on all screens, below text on mobile */}
+            <div ref={whyImgRef} className="mt-10 lg:mt-0">
               <div 
                 style={{
                   opacity: isWhyImgVisible ? 1 : 0,
-                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)", // From Right
+                  transform: isWhyImgVisible ? "translateY(0)" : "translateY(50px)",
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
                 }}
               >
                 <div className="relative">
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
+                  <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
                     <img
                       src={whychooseus}
                       alt="Aesthetic treatments"
