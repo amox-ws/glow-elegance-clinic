@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
                 <p className="text-muted-foreground mb-6">Λαμβάνουμε οργανωτικά και τεχνικά μέτρα για την προστασία των δεδομένων.</p>
 
                 <h2 className="text-2xl font-heading font-semibold mt-8 mb-4">8. Επικοινωνία για θέματα GDPR</h2>
-                <p className="text-muted-foreground">Email: info@example.com</p>
+                <p className="text-muted-foreground">Email: <a href="mailto:eirini_valvi@yahoo.gr" className="text-primary hover:underline">eirini_valvi@yahoo.gr</a></p>
                 <p className="text-muted-foreground">Τηλέφωνο: +30 6951944489</p>
               </>
             ) : (
@@ -132,7 +132,7 @@ const PrivacyPolicy = () => {
                 <p className="text-muted-foreground mb-6">We apply technical and organizational measures to keep your data secure.</p>
 
                 <h2 className="text-2xl font-heading font-semibold mt-8 mb-4">8. GDPR Contact</h2>
-                <p className="text-muted-foreground">Email: info@example.com</p>
+                <p className="text-muted-foreground">Email: <a href="mailto:eirini_valvi@yahoo.gr" className="text-primary hover:underline">eirini_valvi@yahoo.gr</a></p>
                 <p className="text-muted-foreground">Phone: +30 6951944489</p>
               </>
             )}

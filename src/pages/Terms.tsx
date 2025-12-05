@@ -61,7 +61,7 @@ const Terms = () => {
                 </p>
 
                 <h2 className="text-2xl font-heading font-semibold mt-8 mb-4">6. Επικοινωνία</h2>
-                <p className="text-muted-foreground">Email: info@example.com</p>
+                <p className="text-muted-foreground">Email: <a href="mailto:eirini_valvi@yahoo.gr" className="text-primary hover:underline">eirini_valvi@yahoo.gr</a></p>
                 <p className="text-muted-foreground">Τηλέφωνο: +30 6951944489</p>
                 <p className="text-muted-foreground">Διεύθυνση: Κουντουριώτου 127, Πειραιάς 18532</p>
               </>
@@ -93,7 +93,7 @@ const Terms = () => {
                 </p>
 
                 <h2 className="text-2xl font-heading font-semibold mt-8 mb-4">6. Contact</h2>
-                <p className="text-muted-foreground">Email: info@example.com</p>
+                <p className="text-muted-foreground">Email: <a href="mailto:eirini_valvi@yahoo.gr" className="text-primary hover:underline">eirini_valvi@yahoo.gr</a></p>
                 <p className="text-muted-foreground">Phone: +30 6951944489</p>
                 <p className="text-muted-foreground">Address: Kountouriotou 127, Piraeus 18532</p>
               </>

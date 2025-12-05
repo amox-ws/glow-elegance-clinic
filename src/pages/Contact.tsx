@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { MapPin, Phone, Instagram, Clock } from 'lucide-react';
+import { MapPin, Phone, Instagram, Clock, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import GoogleMapsEmbed from '@/components/GoogleMapsEmbed';
@@ -128,6 +128,12 @@ const Contact = () => {
       title: t('contact.phone'),
       content: '+30 6951944489',
       link: 'tel:+306951944489',
+    },
+    {
+      icon: Mail,
+      title: 'Email',
+      content: 'eirini_valvi@yahoo.gr',
+      link: 'mailto:eirini_valvi@yahoo.gr',
     },
     {
       icon: Instagram,
