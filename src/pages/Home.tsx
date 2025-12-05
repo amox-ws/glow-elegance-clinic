@@ -144,9 +144,12 @@ const Home = () => {
       {/* Featured Services Section */}
       <section className="py-20 gradient-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-center text-foreground mb-4">
-            {t('services.title')}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-center text-foreground mb-4 uppercase tracking-wider">
+            {t('services.title.prefix')}{' '}
+            <span className="italic font-normal">{t('services.title.highlight')}</span>{' '}
+            {t('services.title.suffix')}
           </h2>
+          <div className="w-20 h-1 gradient-warm mx-auto mb-4" />
           <p className="text-center text-muted-foreground mb-12">
             {t('services.subtitle')}
           </p>
@@ -281,8 +284,10 @@ const Home = () => {
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
                 }}
               >
-                <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-6">
-                  {t('doctor.title')}
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6 uppercase tracking-wider">
+                  {t('doctor.title.prefix')}{' '}
+                  <span className="italic font-normal">{t('doctor.title.highlight')}</span>{' '}
+                  {t('doctor.title.suffix')}
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {t('doctor.bio')}
@@ -466,8 +471,10 @@ const Home = () => {
                 transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
               }}
             >
-              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
-                {t('map.title')}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
+                {t('map.title.prefix')}{' '}
+                <span className="italic font-normal">{t('map.title.highlight')}</span>{' '}
+                {t('map.title.suffix')}
               </h2>
               <div className="w-20 h-1 gradient-warm mx-auto" />
             </div>

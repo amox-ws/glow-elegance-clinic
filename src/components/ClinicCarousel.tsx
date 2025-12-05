@@ -77,8 +77,10 @@ const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
               transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
             }}
           >
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
-              {t('clinic.title')}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
+              {t('clinic.title.prefix')}{' '}
+              <span className="italic font-normal">{t('clinic.title.highlight')}</span>{' '}
+              {t('clinic.title.suffix')}
             </h2>
             <div className="w-20 h-1 gradient-warm mx-auto" />
           </div>
