@@ -69,13 +69,27 @@ const Footer = () => {
             © {currentYear} Dr.Valvis. {t("footer.rights")}
           </p>
           <div className="mt-2 space-x-4">
-            <Link to="#" className="hover:text-primary transition-colors">
+            <Link to="/privacy-policy" className="hover:text-primary transition-colors">
               {t("footer.privacy")}
             </Link>
-            <Link to="#" className="hover:text-primary transition-colors">
+            <Link to="/cookies-policy" className="hover:text-primary transition-colors">
+              {t("footer.cookies")}
+            </Link>
+            <Link to="/terms" className="hover:text-primary transition-colors">
               {t("footer.terms")}
             </Link>
           </div>
+          <p className="mt-4">
+            Powered by{' '}
+            <a 
+              href="https://amox.gr/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-medium"
+            >
+              Amox
+            </a>
+          </p>
         </div>
       </div>
     </footer>

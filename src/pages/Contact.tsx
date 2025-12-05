@@ -1,16 +1,18 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 import { MapPin, Phone, Instagram, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { toast } = useToast();
   useScrollReveal();
   const [formData, setFormData] = useState({
@@ -19,18 +21,31 @@ const Contact = () => {
     phone: '',
     message: '',
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [errors, setErrors] = useState({
     name: '',
     email: '',
     message: '',
+    consent: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const consentText = {
+    en: 'I agree to the Privacy Policy and the processing of my personal data.',
+    el: 'Συμφωνώ με την Πολιτική Απορρήτου και την επεξεργασία των προσωπικών μου δεδομένων.',
+  };
+
+  const consentError = {
+    en: 'You must agree to the Privacy Policy to submit the form.',
+    el: 'Πρέπει να συμφωνήσετε με την Πολιτική Απορρήτου για να υποβάλετε τη φόρμα.',
+  };
 
   const validateForm = () => {
     const newErrors = {
       name: '',
       email: '',
       message: '',
+      consent: '',
     };
     let isValid = true;
 
@@ -49,6 +64,11 @@ const Contact = () => {
 
     if (!formData.message.trim()) {
       newErrors.message = t('contact.message.required');
+      isValid = false;
+    }
+
+    if (!privacyConsent) {
+      newErrors.consent = consentError[language];
       isValid = false;
     }
 
@@ -74,7 +94,8 @@ const Contact = () => {
         description: t('contact.success.desc'),
       });
       setFormData({ name: '', email: '', phone: '', message: '' });
-      setErrors({ name: '', email: '', message: '' });
+      setPrivacyConsent(false);
+      setErrors({ name: '', email: '', message: '', consent: '' });
     } catch (error) {
       toast({
         title: t('contact.error'),
@@ -89,7 +110,6 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors({ ...errors, [name]: '' });
     }
@@ -214,6 +234,39 @@ const Contact = () => {
                   />
                   {errors.message && (
                     <p className="text-sm text-destructive">{errors.message}</p>
+                  )}
+                </div>
+
+                {/* Privacy Consent Checkbox */}
+                <div className="space-y-2">
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="privacyConsent"
+                      checked={privacyConsent}
+                      onCheckedChange={(checked) => {
+                        setPrivacyConsent(checked === true);
+                        if (errors.consent) {
+                          setErrors({ ...errors, consent: '' });
+                        }
+                      }}
+                      className={errors.consent ? 'border-destructive' : ''}
+                    />
+                    <Label 
+                      htmlFor="privacyConsent" 
+                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+                    >
+                      {consentText[language]}{' '}
+                      <Link 
+                        to="/privacy-policy" 
+                        className="text-primary hover:underline"
+                        target="_blank"
+                      >
+                        {language === 'el' ? 'Πολιτική Απορρήτου' : 'Privacy Policy'}
+                      </Link>
+                    </Label>
+                  </div>
+                  {errors.consent && (
+                    <p className="text-sm text-destructive">{errors.consent}</p>
                   )}
                 </div>
 
