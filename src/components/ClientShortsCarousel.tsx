@@ -11,6 +11,7 @@ interface ClientShortsCarouselProps {
 const ClientShortsCarousel = ({ images }: ClientShortsCarouselProps) => {
   const { t } = useLanguage();
   const { ref: titleRef, isVisible: isTitleVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: carouselRef, isVisible: isCarouselVisible } = useScrollAnimation({ threshold: 0.1 });
   
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
@@ -83,55 +84,63 @@ const ClientShortsCarousel = ({ images }: ClientShortsCarouselProps) => {
             </div>
         </div>
 
-        {/* Content: Fade Up */}
-        <div className="relative max-w-7xl mx-auto" data-anim="up">
-          {/* Arrows */}
-          <button
-            onClick={scrollPrev}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 -translate-x-4 lg:-translate-x-6 hover:bg-background hover:scale-110 opacity-100`}
-            aria-label={t('clients.prev')}
-          >
-            <ChevronLeft className="w-6 h-6 text-foreground" />
-          </button>
+        {/* Content: Slide Up from Bottom (No Fade) */}
+        <div ref={carouselRef} className="overflow-hidden pb-8 -mb-8 px-2 -mx-2">
+            <div 
+                className="relative max-w-7xl mx-auto"
+                style={{
+                    transform: isCarouselVisible ? "translateY(0)" : "translateY(200px)", // Slide Up
+                    transition: "transform 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                }}
+            >
+            {/* Arrows */}
+            <button
+                onClick={scrollPrev}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 -translate-x-4 lg:-translate-x-6 hover:bg-background hover:scale-110 opacity-100`}
+                aria-label={t('clients.prev')}
+            >
+                <ChevronLeft className="w-6 h-6 text-foreground" />
+            </button>
 
-          <button
-            onClick={scrollNext}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 translate-x-4 lg:translate-x-6 hover:bg-background hover:scale-110 opacity-100`}
-            aria-label={t('clients.next')}
-          >
-            <ChevronRight className="w-6 h-6 text-foreground" />
-          </button>
+            <button
+                onClick={scrollNext}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 translate-x-4 lg:translate-x-6 hover:bg-background hover:scale-110 opacity-100`}
+                aria-label={t('clients.next')}
+            >
+                <ChevronRight className="w-6 h-6 text-foreground" />
+            </button>
 
-          {/* Embla Carousel Viewport */}
-          <div className="overflow-hidden px-2" ref={emblaRef}>
-            <div className="flex -ml-4 md:-ml-6">
-              {videoItems.map((item, index) => (
-                <div
-                  key={item.id}
-                  className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] lg:w-[23%] pl-4 md:pl-6"
-                >
-                  <article className="group relative rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500">
-                    <div className="relative aspect-[9/14] bg-neutral-900 overflow-hidden">
-                      <img
-                        src={item.thumbnail}
-                        alt={`${t('clients.video.alt')} ${index + 1}`}
-                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                        loading="lazy"
-                      />
-                      
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <Play className="w-8 h-8 text-white fill-white/80" />
+            {/* Embla Carousel Viewport */}
+            <div className="overflow-hidden px-2" ref={emblaRef}>
+                <div className="flex -ml-4 md:-ml-6">
+                {videoItems.map((item, index) => (
+                    <div
+                    key={item.id}
+                    className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] lg:w-[23%] pl-4 md:pl-6"
+                    >
+                    <article className="group relative rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500">
+                        <div className="relative aspect-[9/14] bg-neutral-900 overflow-hidden">
+                        <img
+                            src={item.thumbnail}
+                            alt={`${t('clients.video.alt')} ${index + 1}`}
+                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                            loading="lazy"
+                        />
+                        
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <Play className="w-8 h-8 text-white fill-white/80" />
+                            </div>
                         </div>
-                      </div>
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                        </div>
+                    </article>
                     </div>
-                  </article>
+                ))}
                 </div>
-              ))}
             </div>
-          </div>
+            </div>
         </div>
       </div>
     </section>

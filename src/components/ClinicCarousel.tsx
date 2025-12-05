@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import animation hook
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import hook
 
 interface ClinicCarouselProps {
   images?: string[];
@@ -12,6 +12,7 @@ interface ClinicCarouselProps {
 const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
   const { t } = useLanguage();
   const { ref: titleRef, isVisible: isTitleVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: carouselRef, isVisible: isCarouselVisible } = useScrollAnimation({ threshold: 0.1 });
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
@@ -83,44 +84,53 @@ const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
           </div>
         </div>
 
-        {/* Content: Fade Up */}
-        <div className="relative max-w-6xl mx-auto" data-anim="up">
-          {/* Carousel */}
-          <div ref={emblaRef} className="overflow-hidden rounded-2xl">
-            <div className="flex">
-              {displayImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4"
-                >
-                  <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-elegant">
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
+        {/* Content: Slide Up from Bottom (No Fade) */}
+        {/* Masked Wrapper */}
+        <div ref={carouselRef} className="overflow-hidden pb-8 -mb-8 px-2 -mx-2">
+            <div 
+                className="relative max-w-6xl mx-auto" 
+                style={{
+                    transform: isCarouselVisible ? "translateY(0)" : "translateY(200px)", // Slide Up
+                    transition: "transform 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                }}
+            >
+            {/* Carousel */}
+            <div ref={emblaRef} className="overflow-hidden rounded-2xl">
+                <div className="flex">
+                {displayImages.map((image, index) => (
+                    <div
+                    key={index}
+                    className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 pl-4"
+                    >
+                    <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-elegant">
+                        <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        />
+                    </div>
+                    </div>
+                ))}
                 </div>
-              ))}
             </div>
-          </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 z-10"
-            aria-label={t('clinic.prev')}
-          >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 z-10"
-            aria-label={t('clinic.next')}
-          >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
+            {/* Navigation Arrows */}
+            <button
+                onClick={scrollPrev}
+                className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 z-10"
+                aria-label={t('clinic.prev')}
+            >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+            <button
+                onClick={scrollNext}
+                className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 z-10"
+                aria-label={t('clinic.next')}
+            >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+            </div>
         </div>
       </div>
     </section>

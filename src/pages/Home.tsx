@@ -41,23 +41,27 @@ const Home = () => {
   const { t } = useLanguage();
   useScrollReveal();
 
-  // 1. Services Section Animations (Wrappers)
+  // Services Section Animations
   const { ref: leftServiceRef, isVisible: isLeftServiceVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: rightServiceRef, isVisible: isRightServiceVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 2. Doctor Section Animations (Wrappers)
+  // Doctor Section Animations
   const { ref: doctorImgRef, isVisible: isDoctorImgVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: doctorTextRef, isVisible: isDoctorTextVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 3. Why Choose Us Animations (Title ONLY)
-  const { ref: whyTitleRef, isVisible: isWhyTitleVisible } = useScrollAnimation({ threshold: 0.1 });
+  // Why Choose Us Animations
+  const { ref: whyTextRef, isVisible: isWhyTextVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: whyImgRef, isVisible: isWhyImgVisible } = useScrollAnimation({ threshold: 0.1 });
+  // NEW: Why Choose Us Features Grid Animation (Bottom Up)
+  const { ref: whyGridRef, isVisible: isWhyGridVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 4. NEW: Before & After Title Animation (From LEFT)
+  // Before & After Animations
   const { ref: beforeAfterTitleRef, isVisible: isBeforeAfterTitleVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: beforeAfterGridRef, isVisible: isBeforeAfterGridVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 5. NEW: Map Title Animation (From LEFT)
+  // Map Animations
   const { ref: mapTitleRef, isVisible: isMapTitleVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: mapContentRef, isVisible: isMapContentVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const whyChooseFeatures = [
     {
@@ -78,6 +82,7 @@ const Home = () => {
     }
   ];
 
+  // Updated service category cards
   const serviceCategories = [
     {
       id: 'injectable',
@@ -104,7 +109,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {/* Hero Section - No Fly-in Animations */}
+      {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -146,7 +151,7 @@ const Home = () => {
           </p>
 
           <div className="max-w-6xl mx-auto space-y-6">
-            {/* Top Box - Static */}
+            {/* Top Box - Full Width */}
             <Link
               to="/services#injectable"
               data-anim="up"
@@ -172,7 +177,7 @@ const Home = () => {
 
             {/* Bottom Row */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-              {/* Bottom Left Box - Fly from Left */}
+              {/* Bottom Left Box */}
               <div ref={leftServiceRef} className="overflow-visible">
                 <Link
                   to="/services#renewal"
@@ -202,7 +207,7 @@ const Home = () => {
                 </Link>
               </div>
 
-              {/* Bottom Right Box - Fly from Right */}
+              {/* Bottom Right Box */}
               <div ref={rightServiceRef} className="overflow-visible">
                 <Link
                   to="/services#body"
@@ -293,47 +298,60 @@ const Home = () => {
       </section>
 
       {/* Before & Afters Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          
           {/* TITLE: Fly in from LEFT */}
           <div ref={beforeAfterTitleRef}>
             <div 
               className="text-center mb-12"
               style={{
                 opacity: isBeforeAfterTitleVisible ? 1 : 0,
-                transform: isBeforeAfterTitleVisible ? "translateX(0)" : "translateX(-100vw)", // From Left
+                transform: isBeforeAfterTitleVisible ? "translateX(0)" : "translateX(-100vw)", // Left Fly-in
                 transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
               }}
             >
-              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
-                {t('sections.beforeAfters')}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
+                {t('sections.beforeAfters.prefix')}{' '}
+                <span className="italic font-normal">{t('sections.beforeAfters.highlight')}</span>{' '}
+                {t('sections.beforeAfters.suffix')}
               </h2>
               <div className="w-20 h-1 gradient-warm mx-auto" />
             </div>
           </div>
 
-          {/* CONTENT: Fade Up (using data-anim="up") */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal-stagger" data-anim="up">
-            <div>
-              <BeforeAfterSlider
-                titleKey="services.botox.title"
-                beforeImage={before_botox}
-                afterImage={after_botox}
-              />
-            </div>
-            <div>
-              <BeforeAfterSlider
-                titleKey="services.hyaluronic.title"
-                beforeImage={before_lips}
-                afterImage={after_lips}
-              />
-            </div>
-            <div>
-              <BeforeAfterSlider
-                titleKey="services.faciallipolysis.title" 
-                beforeImage={before_darkeyes}
-                afterImage={after_darkeyes}
-              />
+          {/* CONTENT: Slide Up from Bottom (No Fade In opacity:1) */}
+          {/* We use a masked wrapper (overflow-hidden) so it looks like it's coming out of the floor */}
+          <div ref={beforeAfterGridRef} className="overflow-hidden pb-4 -mb-4 px-2 -mx-2"> 
+            <div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+              style={{
+                 transform: isBeforeAfterGridVisible ? "translateY(0)" : "translateY(200px)", // Starts down
+                 transition: "transform 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                 // Note: Opacity is implicitly 1 (visible), but hidden by overflow until it slides up
+              }}
+            >
+              <div>
+                <BeforeAfterSlider
+                  titleKey="services.botox.title"
+                  beforeImage={before_botox}
+                  afterImage={after_botox}
+                />
+              </div>
+              <div>
+                <BeforeAfterSlider
+                  titleKey="services.hyaluronic.title"
+                  beforeImage={before_lips}
+                  afterImage={after_lips}
+                />
+              </div>
+              <div>
+                <BeforeAfterSlider
+                  titleKey="services.faciallipolysis.title" 
+                  beforeImage={before_darkeyes}
+                  afterImage={after_darkeyes}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -347,11 +365,11 @@ const Home = () => {
             {/* Left Content */}
             <div>
               {/* Title: Fly in from LEFT */}
-              <div ref={whyTitleRef}>
+              <div ref={whyTextRef}>
                 <div
                   style={{
-                    opacity: isWhyTitleVisible ? 1 : 0,
-                    transform: isWhyTitleVisible ? "translateX(0)" : "translateX(-100vw)",
+                    opacity: isWhyTextVisible ? 1 : 0,
+                    transform: isWhyTextVisible ? "translateX(0)" : "translateX(-100vw)",
                     transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
@@ -362,38 +380,45 @@ const Home = () => {
                 </div>
               </div>
               
-              {/* Subtitle & Features - Static or Fade Up */}
-              <div data-anim="up">
-                <p className="text-muted-foreground mb-8 leading-relaxed">
-                  {t('why.subtitle')}{' '}
-                  <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
-                </p>
+              {/* Subtitle & Features: Slide Up from Bottom (No Fade) */}
+              <div ref={whyGridRef} className="overflow-hidden pb-4 -mb-4">
+                <div 
+                  style={{
+                    transform: isWhyGridVisible ? "translateY(0)" : "translateY(150px)",
+                    transition: "transform 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                  }}
+                >
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                    {t('why.subtitle')}{' '}
+                    <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
+                  </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                  {whyChooseFeatures.map((feature, index) => (
-                    <div 
-                      key={index} 
-                      className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}
-                    >
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                    {whyChooseFeatures.map((feature, index) => (
+                      <div 
+                        key={index} 
+                        className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}
+                      >
+                        <h3 className="text-lg font-semibold text-foreground mb-2">
+                          {feature.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {feature.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
 
-                <div className="mt-10">
-                  <Link to="/contact">
-                    <Button
-                      size="lg"
-                      className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8"
-                    >
-                      {t('why.cta')}
-                    </Button>
-                  </Link>
+                  <div className="mt-10">
+                    <Link to="/contact">
+                      <Button
+                        size="lg"
+                        className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8"
+                      >
+                        {t('why.cta')}
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -403,7 +428,7 @@ const Home = () => {
               <div 
                 style={{
                   opacity: isWhyImgVisible ? 1 : 0,
-                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)",
+                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)", // From Right
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
                 }}
               >
@@ -424,11 +449,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clinic Section - Title from RIGHT (handled in component), Content Fade Up */}
+      {/* Our Clinic Section */}
       <ClinicCarousel images={clinicImages} />
 
       {/* Map & Location Section */}
-      <section className="py-16 sm:py-20 bg-background">
+      <section className="py-16 sm:py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* TITLE: Fly in from LEFT */}
           <div ref={mapTitleRef}>
@@ -447,27 +472,31 @@ const Home = () => {
             </div>
           </div>
           
-          {/* CONTENT: Fade Up */}
-          <div 
-            className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-elegant"
-            data-anim="up"
-          >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1234567890!2d23.6431!3d37.9445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc0ef1f0c4b1%3A0x9f8e7d6c5b4a3210!2sKountouriotou%20127%2C%20Piraeus%20185%2032%2C%20Greece!5e0!3m2!1sen!2sgr!4v1701600000000!5m2!1sen!2sgr"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Dr. Valvis Clinic Location - Kountouriotou 127, Piraeus, Greece 18532"
-              className="w-full h-[300px] sm:h-[400px] lg:h-[450px]"
-            />
+          {/* CONTENT: Slide Up from Bottom (No Fade) */}
+          <div ref={mapContentRef} className="overflow-hidden rounded-2xl shadow-elegant p-1 bg-background">
+            <div 
+               style={{
+                 transform: isMapContentVisible ? "translateY(0)" : "translateY(200px)", // Slide Up
+                 transition: "transform 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+               }}
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1234567890!2d23.6431!3d37.9445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc0ef1f0c4b1%3A0x9f8e7d6c5b4a3210!2sKountouriotou%20127%2C%20Piraeus%20185%2032%2C%20Greece!5e0!3m2!1sen!2sgr!4v1701600000000!5m2!1sen!2sgr"
+                width="100%"
+                height="450"
+                style={{ border: 0, display: 'block', borderRadius: '1rem' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Dr. Valvis Clinic Location - Kountouriotou 127, Piraeus, Greece 18532"
+                className="w-full h-[300px] sm:h-[400px] lg:h-[450px]"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Clients - Title from RIGHT (handled in component), Content Fade Up */}
+      {/* Our Clients */}
       <ClientShortsCarousel images={shortsImages} />
 
       {/* CTA Section */}
