@@ -1,9 +1,8 @@
-import { useRef } from 'react';
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import ContactCTASection from '@/components/ContactCTASection';
 import heroImage from '@/assets/homepagefirst.jpeg';
-import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';

@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import { serviceCategories } from '@/data/servicesData';
 import CategoryBanner from '@/components/CategoryBanner';
@@ -10,6 +8,7 @@ import ServiceDetailCard from '@/components/ServiceDetailCard';
 import { ArrowDown, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import ContactCTASection from '@/components/ContactCTASection';
 
 // --- SERVICE IMAGE IMPORTS ---
 // 1. Injectable Facial Treatments
@@ -208,23 +207,7 @@ const Services = () => {
       ))}
 
       {/* CTA Section */}
-      <section className="py-14 sm:py-18 lg:py-20 gradient-warm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto animate-fade-in-up">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-semibold text-white mb-4 sm:mb-6">
-              {t('cta.ready')}
-            </h2>
-            <p className="text-white/90 mb-6 sm:mb-8 text-base sm:text-lg">
-              {t('cta.description')}
-            </p>
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                {t('hero.cta')}
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ContactCTASection />
 
       <ScrollToTopButton />
     </div>
