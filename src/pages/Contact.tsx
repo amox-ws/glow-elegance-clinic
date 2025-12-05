@@ -10,6 +10,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { MapPin, Phone, Instagram, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import GoogleMapsEmbed from '@/components/GoogleMapsEmbed';
 
 const Contact = () => {
   const { t, language } = useLanguage();
@@ -319,13 +320,9 @@ const Contact = () => {
 
               {/* Map Embed */}
               <Card className="p-0 overflow-hidden border-border shadow-soft">
-                <iframe
+                <GoogleMapsEmbed
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.1764959714524!2d23.64135!3d37.94274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bbe5bb8d2835%3A0x3e0dce8e8b5e3c0d!2sKountouriotou%20127%2C%20Pireas%20185%2032!5e0!3m2!1sen!2sgr!4v1645000000000!5m2!1sen!2sgr"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
+                  height={300}
                   title="Clinic Location - Kountouriotou 127, Piraeus"
                 />
               </Card>
