@@ -19,15 +19,21 @@ const CookieConsentBanner = () => {
     }
   }, []);
 
-  const saveConsent = (type: ConsentType) => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({ type, timestamp: Date.now() }));
+  const saveConsent = (type: ConsentType, thirdParty?: boolean) => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({ type, thirdParty, timestamp: Date.now() }));
     setShowBanner(false);
     setShowPreferences(false);
+    // Dispatch event for same-tab listeners
+    window.dispatchEvent(new Event('cookieConsentUpdated'));
   };
 
-  const handleAcceptAll = () => saveConsent('all');
-  const handleRejectNonEssential = () => saveConsent('essential');
-  const handleSavePreferences = () => saveConsent('custom');
+  const handleAcceptAll = () => saveConsent('all', true);
+  const handleRejectNonEssential = () => saveConsent('essential', false);
+  const handleSavePreferences = () => {
+    const thirdPartyCheckbox = document.getElementById('thirdParty') as HTMLInputElement;
+    const thirdPartyEnabled = thirdPartyCheckbox?.checked ?? false;
+    saveConsent('custom', thirdPartyEnabled);
+  };
 
   if (!showBanner) return null;
 

@@ -11,6 +11,7 @@ import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import GoogleMapsEmbed from '@/components/GoogleMapsEmbed';
 
 import before_lips from "@/assets/before_lips.png";
 import after_lips from "@/assets/after_lips.png";
@@ -481,14 +482,8 @@ const Home = () => {
                  transition: "transform 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                }}
             >
-              <iframe
+              <GoogleMapsEmbed
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1234567890!2d23.6431!3d37.9445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc0ef1f0c4b1%3A0x9f8e7d6c5b4a3210!2sKountouriotou%20127%2C%20Piraeus%20185%2032%2C%20Greece!5e0!3m2!1sen!2sgr!4v1701600000000!5m2!1sen!2sgr"
-                width="100%"
-                height="450"
-                style={{ border: 0, display: 'block', borderRadius: '1rem' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
                 title="Dr. Valvis Clinic Location - Kountouriotou 127, Piraeus, Greece 18532"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[450px]"
               />
