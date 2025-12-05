@@ -200,6 +200,7 @@ const translations = {
     "footer.quickLinks": "Quick Links",
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
+    "footer.cookies": "Cookies Policy",
     "footer.terms": "Terms of Service",
 
     // Map Section
@@ -404,6 +405,7 @@ const translations = {
     "footer.quickLinks": "Γρήγοροι Σύνδεσμοι",
     "footer.rights": "Όλα τα δικαιώματα διατηρούνται.",
     "footer.privacy": "Πολιτική Απορρήτου",
+    "footer.cookies": "Πολιτική Cookies",
     "footer.terms": "Όροι Χρήσης",
 
     // Map Section
