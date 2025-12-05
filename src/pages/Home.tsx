@@ -399,6 +399,20 @@ const Home = () => {
                     <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
                   </p>
 
+                  {/* Mobile-only Image - appears between paragraph and features */}
+                  <div className="block lg:hidden mb-8">
+                    <div className="relative">
+                      <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant bg-muted">
+                        <img
+                          src={whychooseus}
+                          alt="Aesthetic treatments"
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                     {whyChooseFeatures.map((feature, index) => (
                       <div 
@@ -429,17 +443,17 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Image - Visible on all screens, below text on mobile */}
-            <div ref={whyImgRef} className="mt-10 lg:mt-0">
+            {/* Right Image - Desktop only (lg+) */}
+            <div ref={whyImgRef} className="hidden lg:block">
               <div 
                 style={{
                   opacity: isWhyImgVisible ? 1 : 0,
-                  transform: isWhyImgVisible ? "translateY(0)" : "translateY(50px)",
+                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)",
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
                 }}
               >
                 <div className="relative">
-                  <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
                     <img
                       src={whychooseus}
                       alt="Aesthetic treatments"
