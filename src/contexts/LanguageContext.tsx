@@ -272,10 +272,10 @@ const translations = {
     "clients.testimonial.recommend": "Συστήνω Ανεπιφύλακτα",
 
     // Services - Main
-    "services.title": "Υπηρεσίες",
-    "services.title.prefix": "",
+    "services.title": "Οι Υπηρεσίες μας",
+    "services.title.prefix": "ΟΙ",
     "services.title.highlight": "ΥΠΗΡΕΣΙΕΣ",
-    "services.title.suffix": "",
+    "services.title.suffix": "ΜΑΣ",
     "services.subtitle": "Ολοκληρωμένες αισθητικές θεραπείες προσαρμοσμένες στις ανάγκες σας",
     "services.learnMore": "Μάθετε περισσότερα",
     "services.viewAll": "Δείτε Όλες τις Υπηρεσίες",

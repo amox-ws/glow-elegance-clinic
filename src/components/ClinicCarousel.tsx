@@ -69,9 +69,7 @@ const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12" data-anim="up">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
-            {t('clinic.title.prefix')}{t('clinic.title.prefix') ? ' ' : ''}
-            <span className="italic font-normal">{t('clinic.title.highlight')}</span>
-            {t('clinic.title.suffix') ? ' ' : ''}{t('clinic.title.suffix')}
+            {t('clinic.title.prefix')} <span className="italic font-normal">{t('clinic.title.highlight')}</span> {t('clinic.title.suffix')}
           </h2>
           <div className="w-20 h-1 gradient-warm mx-auto" />
         </div>
