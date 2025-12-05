@@ -9,7 +9,7 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import the custom hook
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 import before_lips from "@/assets/before_lips.png";
 import after_lips from "@/assets/after_lips.png";
@@ -39,19 +39,25 @@ import service_r from "@/assets/service_r.png";
 
 const Home = () => {
   const { t } = useLanguage();
-  useScrollReveal(); // Handles the 'data-anim' animations
+  useScrollReveal();
 
-  // 1. Animation hooks for the Wrappers of the Left/Right boxes
-  const { ref: leftWrapperRef, isVisible: isLeftVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: rightWrapperRef, isVisible: isRightVisible } = useScrollAnimation({ threshold: 0.1 });
+  // 1. Services Section Animations (Wrappers)
+  const { ref: leftServiceRef, isVisible: isLeftServiceVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: rightServiceRef, isVisible: isRightServiceVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 2. Animation hooks for Doctor Section
+  // 2. Doctor Section Animations (Wrappers)
   const { ref: doctorImgRef, isVisible: isDoctorImgVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: doctorTextRef, isVisible: isDoctorTextVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  // 3. Animation hooks for Why Choose Us Section
-  const { ref: whyTextRef, isVisible: isWhyTextVisible } = useScrollAnimation({ threshold: 0.1 });
+  // 3. Why Choose Us Animations (Title ONLY)
+  const { ref: whyTitleRef, isVisible: isWhyTitleVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: whyImgRef, isVisible: isWhyImgVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  // 4. NEW: Before & After Title Animation (From LEFT)
+  const { ref: beforeAfterTitleRef, isVisible: isBeforeAfterTitleVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  // 5. NEW: Map Title Animation (From LEFT)
+  const { ref: mapTitleRef, isVisible: isMapTitleVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const whyChooseFeatures = [
     {
@@ -72,37 +78,33 @@ const Home = () => {
     }
   ];
 
-  // Updated service category cards
   const serviceCategories = [
     {
       id: 'injectable',
       titleKey: 'services.category.injectable',
       descKey: 'services.category.injectable.desc',
-      image: service_up, // Top/Full width image
+      image: service_up, 
     },
     {
       id: 'renewal',
       titleKey: 'services.category.renewal',
       descKey: 'services.category.renewal.desc',
-      image: service_l, // Bottom Left image
+      image: service_l, 
     },
     {
       id: 'body',
       titleKey: 'services.category.body',
       descKey: 'services.category.body.desc',
-      image: service_r, // Bottom Right image
+      image: service_r, 
     }
   ];
 
-  // Array of your imported clinic images
   const clinicImages = [clinic1, clinic2, clinic3, clinic4];
-
-  // Array of your imported shorts images
   const shortsImages = [shorts1, shorts2, shorts3, shorts4, shorts5, shorts6];
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section - No Fly-in Animations */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -112,7 +114,7 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground mb-6 animate-hero-title font-hero-serif font-medium tracking-wide leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground mb-6 font-hero-serif font-medium tracking-wide leading-tight animate-fade-in-up">
             {t('hero.title')}
           </h1>
           <p
@@ -136,37 +138,31 @@ const Home = () => {
       {/* Featured Services Section */}
       <section className="py-20 gradient-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider text-center">
-            {t('services.title.prefix')} <span className="italic font-normal">{t('services.title.highlight')}</span> {t('services.title.suffix')}
+          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-center text-foreground mb-4">
+            {t('services.title')}
           </h2>
-          <div className="w-20 h-1 gradient-warm mx-auto mb-4" />
           <p className="text-center text-muted-foreground mb-12">
             {t('services.subtitle')}
           </p>
 
           <div className="max-w-6xl mx-auto space-y-6">
-            
-            {/* Top Box - Full Width */}
+            {/* Top Box - Static */}
             <Link
               to="/services#injectable"
               data-anim="up"
               className="group relative block overflow-hidden rounded-2xl h-[320px] md:h-[400px] cursor-pointer shadow-elegant hover:shadow-glow transition-all duration-500"
               aria-label={t('services.category.injectable')}
             >
-              {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url(${serviceCategories[0].image})` }}
               />
-              
-              {/* Content - Centered */}
+              <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
               <div className="absolute inset-0 flex items-center justify-center text-white">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-semibold text-center px-6 transition-transform duration-500 group-hover:scale-105">
                   {t('services.category.injectable')}
                 </h3>
               </div>
-              
-              {/* Arrow Icon */}
               <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -174,35 +170,30 @@ const Home = () => {
               </div>
             </Link>
 
-            {/* Bottom Row - Two Boxes */}
+            {/* Bottom Row */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-              
-              {/* Bottom Left Box */}
-              <div ref={leftWrapperRef} className="overflow-visible">
+              {/* Bottom Left Box - Fly from Left */}
+              <div ref={leftServiceRef} className="overflow-visible">
                 <Link
                   to="/services#renewal"
                   className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
                   aria-label={t('services.category.renewal')}
                   style={{
-                    opacity: isLeftVisible ? 1 : 0,
-                    transform: isLeftVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
+                    opacity: isLeftServiceVisible ? 1 : 0,
+                    transform: isLeftServiceVisible ? "translateX(0)" : "translateX(-100vw)",
                     transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
-                  {/* Background Image */}
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url(${serviceCategories[1].image})` }}
                   />
-                  
-                  {/* Content - Centered */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
                   <div className="absolute inset-0 flex items-center justify-center text-white">
                     <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
                       {t('services.category.renewal')}
                     </h3>
                   </div>
-                  
-                  {/* Arrow Icon */}
                   <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -211,32 +202,28 @@ const Home = () => {
                 </Link>
               </div>
 
-              {/* Bottom Right Box */}
-              <div ref={rightWrapperRef} className="overflow-visible">
+              {/* Bottom Right Box - Fly from Right */}
+              <div ref={rightServiceRef} className="overflow-visible">
                 <Link
                   to="/services#body"
                   className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
                   aria-label={t('services.category.body')}
                   style={{
-                    opacity: isRightVisible ? 1 : 0,
-                    transform: isRightVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                    opacity: isRightServiceVisible ? 1 : 0,
+                    transform: isRightServiceVisible ? "translateX(0)" : "translateX(100vw)",
                     transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
-                  {/* Background Image */}
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url(${serviceCategories[2].image})` }}
                   />
-                  
-                  {/* Content - Centered */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-warm-taupe/90 via-warm-tan/40 to-transparent transition-opacity duration-500" />
                   <div className="absolute inset-0 flex items-center justify-center text-white">
                     <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
                       {t('services.category.body')}
                     </h3>
                   </div>
-                  
-                  {/* Arrow Icon */}
                   <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -262,12 +249,12 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             
-            {/* Left Image - Wrapped to fix disappearing issue */}
+            {/* Left Image - Fly from Left */}
             <div ref={doctorImgRef}>
               <div
                 style={{
                   opacity: isDoctorImgVisible ? 1 : 0,
-                  transform: isDoctorImgVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
+                  transform: isDoctorImgVisible ? "translateX(0)" : "translateX(-100vw)",
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                 }}
               >
@@ -279,17 +266,17 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Text - Wrapped and Animated Fly-in from Right */}
+            {/* Right Text - Fly from Right */}
             <div ref={doctorTextRef}>
-              <div
+              <div 
                 style={{
                   opacity: isDoctorTextVisible ? 1 : 0,
-                  transform: isDoctorTextVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                  transform: isDoctorTextVisible ? "translateX(0)" : "translateX(100vw)",
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
                 }}
               >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6 uppercase tracking-wider">
-                  {t('doctor.title.prefix')} <span className="italic font-normal">{t('doctor.title.highlight')}</span>
+                <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-6">
+                  {t('doctor.title')}
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {t('doctor.bio')}
@@ -301,7 +288,6 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            
           </div>
         </div>
       </section>
@@ -309,36 +295,40 @@ const Home = () => {
       {/* Before & Afters Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12" data-anim="up">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
-              {t('sections.beforeAfters.prefix')}{' '}
-              <span className="italic font-normal">{t('sections.beforeAfters.highlight')}</span>{' '}
-              {t('sections.beforeAfters.suffix')}
-            </h2>
-            <div className="w-20 h-1 gradient-warm mx-auto" />
+          {/* TITLE: Fly in from LEFT */}
+          <div ref={beforeAfterTitleRef}>
+            <div 
+              className="text-center mb-12"
+              style={{
+                opacity: isBeforeAfterTitleVisible ? 1 : 0,
+                transform: isBeforeAfterTitleVisible ? "translateX(0)" : "translateX(-100vw)", // From Left
+                transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+              }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
+                {t('sections.beforeAfters')}
+              </h2>
+              <div className="w-20 h-1 gradient-warm mx-auto" />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal-stagger">
-            {/* 1. Botox */}
-            <div data-anim="up">
+          {/* CONTENT: Fade Up (using data-anim="up") */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto reveal-stagger" data-anim="up">
+            <div>
               <BeforeAfterSlider
                 titleKey="services.botox.title"
                 beforeImage={before_botox}
                 afterImage={after_botox}
               />
             </div>
-
-            {/* 2. Hyaluronic Acid */}
-            <div data-anim="up">
+            <div>
               <BeforeAfterSlider
                 titleKey="services.hyaluronic.title"
                 beforeImage={before_lips}
                 afterImage={after_lips}
               />
             </div>
-
-            {/* 3. Body/Tummy Tuck */}
-            <div data-anim="up">
+            <div>
               <BeforeAfterSlider
                 titleKey="services.faciallipolysis.title" 
                 beforeImage={before_darkeyes}
@@ -354,26 +344,31 @@ const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             
-            {/* Left Content - Wrapped to fix disappearing issue */}
-            <div ref={whyTextRef}>
-              <div
-                style={{
-                  opacity: isWhyTextVisible ? 1 : 0,
-                  transform: isWhyTextVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
-                  transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
-                }}
-              >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6">
-                  <span className="italic">{t('why.title')}</span>{' '}
-                  <span className="font-semibold">{t('why.titleHighlight')}</span>
-                </h2>
-                
+            {/* Left Content */}
+            <div>
+              {/* Title: Fly in from LEFT */}
+              <div ref={whyTitleRef}>
+                <div
+                  style={{
+                    opacity: isWhyTitleVisible ? 1 : 0,
+                    transform: isWhyTitleVisible ? "translateX(0)" : "translateX(-100vw)",
+                    transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                  }}
+                >
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6">
+                    <span className="italic">{t('why.title')}</span>{' '}
+                    <span className="font-semibold">{t('why.titleHighlight')}</span>
+                  </h2>
+                </div>
+              </div>
+              
+              {/* Subtitle & Features - Static or Fade Up */}
+              <div data-anim="up">
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   {t('why.subtitle')}{' '}
                   <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
                 </p>
 
-                {/* Features Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                   {whyChooseFeatures.map((feature, index) => (
                     <div 
@@ -390,7 +385,6 @@ const Home = () => {
                   ))}
                 </div>
 
-                {/* CTA Button */}
                 <div className="mt-10">
                   <Link to="/contact">
                     <Button
@@ -404,12 +398,12 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Image - Wrapped to fix disappearing issue */}
+            {/* Right Image - Fly in from Right */}
             <div ref={whyImgRef} className="hidden lg:block">
               <div 
                 style={{
                   opacity: isWhyImgVisible ? 1 : 0,
-                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)",
                   transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
                 }}
               >
@@ -430,19 +424,30 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clinic Section with Custom Images */}
+      {/* Our Clinic Section - Title from RIGHT (handled in component), Content Fade Up */}
       <ClinicCarousel images={clinicImages} />
 
       {/* Map & Location Section */}
       <section className="py-16 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10" data-anim="up">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
-              {t('map.title.prefix')} <span className="italic font-normal">{t('map.title.highlight')}</span> {t('map.title.suffix')}
-            </h2>
-            <div className="w-20 h-1 gradient-warm mx-auto" />
+          {/* TITLE: Fly in from LEFT */}
+          <div ref={mapTitleRef}>
+            <div 
+              className="text-center mb-10"
+              style={{
+                opacity: isMapTitleVisible ? 1 : 0,
+                transform: isMapTitleVisible ? "translateX(0)" : "translateX(-100vw)", // From Left
+                transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+              }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
+                {t('map.title')}
+              </h2>
+              <div className="w-20 h-1 gradient-warm mx-auto" />
+            </div>
           </div>
           
+          {/* CONTENT: Fade Up */}
           <div 
             className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-elegant"
             data-anim="up"
@@ -462,7 +467,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clients in Shorts Section with Custom Images */}
+      {/* Our Clients - Title from RIGHT (handled in component), Content Fade Up */}
       <ClientShortsCarousel images={shortsImages} />
 
       {/* CTA Section */}

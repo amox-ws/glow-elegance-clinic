@@ -3,15 +3,15 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import animation hook
 
-// 1. Define the Interface
 interface ClinicCarouselProps {
-  images?: string[]; // Define the optional images prop
+  images?: string[];
 }
 
-// 2. Accept the prop in the component function
 const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
   const { t } = useLanguage();
+  const { ref: titleRef, isVisible: isTitleVisible } = useScrollAnimation({ threshold: 0.1 });
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
@@ -44,7 +44,6 @@ const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
     };
   }, [emblaApi, onSelect]);
 
-  // Fallback images if none are provided
   const defaultImages = [
     {
       src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop&q=80',
@@ -56,7 +55,6 @@ const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
     },
   ];
 
-  // 3. Use the passed images array if it exists, otherwise use default
   const displayImages = images && images.length > 0 
     ? images.map((src, index) => ({
         src,
@@ -65,15 +63,27 @@ const ClinicCarousel = ({ images }: ClinicCarouselProps) => {
     : defaultImages;
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12" data-anim="up">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider">
-            {t('clinic.title.prefix')} <span className="italic font-normal">{t('clinic.title.highlight')}</span> {t('clinic.title.suffix')}
-          </h2>
-          <div className="w-20 h-1 gradient-warm mx-auto" />
+        
+        {/* Title: Fly in from RIGHT */}
+        <div ref={titleRef}>
+          <div 
+            className="text-center mb-12"
+            style={{
+              opacity: isTitleVisible ? 1 : 0,
+              transform: isTitleVisible ? "translateX(0)" : "translateX(100vw)", // From Right
+              transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+            }}
+          >
+            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-foreground mb-4">
+              {t('clinic.title')}
+            </h2>
+            <div className="w-20 h-1 gradient-warm mx-auto" />
+          </div>
         </div>
 
+        {/* Content: Fade Up */}
         <div className="relative max-w-6xl mx-auto" data-anim="up">
           {/* Carousel */}
           <div ref={emblaRef} className="overflow-hidden rounded-2xl">

@@ -2,6 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import animation hook
 
 interface ClientShortsCarouselProps {
   images?: string[];
@@ -9,6 +10,7 @@ interface ClientShortsCarouselProps {
 
 const ClientShortsCarousel = ({ images }: ClientShortsCarouselProps) => {
   const { t } = useLanguage();
+  const { ref: titleRef, isVisible: isTitleVisible } = useScrollAnimation({ threshold: 0.1 });
   
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
@@ -56,21 +58,33 @@ const ClientShortsCarousel = ({ images }: ClientShortsCarouselProps) => {
     : defaultItems;
 
   return (
-    <section className="py-20 bg-background" aria-labelledby="clients-shorts-title">
+    <section className="py-20 bg-background overflow-hidden" aria-labelledby="clients-shorts-title">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12" data-anim="up">
-          <h2 
-            id="clients-shorts-title"
-            className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider"
-          >
-            {t('clients.title.prefix')}{' '}
-            <span className="italic font-normal">{t('clients.title.highlight')}</span>{' '}
-            {t('clients.title.suffix')}
-          </h2>
-          <div className="w-20 h-1 gradient-warm mx-auto" />
+        
+        {/* Title: Fly in from RIGHT */}
+        <div ref={titleRef}>
+            <div 
+                className="text-center mb-12"
+                style={{
+                    opacity: isTitleVisible ? 1 : 0,
+                    transform: isTitleVisible ? "translateX(0)" : "translateX(100vw)", // From Right
+                    transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                }}
+            >
+            <h2 
+                id="clients-shorts-title"
+                className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-4 uppercase tracking-wider"
+            >
+                {t('clients.title.prefix')}{' '}
+                <span className="italic font-normal">{t('clients.title.highlight')}</span>{' '}
+                {t('clients.title.suffix')}
+            </h2>
+            <div className="w-20 h-1 gradient-warm mx-auto" />
+            </div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto">
+        {/* Content: Fade Up */}
+        <div className="relative max-w-7xl mx-auto" data-anim="up">
           {/* Arrows */}
           <button
             onClick={scrollPrev}
@@ -90,14 +104,10 @@ const ClientShortsCarousel = ({ images }: ClientShortsCarouselProps) => {
 
           {/* Embla Carousel Viewport */}
           <div className="overflow-hidden px-2" ref={emblaRef}>
-            {/* ΔΙΟΡΘΩΣΗ: Αντί για 'gap-4', χρησιμοποιούμε αρνητικό margin (-ml) στο container 
-               και padding (pl) στα items. Αυτό διορθώνει το loop glitch.
-            */}
             <div className="flex -ml-4 md:-ml-6">
               {videoItems.map((item, index) => (
                 <div
                   key={item.id}
-                  // ΔΙΟΡΘΩΣΗ: Προσθήκη padding-left εδώ για να δημιουργηθεί το κενό
                   className="flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] lg:w-[23%] pl-4 md:pl-6"
                 >
                   <article className="group relative rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500">
