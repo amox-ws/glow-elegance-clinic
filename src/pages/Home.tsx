@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import ContactCTASection from '@/components/ContactCTASection';
 import heroImage from '@/assets/homepagefirst.jpeg';
 import doctorPortrait from '@/assets/doctor-portrait.jpg';
 import { Link } from 'react-router-dom';
@@ -500,23 +501,7 @@ const Home = () => {
       <ClientShortsCarousel images={shortsImages} />
 
       {/* CTA Section */}
-      <section className="py-20 gradient-warm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto" data-anim="up">
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-white mb-6">
-              {t('cta.ready')}
-            </h2>
-            <p className="text-white/90 mb-8 text-lg">
-              {t('cta.description')}
-            </p>
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 shadow-elegant">
-                {t('hero.cta')}
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ContactCTASection />
 
       <ScrollToTopButton />
     </div>
