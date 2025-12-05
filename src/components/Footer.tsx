@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Phone, MapPin, Instagram } from "lucide-react";
+import { Phone, MapPin, Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -47,6 +47,12 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-primary flex-shrink-0" />
                 <a href="tel:+306951944489" className="hover:text-primary transition-colors">
                   +30 6951944489
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                <a href="mailto:eirini_valvi@yahoo.gr" className="hover:text-primary transition-colors">
+                  eirini_valvi@yahoo.gr
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-sm text-muted-foreground">
