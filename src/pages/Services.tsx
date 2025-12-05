@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal'; // Keeping this for header fade-in
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import custom hook for slide-up
 import { serviceCategories } from '@/data/servicesData';
 import CategoryBanner from '@/components/CategoryBanner';
 import ServiceDetailCard from '@/components/ServiceDetailCard';
@@ -33,10 +34,44 @@ import laserHairRemoval from '@/assets/services/Body_Laser_Hair_Removal.jpeg';
 import bodyLipolysis from '@/assets/services/Body_Lipolysis.jpeg';
 import celluliteTreatments from '@/assets/services/Cellulite_Treatments.jpeg';
 
+// --- HELPER COMPONENT FOR ANIMATION ---
+// This handles the "Appear from bottom without fade" effect
+const SlideUpReveal = ({ 
+  children, 
+  className, 
+  id,
+  delay = 0 
+}: { 
+  children: React.ReactNode; 
+  className?: string;
+  id?: string;
+  delay?: number;
+}) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  return (
+    <div 
+      ref={ref} 
+      id={id}
+      className={cn("overflow-hidden", className)} // Masking the content
+    >
+      <div
+        style={{
+          // Slide from 150px down to 0. No opacity change (always 1).
+          transform: isVisible ? "translateY(0)" : "translateY(150px)",
+          transition: `transform 1.2s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}ms`,
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
 const Services = () => {
   const { t, language } = useLanguage();
   const location = useLocation();
-  useScrollReveal();
+  useScrollReveal(); // Keeps the header title fade-in
 
   // 1. Flatten the categories to get a single list of ALL 16 services
   const allServices = serviceCategories.flatMap(category => category.services);
@@ -66,13 +101,13 @@ const Services = () => {
 
   // 3. Harmonious Shape Pattern (Sequence of 8)
   const shapes = [
-    "rounded-full",                                                      
-    "rounded-[2.5rem]",                                                  
-    "rounded-t-[3.5rem] rounded-b-[1rem]",                               
+    "rounded-full",                                                             
+    "rounded-[2.5rem]",                                                         
+    "rounded-t-[3.5rem] rounded-b-[1rem]",                                        
     "rounded-tr-[3.5rem] rounded-bl-[3.5rem] rounded-tl-[1rem] rounded-br-[1rem]", 
-    "rounded-[2.5rem]",                                                  
-    "rounded-b-[3.5rem] rounded-t-[1rem]",                               
-    "rounded-full",                                                      
+    "rounded-[2.5rem]",                                                         
+    "rounded-b-[3.5rem] rounded-t-[1rem]",                                        
+    "rounded-full",                                                             
     "rounded-tl-[3.5rem] rounded-br-[3.5rem] rounded-tr-[1rem] rounded-bl-[1rem]", 
   ];
 
@@ -130,39 +165,44 @@ const Services = () => {
              </h3>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-x-2 gap-y-8 sm:gap-4 justify-items-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-x-2 gap-y-8 sm:gap-4 justify-items-center">
             {allServices.map((service, index) => {
               const currentShapeClass = shapes[index % shapes.length];
               const currentImage = serviceImages[index] || hyaluronicFillers;
 
               return (
-                <div 
-                  key={service.id}
-                  onClick={() => scrollToItem(service.id)}
-                  className="group flex flex-col items-center cursor-pointer w-full"
+                <SlideUpReveal 
+                  key={service.id} 
+                  className="w-full flex justify-center"
+                  delay={index * 50} // Stagger effect for the grid items
                 >
-                  {/* Shape Container */}
-                  <div className={cn(
-                    "w-24 h-24 sm:w-28 sm:h-28 bg-white border border-border/60 shadow-soft flex items-center justify-center mb-3 transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-elegant group-hover:border-primary/40 relative overflow-hidden",
-                    currentShapeClass
-                  )}>
-                     
-                     {/* The Actual Image (Same as detail card) */}
-                     <img 
-                       src={currentImage} 
-                       alt={language === 'en' ? service.title.en : service.title.el}
-                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                     />
+                  <div 
+                    onClick={() => scrollToItem(service.id)}
+                    className="group flex flex-col items-center cursor-pointer w-full"
+                  >
+                    {/* Shape Container */}
+                    <div className={cn(
+                      "w-24 h-24 sm:w-28 sm:h-28 bg-white border border-border/60 shadow-soft flex items-center justify-center mb-3 transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-elegant group-hover:border-primary/40 relative overflow-hidden",
+                      currentShapeClass
+                    )}>
+                        
+                        {/* The Actual Image */}
+                        <img 
+                          src={currentImage} 
+                          alt={language === 'en' ? service.title.en : service.title.el}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
 
-                     {/* Gradient Overlay */}
-                     <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                    </div>
+
+                    {/* Service Label */}
+                    <span className="text-[10px] sm:text-xs font-bold text-center text-muted-foreground group-hover:text-primary transition-colors duration-300 uppercase tracking-wide leading-tight px-1 max-w-[120px] line-clamp-2">
+                      {language === 'en' ? service.title.en : service.title.el}
+                    </span>
                   </div>
-
-                  {/* Service Label */}
-                  <span className="text-[10px] sm:text-xs font-bold text-center text-muted-foreground group-hover:text-primary transition-colors duration-300 uppercase tracking-wide leading-tight px-1 max-w-[120px] line-clamp-2">
-                    {language === 'en' ? service.title.en : service.title.el}
-                  </span>
-                </div>
+                </SlideUpReveal>
               );
             })}
           </div>
@@ -175,9 +215,11 @@ const Services = () => {
 
       {/* Service Detail Cards List */}
       {serviceCategories.map((category, categoryIndex) => (
-        <div key={category.id} id={category.id}>
-          {/* Category Header */}
-          <CategoryBanner id={category.id} title={category.title} />
+        <div key={category.id}>
+          {/* Category Header - Slide Up Animation */}
+          <SlideUpReveal id={category.id} className="scroll-mt-24">
+            <CategoryBanner id={`${category.id}-banner`} title={category.title} />
+          </SlideUpReveal>
           
           <div className="bg-background py-8 sm:py-10 lg:py-12">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,15 +231,16 @@ const Services = () => {
                   const image = serviceImages[globalIndex] || hyaluronicFillers;
 
                   return (
-                    <ServiceDetailCard
-                      key={service.id}
-                      id={service.id}
-                      title={service.title}
-                      shortIntro={service.shortIntro}
-                      longContent={service.longContent}
-                      image={image}
-                      index={categoryIndex * 10 + serviceIndex}
-                    />
+                    <SlideUpReveal key={service.id} id={service.id} className="scroll-mt-32">
+                      <ServiceDetailCard
+                        id={`${service.id}-content`} // Avoid duplicate IDs, wrapper handles navigation
+                        title={service.title}
+                        shortIntro={service.shortIntro}
+                        longContent={service.longContent}
+                        image={image}
+                        index={categoryIndex * 10 + serviceIndex}
+                      />
+                    </SlideUpReveal>
                   );
                 })}
               </div>
