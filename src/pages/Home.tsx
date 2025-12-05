@@ -9,7 +9,7 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import ClinicCarousel from '@/components/ClinicCarousel';
 import ClientShortsCarousel from '@/components/ClientShortsCarousel';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'; // Import the custom hook
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 import before_lips from "@/assets/before_lips.png";
 import after_lips from "@/assets/after_lips.png";
@@ -39,11 +39,19 @@ import service_r from "@/assets/service_r.png";
 
 const Home = () => {
   const { t } = useLanguage();
-  useScrollReveal(); // Handles the 'data-anim' animations (Top Box)
+  useScrollReveal();
 
-  // 1. Animation hooks for the Wrappers of the Left/Right boxes
-  const { ref: leftWrapperRef, isVisible: isLeftVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: rightWrapperRef, isVisible: isRightVisible } = useScrollAnimation({ threshold: 0.1 });
+  // 1. Services Section Animations
+  const { ref: leftServiceRef, isVisible: isLeftServiceVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: rightServiceRef, isVisible: isRightServiceVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  // 2. Doctor Section Animations
+  const { ref: doctorImgRef, isVisible: isDoctorImgVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: doctorTextRef, isVisible: isDoctorTextVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  // 3. Why Choose Us Animations
+  const { ref: whyTextRef, isVisible: isWhyTextVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: whyImgRef, isVisible: isWhyImgVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const whyChooseFeatures = [
     {
@@ -137,9 +145,7 @@ const Home = () => {
           </p>
 
           <div className="max-w-6xl mx-auto space-y-6">
-            
             {/* Top Box - Full Width */}
-            {/* Has data-anim="up" for simple fade in */}
             <Link
               to="/services#injectable"
               data-anim="up"
@@ -151,7 +157,6 @@ const Home = () => {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url(${serviceCategories[0].image})` }}
               />
-              
               
               {/* Content - Centered */}
               <div className="absolute inset-0 flex items-center justify-center text-white">
@@ -169,19 +174,18 @@ const Home = () => {
             </Link>
 
             {/* Bottom Row - Two Boxes */}
-            {/* Kept your exact grid classes */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
               
               {/* Bottom Left Box */}
-              <div ref={leftWrapperRef} className="overflow-visible">
+              <div ref={leftServiceRef} className="overflow-visible">
                 <Link
                   to="/services#renewal"
                   className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
                   aria-label={t('services.category.renewal')}
                   style={{
-                    opacity: isLeftVisible ? 1 : 0,
-                    transform: isLeftVisible ? "translateX(0)" : "translateX(-120%)", // Fly in from Left
-                    transition: "all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                    opacity: isLeftServiceVisible ? 1 : 0,
+                    transform: isLeftServiceVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
+                    transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
                   {/* Background Image */}
@@ -189,7 +193,6 @@ const Home = () => {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url(${serviceCategories[1].image})` }}
                   />
-                  
                   
                   {/* Content - Centered */}
                   <div className="absolute inset-0 flex items-center justify-center text-white">
@@ -208,15 +211,15 @@ const Home = () => {
               </div>
 
               {/* Bottom Right Box */}
-              <div ref={rightWrapperRef} className="overflow-visible">
+              <div ref={rightServiceRef} className="overflow-visible">
                 <Link
                   to="/services#body"
                   className="group relative block overflow-hidden rounded-2xl h-[180px] sm:h-[240px] md:h-[320px] cursor-pointer shadow-elegant hover:shadow-glow"
                   aria-label={t('services.category.body')}
                   style={{
-                    opacity: isRightVisible ? 1 : 0,
-                    transform: isRightVisible ? "translateX(0)" : "translateX(120%)", // Fly in from Right
-                    transition: "all 1.8s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                    opacity: isRightServiceVisible ? 1 : 0,
+                    transform: isRightServiceVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                    transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
                   }}
                 >
                   {/* Background Image */}
@@ -225,7 +228,6 @@ const Home = () => {
                     style={{ backgroundImage: `url(${serviceCategories[2].image})` }}
                   />
                   
-
                   {/* Content - Centered */}
                   <div className="absolute inset-0 flex items-center justify-center text-white">
                     <h3 className="text-base sm:text-xl md:text-3xl font-heading font-semibold text-center px-3 sm:px-6 transition-transform duration-500 group-hover:scale-105">
@@ -241,7 +243,6 @@ const Home = () => {
                   </div>
                 </Link>
               </div>
-
             </div>
           </div>
 
@@ -256,15 +257,25 @@ const Home = () => {
       </section>
 
       {/* Doctor Introduction Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div data-anim="left">
-              <img
-                src={meetthedoctor}
-                alt="Doctor Portrait"
-                className="rounded-2xl shadow-elegant w-full h-auto"
-              />
+            
+            {/* Left Image - Wrapped to fix disappearing issue */}
+            <div ref={doctorImgRef}>
+              <div
+                style={{
+                  opacity: isDoctorImgVisible ? 1 : 0,
+                  transform: isDoctorImgVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
+                  transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                }}
+              >
+                <img
+                  src={meetthedoctor}
+                  alt="Doctor Portrait"
+                  className="rounded-2xl shadow-elegant w-full h-auto"
+                />
+              </div>
             </div>
 
             <div data-anim="right">
@@ -280,6 +291,7 @@ const Home = () => {
                 </Button>
               </Link>
             </div>
+
           </div>
         </div>
       </section>
@@ -328,64 +340,82 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Left Content */}
-            <div data-anim="left">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6">
-                <span className="italic">{t('why.title')}</span>{' '}
-                <span className="font-semibold">{t('why.titleHighlight')}</span>
-              </h2>
-              
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                {t('why.subtitle')}{' '}
-                <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
-              </p>
+            
+            {/* Left Content - Wrapped to fix disappearing issue */}
+            <div ref={whyTextRef}>
+              <div
+                style={{
+                  opacity: isWhyTextVisible ? 1 : 0,
+                  transform: isWhyTextVisible ? "translateX(0)" : "translateX(-100vw)", // Fly from Left
+                  transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1)"
+                }}
+              >
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-foreground mb-6">
+                  <span className="italic">{t('why.title')}</span>{' '}
+                  <span className="font-semibold">{t('why.titleHighlight')}</span>
+                </h2>
+                
+                <p className="text-muted-foreground mb-8 leading-relaxed">
+                  {t('why.subtitle')}{' '}
+                  <span className="italic font-medium text-foreground">{t('why.subtitleBold')}</span>
+                </p>
 
-              {/* Features Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                {whyChooseFeatures.map((feature, index) => (
-                  <div 
-                    key={index} 
-                    className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}
-                  >
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                {/* Features Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                  {whyChooseFeatures.map((feature, index) => (
+                    <div 
+                      key={index} 
+                      className={`py-4 ${index < 2 ? 'border-b border-border' : ''}`}
+                    >
+                      <h3 className="text-lg font-semibold text-foreground mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
 
-              {/* CTA Button */}
-              <div className="mt-10">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8"
-                  >
-                    {t('why.cta')}
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div data-anim="right" className="hidden lg:block">
-              <div className="relative">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
-                  <img
-                    src={whychooseus}
-                    alt="Aesthetic treatments"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                {/* CTA Button */}
+                <div className="mt-10">
+                  <Link to="/contact">
+                    <Button
+                      size="lg"
+                      className="gradient-warm text-white border-0 hover:opacity-90 transition-all duration-300 shadow-elegant px-8"
+                    >
+                      {t('why.cta')}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
+
+            {/* Right Image - Wrapped to fix disappearing issue */}
+            <div ref={whyImgRef} className="hidden lg:block">
+              <div 
+                style={{
+                  opacity: isWhyImgVisible ? 1 : 0,
+                  transform: isWhyImgVisible ? "translateX(0)" : "translateX(100vw)", // Fly from Right
+                  transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s"
+                }}
+              >
+                <div className="relative">
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant bg-muted">
+                    <img
+                      src={whychooseus}
+                      alt="Aesthetic treatments"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
