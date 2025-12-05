@@ -68,7 +68,6 @@ const translations = {
     "clients.testimonial.recommend": "Highly Recommend",
 
     // Services - Main
-    "services.title": "Services",
     "services.title.prefix": "OUR",
     "services.title.highlight": "SERVICES",
     "services.title.suffix": "",
@@ -273,7 +272,6 @@ const translations = {
     "clients.testimonial.recommend": "Συστήνω Ανεπιφύλακτα",
 
     // Services - Main
-    "services.title": "Οι Υπηρεσίες μας",
     "services.title.prefix": "ΟΙ",
     "services.title.highlight": "ΥΠΗΡΕΣΙΕΣ",
     "services.title.suffix": "ΜΑΣ",
